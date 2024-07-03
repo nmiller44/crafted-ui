@@ -11,7 +11,7 @@ export default defineConfig({
   ],
   build: {
     outDir: resolve(__dirname, 'dist'),
-    emptyOutDir: true,
+    emptyOutDir: false,
     copyPublicDir: false,
     lib: {
       entry: resolve(__dirname, 'lib/main.ts'),

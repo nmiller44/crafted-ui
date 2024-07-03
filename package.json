@@ -1,8 +1,10 @@
 {
   "name": "crafted-ui",
-  "version": "1.0.0",
+  "private": false,
+  "version": "0.0.1",
   "description": "Crafted UI is a React component library styled with Tailwind",
-  "main": "index.js",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
