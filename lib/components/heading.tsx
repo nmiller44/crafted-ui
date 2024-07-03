@@ -8,7 +8,7 @@ export const HeadingSection = (props: HeadingSectionProps) => {
 
     return (
         <div className="pb-5 border-b">
-            <h3 className="pl-1 text-lg font-semibold">{ title }</h3>
+            <h3 className="pl-1 mb-4 text-lg font-semibold">{ title }</h3>
         </div>
     )
 }
