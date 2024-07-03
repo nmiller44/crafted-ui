@@ -1,8 +1,8 @@
-export type SectionHeadingProps = {
+export type HeadingSectionProps = {
     title: string;
 }
 
-export const SectionHeading = (props: SectionHeadingProps) => {
+export const HeadingSection = (props: HeadingSectionProps) => {
 
     const title = props.title || "Section";
 
