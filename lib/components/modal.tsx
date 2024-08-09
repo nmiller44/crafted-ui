@@ -81,9 +81,9 @@ export const ModalHeader = (props: ModalHeaderProps) => {
     return (
         <div className="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
             <div className="sm:flex sm:items-start">
-                <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
-                    {/* <PlusCircleIcon className="h-6 w-6 text-green-600" aria-hidden="true" /> */}
-                </div>
+                {/* <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
+                    <PlusCircleIcon className="h-6 w-6 text-green-600" aria-hidden="true" />
+                </div> */}
                 <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                     <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
                         { title }
@@ -106,6 +106,14 @@ export const ModalPane = (props: any) => {
     return (
         <div className="p-4 min-h-80">
             { props.children }
+        </div>
+    )
+}
+
+export const ModalButtonBar = (props: any) => {
+    return (
+        <div className="p-4 sm:flex sm:flex-row-reverse sm:px-6">
+            { props.children }   
         </div>
     )
 }

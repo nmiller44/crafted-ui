@@ -1,11 +1,7 @@
-import { Switch } from "@headlessui/react";
-
 export type FormToggleProps = {
     id: string;
     name?: string;
-    value?: string;
-    checked?: boolean;
-    submit?: boolean;
+    value?: boolean;
     onChange?: any;
 }
 
@@ -13,35 +9,20 @@ export const FormToggle = (props: FormToggleProps) => {
     const id = props.id || "";
     const name = props.name || "";
     const value = props.value;
-    const checked = props.checked || false;
-    const type = props.submit ? "submit" : "button";
     const onChange = props.onChange;
 
-    const switchColor = checked ? 'bg-indigo-600' : 'bg-gray-200';
-
     return (
-        <Switch.Group>
-            <div className="flex items-center p-2 pt-4">
-                <Switch
-                    id={id}
-                    name={id}
-                    checked={checked}
-                    type={type}
-                    { ...(value && {value: value})}
-                    { ...(onChange && {onChange: onChange})}
-                    className={`${
-                        checked ? 'bg-blue-600' : 'bg-gray-200'
-                    } relative inline-flex h-6 w-11 items-center rounded-full`}
-                    >
-                    <span className="sr-only">Enable</span>
-                    <span
-                        className={`${
-                            checked ? 'translate-x-6' : 'translate-x-1'
-                        } inline-block h-4 w-4 transform rounded-full bg-white transition`}
-                    />
-                </Switch>
-                <Switch.Label className="ml-3">{ name }</Switch.Label>
-            </div>
-        </Switch.Group>
+        <div className="py-3">
+            <label htmlFor={id} className="inline-flex cursor-pointer items-center gap-3">
+                <input id={id} name={id} type="checkbox" className="peer sr-only" role="switch" 
+                            defaultChecked={value} 
+                            { ...(onChange && {onChange: onChange})}
+                />
+                <span className="text-sm font-medium text-slate-700 peer-checked:text-black peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-slate-300 dark:peer-checked:text-white">
+                    { name }
+                </span>
+                <div className="relative h-6 w-11 after:h-5 after:w-5 peer-checked:after:translate-x-5 rounded-full border border-slate-300 bg-slate-100 after:absolute after:bottom-0 after:left-[0.0625rem] after:top-0 after:my-auto after:rounded-full after:bg-slate-700 after:transition-all after:content-[''] peer-checked:bg-blue-700 peer-checked:after:bg-slate-100 peer-focus:outline peer-focus:outline-2 peer-focus:outline-offset-2 peer-focus:outline-slate-800 peer-focus:peer-checked:outline-blue-700 peer-active:outline-offset-0 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:border-slate-700 dark:bg-slate-800 dark:after:bg-slate-300 dark:peer-checked:bg-blue-600 dark:peer-checked:after:bg-slate-100 dark:peer-focus:outline-slate-300 dark:peer-focus:peer-checked:outline-blue-600" aria-hidden="true"></div>
+            </label>
+        </div>
     )
 }
