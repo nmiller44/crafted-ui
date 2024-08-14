@@ -12,7 +12,7 @@ export const FormToggle = (props: FormToggleProps) => {
     const onChange = props.onChange;
 
     return (
-        <div className="py-3">
+        <div className="py-3.5">
             <label htmlFor={id} className="inline-flex cursor-pointer items-center gap-3">
                 <input id={id} name={id} type="checkbox" className="peer sr-only" role="switch" 
                             defaultChecked={value} 
