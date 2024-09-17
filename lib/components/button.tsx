@@ -19,7 +19,7 @@ const colorStyleMapper = (color: string) => {
         case "green":               return "border-transparent text-white bg-green-700 hover:bg-green-800 focus:ring-green-300 ";
         case "red":                 return "border-transparent text-white bg-red-700 hover:bg-red-800 focus:ring-red-300 ";
         case "yellow":              return "border-transparent text-white bg-yellow-400 hover:bg-yellow-800 focus:ring-yellow-300 ";
-        case "white":               return "border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-indigo-500 ";
+        case "white":               return "border-gray-300 text-neutral-700 bg-white hover:bg-gray-50 focus:ring-indigo-500 ";
 
         case "outline-red":         return "border-red-700 text-red-700 bg-transparent hover:bg-red-50 focus:ring-red-300 ";
         case "outline-green":       return "border-green-700 text-green-700 bg-transparent hover:bg-green-50 focus:ring-green-300 ";

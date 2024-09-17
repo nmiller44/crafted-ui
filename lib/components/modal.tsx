@@ -39,7 +39,7 @@ export const Modal = (props: ModalProps) => {
                                     <div className="absolute right-3 top-3">
                                         <button type="button" 
                                                 onClick={() => setShow(false)}
-                                                className="text-gray-400 bg-transparent hover:hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:text-white" 
+                                                className="text-neutral-400 bg-transparent hover:hover:text-neutral-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:text-white" 
                                                 data-modal-hide="default-modal"
                                                 >
                                             <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -67,15 +67,15 @@ export const ModalHeader = (props: ModalHeaderProps) => {
     const children = props.children;
 
     return (
-        <div className="bg-white p-4 pl-6 pt-5 text-lg font-semibold text-gray-800 dark:text-white">
+        <div className="bg-white p-4 pl-6 pt-5 text-lg font-semibold text-neutral-800 dark:text-white">
             { !!title &&
                 <h3     id="crafted-modal-title"
-                        className="text-lg font-semibold leading-6 text-gray-900">
+                        className="text-lg font-semibold leading-6 text-neutral-900">
                     { title }
                 </h3>
             }
             { !!subtitle &&
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="mt-2 text-sm text-neutral-500">
                     { subtitle }
                 </p>
             }

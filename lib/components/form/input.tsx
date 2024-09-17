@@ -1,5 +1,6 @@
 import { Children, isValidElement } from "react";
 import { classNames } from "../../utils.js";
+import { FormError } from "./error.js";
 
 
 export type FormInputProps = {
@@ -8,6 +9,7 @@ export type FormInputProps = {
     type?: string;
     value?: string;
     readonly?: boolean;
+    errors?: string[];
     children?: React.ReactNode;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -26,9 +28,9 @@ export type FormInputInsetProps = {
 export const FormInput = (props: FormInputProps) => {
     const id = props.id || "";
     const type = props.type || "text";
-    const label = !!props.name || false;
     const value = props.value;
     const readonly = props.readonly || false;
+    const errors = props.errors;
     const children = props.children;
     const onChange = props.onChange;
 
@@ -50,16 +52,27 @@ export const FormInput = (props: FormInputProps) => {
         <div className={ inputClass }>
             <div className="relative">
                 { children }
-                <input type={ type } name={ id } id={ id } autoComplete={ id } 
+                <input  id={ id } 
+                        name={ id } 
+                        type={ type } 
+                        autoComplete={ `crafted-ui-input-${id}` }
                         { ...(value && (readonly || !!onChange) ? {value: value} : {defaultValue: value}) }
                         { ...(readonly && {readOnly: true})}
+                        aria-invalid={ !!errors }
+                        required={ !!errors }
                         className={classNames(
                                 "mt-1 block w-full py-2 px-3",
                                 hasLeftInsetChild ? "pl-7" : "pl-3",
-                                "rounded-md border border-gray-300 shadow-sm focus:border-mid-green focus:ring-mid-green sm:text-sm")}
+                                "rounded-md border-0 ring-1 ring-inset ring-neutral-300 shadow-sm",
+                                "invalid:ring-red-600",
+                                "text-sm text-neutral-900 placeholder:text-neutral-400", 
+                                "focus:ring-2 focus:ring-inset focus:border-neutral-800 focus:outline-none focus:ring-neutral-800",
+                                "disabled:opacity-50 disabled:cursor-not-allowed",
+                                )}
                         { ...(onChange && {onChange: onChange})}
                     />
             </div>
+            <FormError errors={ errors } />
         </div>
     )
 }
@@ -69,7 +82,7 @@ export const FormInputLabel = (props: FormInputLabelProps) => {
     const children = props.children;
 
     return (
-        <label htmlFor={ id } className="block pb-1 text-sm font-medium text-gray-700">
+        <label htmlFor={ id } className="block pb-1 text-sm font-medium text-neutral-700">
             { children }
         </label>              
     )
@@ -83,11 +96,11 @@ export const FormInputInset = (props: FormInputInsetProps) => {
     return (
         <div    className={classNames(
                     "pointer-events-none absolute inset-y-0 flex items-end pb-[9px]",
-                    "text-gray-500 text-sm",
+                    "text-neutral-500 text-sm",
                     insetPosition === "left" ? "left-0 pl-3" : "right-0 pr-3"
                 )}>
             { !!text
-                ? <span className="text-gray-500 text-sm">{ text }</span>
+                ? <span className="text-neutral-500 text-sm">{ text }</span>
                 : children
             }
         </div>
