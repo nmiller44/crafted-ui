@@ -77,17 +77,6 @@ export const FormInput = (props: FormInputProps) => {
     )
 }
 
-export const FormInputLabel = (props: FormInputLabelProps) => {
-    const id = props.id || "";
-    const children = props.children;
-
-    return (
-        <label htmlFor={ id } className="block pb-1 text-sm font-medium text-neutral-700">
-            { children }
-        </label>              
-    )
-}
-
 export const FormInputInset = (props: FormInputInsetProps) => {
     const text = props.text;
     const children = props.children;

@@ -2,7 +2,7 @@ import { Button } from "./components/button.js";
 import { Card, CardHeader, CardBody, CardFooter } from "./components/card.js";
 import { FormArea } from "./components/form/area.js";
 import { FormCheck } from "./components/form/check.js";
-import { FormInput, FormInputInset, FormInputLabel } from "./components/form/input.js";
+import { FormInput, FormInputInset } from "./components/form/input.js";
 import { FormLabel } from "./components/form/label.js";
 import { FormSelect, FormSelectOption } from "./components/form/select.js";
 import { FormToggle } from "./components/form/toggle.js";
@@ -23,7 +23,6 @@ export {
     FormCheck,
     FormInput,
     FormInputInset,
-    FormInputLabel,         // DEPRECATE BY 0.0.50 - Use FormLabel
     FormLabel,
     FormSelect,
     FormSelectOption,
