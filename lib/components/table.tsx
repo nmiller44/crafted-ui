@@ -11,6 +11,14 @@ export type TableHeadCellProps = {
     children?: React.ReactNode;
 }
 
+export type TableBodyProps = {
+    children?: React.ReactNode;
+}
+
+export type TableRowProps = {
+    children?: React.ReactNode;
+}
+
 export type TableCellProps = {
     children?: React.ReactNode;
 }
@@ -49,12 +57,32 @@ export const TableHeadCell = (props: TableHeadCellProps) => {
     )
 };
 
+export const TableBody = (props: TableBodyProps) => {
+    const children = props.children;
+
+    return (
+        <tbody>
+            { children }
+        </tbody>        
+    )   
+}
+
+export const TableRow = (props: TableRowProps) => {
+    const children = props.children;
+
+    return (
+        <tr>
+            { children }
+        </tr>        
+    )
+}
+
 export const TableCell = (props: TableCellProps) => {
     // const colspan = props.colspan || 1;
 
     return (
         <td //colSpan={colspan}
-            className="py-5 pl-4 border-b border-slate-100">
+            className="px-4 py-5 border-b border-slate-100">
             { props.children }
         </td>     
     )

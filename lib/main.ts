@@ -11,7 +11,7 @@ import { HeadingPage } from "./components/heading/page.js";
 import { Modal, ModalButtonBar, ModalHeader, ModalPane } from "./components/modal.js"; 
 import { Pane } from "./components/pane.js";
 import { SidebarFlex, SidebarFlexTile } from "./components/sidebar.js";
-import { Table, TableHead, TableHeadCell, TableCell } from "./components/table.js";
+import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "./components/table.js";
 
 export { 
     Button,
@@ -37,7 +37,9 @@ export {
     SidebarFlex, 
     SidebarFlexTile,
     Table,
+    TableBody,
+    TableCell,
     TableHead,
     TableHeadCell,
-    TableCell,
+    TableRow
  }
