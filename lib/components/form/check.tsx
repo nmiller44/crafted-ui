@@ -13,7 +13,9 @@ export const FormCheck = (props: FormCheckProps) => {
     const id = props.id || "";
     const checked = props.checked || false;
     const strike = props.strike || false;
+    const readonly = props.readonly || false;
     const children = props.children;
+    const onChange = props.onChange;
 
     return (
         <div className="">
@@ -23,6 +25,7 @@ export const FormCheck = (props: FormCheckProps) => {
                     id={id}
                     name={id}
                     type="checkbox"
+                    onChange={onChange}
                     className={classNames(
                         "h-4 w-4",
                         "mt-1 block w-full py-2 px-3",
@@ -32,7 +35,7 @@ export const FormCheck = (props: FormCheckProps) => {
                         // "focus:ring-2 focus:ring-inset focus:border-neutral-800 focus:outline-none focus:ring-neutral-800"
                         "focus:ring-neutral-600"
                     )}
-                    { ...(checked && {checked: checked})}
+                    { ...(checked && (readonly || !!onChange) ? {checked: checked} : {defaultChecked: checked}) }
                 />
                 </div>
                 <div className={classNames("mt-[3px]",
