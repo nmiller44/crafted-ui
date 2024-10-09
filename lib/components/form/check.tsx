@@ -35,7 +35,7 @@ export const FormCheck = (props: FormCheckProps) => {
                         // "focus:ring-2 focus:ring-inset focus:border-neutral-800 focus:outline-none focus:ring-neutral-800"
                         "focus:ring-neutral-600"
                     )}
-                    { ...(checked && (readonly || !!onChange) ? {checked: checked} : {defaultChecked: checked}) }
+                    { ...((readonly || !!onChange) ? {checked: checked} : {defaultChecked: checked}) }
                 />
                 </div>
                 <div className={classNames("mt-[3px]",
