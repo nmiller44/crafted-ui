@@ -1,5 +1,6 @@
 import { Button } from "./components/button.js";
 import { Card, CardHeader, CardBody, CardFooter } from "./components/card.js";
+import { Dropdown, DropdownButton, DropdownMenu, DropdownMenuItem } from "./components/dropdown.js";
 import { FormArea } from "./components/form/area.js";
 import { FormCheck } from "./components/form/check.js";
 import { FormInput, FormInputInset } from "./components/form/input.js";
@@ -19,6 +20,10 @@ export {
     CardHeader,
     CardBody,
     CardFooter,
+    Dropdown,
+    DropdownButton,
+    DropdownMenu,
+    DropdownMenuItem,
     FormArea,
     FormCheck,
     FormInput,
