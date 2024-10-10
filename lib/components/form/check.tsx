@@ -25,7 +25,7 @@ export const FormCheck = (props: FormCheckProps) => {
                     id={id}
                     name={id}
                     type="checkbox"
-                    onChange={onChange}
+                    { ...(onChange && {onChange: onChange})}
                     className={classNames(
                         "h-4 w-4",
                         "mt-1 block w-full py-2 px-3",
