@@ -44,11 +44,12 @@ export const Button = (props: ButtonProps) => {
             // className={`${colorStyle}inline-flex justify-center ${rounded} border py-2 ${square} text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2${className}`}
             className={classNames(
                 colorStyle,
-                "inline-flex justify-center",
+                "inline-flex w-full justify-center",
                 props.rounded ? "rounded-full" : "rounded-md",                              
                 "border py-2",
-                props.square ? "px-2" : "px-4",
-                "text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2",
+                props.square ? "px-2" : "px-3",
+                "text-sm font-semibold shadow-sm",
+                "focus:outline-none focus:ring-2 focus:ring-offset-2",
                 className
             )}
             id={id}

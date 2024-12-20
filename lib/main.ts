@@ -9,7 +9,8 @@ import { FormSelect, FormSelectOption } from "./components/form/select.js";
 import { FormToggle } from "./components/form/toggle.js";
 import { HeadingSection } from './components/heading/section.js'; 
 import { HeadingPage } from "./components/heading/page.js";
-import { Modal, ModalButtonBar, ModalHeader, ModalPane } from "./components/modal.js"; 
+import { Modal, ModalButtonBar, ModalHeader, ModalPane } from "./components/modal.js";
+import { Navbar, NavbarCollapseButton, NavbarCollapseList, NavbarCollapseListItem } from "./components/navbar.js";
 import { Pane } from "./components/pane.js";
 import { SidebarFlex, SidebarFlexTile } from "./components/sidebar.js";
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "./components/table.js";
@@ -38,6 +39,10 @@ export {
     ModalButtonBar,
     ModalHeader,
     ModalPane,
+    Navbar,
+    NavbarCollapseButton,
+    NavbarCollapseList,
+    NavbarCollapseListItem,
     Pane,
     SidebarFlex, 
     SidebarFlexTile,
