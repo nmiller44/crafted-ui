@@ -25,12 +25,10 @@ export type TableCellProps = {
 
 export const Table = (props: TableProps) => {
     return (
-        <div className="p-4">
-            <div className="rounded-lg bg-white text-sm leading-5 text-slate-700 shadow-xl shadow-black/5 ring-1 ring-slate-700/10">
-                <table className="table-auto w-full text-sm">
-                    { props.children }
-                </table>
-            </div>
+        <div className="rounded-lg bg-white text-sm leading-5 text-slate-700 shadow-xl shadow-black/5 ring-1 ring-slate-700/10">
+            <table className="table-auto w-full text-sm">
+                { props.children }
+            </table>
         </div>
     )
 }

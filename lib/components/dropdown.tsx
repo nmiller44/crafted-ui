@@ -32,10 +32,10 @@ export const DropdownButton = (props: DropdownButtonProps) => {
 
     return (
         <button onClick={toggleDropdownMenuDrop}
-            className={classNames(
-                "h-full flex flex-col place-content-center px-3 py-2"
-            )}
-            id="menu-button" aria-expanded="true" aria-haspopup="true">
+                className={classNames(
+                    "h-full flex flex-col place-content-center px-3 py-2"
+                )}
+                id="menu-button" aria-expanded="true" aria-haspopup="true">
             <span className="sr-only">Open menu</span>
             { children }
         </button>
