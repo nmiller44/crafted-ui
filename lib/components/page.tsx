@@ -1,4 +1,4 @@
-import { Heading1 } from "./heading"
+import { Heading1 } from "./heading.js";
 
 
 

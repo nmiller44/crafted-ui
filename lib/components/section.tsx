@@ -1,4 +1,5 @@
-import { Heading2 } from "./heading"
+import { Heading2 } from "./heading.js"
+
 
 
 export type SectionProps = {
