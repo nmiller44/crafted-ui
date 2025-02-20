@@ -9,7 +9,7 @@ export type SectionProps = {
 export const Section = ({ children }: SectionProps) => {
 
     return (
-        <section className="[&:not(:first-child)]:mt-12">
+        <section className="[&:not(:first-of-type)]:mt-12">
             { children }
         </section>
     )
