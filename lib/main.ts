@@ -2,15 +2,18 @@ import { Button } from "./components/button.js";
 import { Card, CardHeader, CardBody, CardFooter } from "./components/card.js";
 import { Dropdown, DropdownButton, DropdownMenu, DropdownMenuItem } from "./components/dropdown.js";
 import { EmptyState } from "./components/empty.js";
+import { Field, FieldInset } from "./components/form/field.js";
+import { Form } from "./components/form/form.js";
 import { FormArea } from "./components/form/area.js";
 import { FormCheck } from "./components/form/check.js";
-import { FormInput, FormInputInset } from "./components/form/input.js";
+import { FormInput, FormInputInset } from "./components/form/legacy-input.js";
 import { FormLabel } from "./components/form/label.js";
 import { FormSelect, FormSelectOption } from "./components/form/select.js";
 import { FormToggle } from "./components/form/toggle.js";
 import { Heading1, Heading2, Heading3, Heading4 } from "./components/heading.js";
 import { HeadingSection } from './components/heading/section.js'; 
 import { HeadingPage } from "./components/heading/page.js";
+import { Input } from "./components/form/input.js";
 import { Modal, ModalButtonBar, ModalHeader, ModalPane } from "./components/modal.js";
 import { Navbar, NavbarCollapseButton, NavbarCollapseList, NavbarCollapseListItem } from "./components/navbar.js";
 import { Page, PageHeader } from "./components/page.js";
@@ -30,20 +33,24 @@ export {
     DropdownMenu,
     DropdownMenuItem,
     EmptyState,
-    FormArea,
-    FormCheck,
-    FormInput,
-    FormInputInset,
-    FormLabel,
-    FormSelect,
-    FormSelectOption,
-    FormToggle,
+    Field,
+    FieldInset,
+    Form,
+    FormArea,               // Deprecate
+    FormCheck,              // Deprecate
+    FormInput,              // Deprecate
+    FormInputInset,         // Deprecate
+    FormLabel,              // Deprecate
+    FormSelect,             // Deprecate
+    FormSelectOption,       // Deprecate
+    FormToggle,             // Deprecate
     Heading1,
     Heading2,
     Heading3,
     Heading4,
     HeadingSection,         // Deprecate by 0.5
     HeadingPage,            // Deprecate by 0.5
+    Input,
     Modal,
     ModalButtonBar,
     ModalHeader,
