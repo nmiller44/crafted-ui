@@ -2,7 +2,7 @@ import { Button } from "./components/button.js";
 import { Card, CardHeader, CardBody, CardFooter } from "./components/card.js";
 import { Dropdown, DropdownButton, DropdownMenu, DropdownMenuItem } from "./components/dropdown.js";
 import { EmptyState } from "./components/empty.js";
-import { Field, FieldInset } from "./components/form/field.js";
+import { Field, FieldError, FieldInset, FieldLabel } from "./components/form/field.js";
 import { Form } from "./components/form/form.js";
 import { FormArea } from "./components/form/area.js";
 import { FormCheck } from "./components/form/check.js";
@@ -34,7 +34,9 @@ export {
     DropdownMenuItem,
     EmptyState,
     Field,
+    FieldError,
     FieldInset,
+    FieldLabel,
     Form,
     FormArea,               // Deprecate
     FormCheck,              // Deprecate

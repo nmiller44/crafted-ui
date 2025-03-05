@@ -1,5 +1,6 @@
 import { Field as FieldPrimitive } from "@base-ui-components/react"
 import { classNames } from "../../utils.js"; 
+import { LabelHTMLAttributes } from "react";
 
 
 
@@ -15,6 +16,22 @@ export const Field = ({ name, className, children }: FieldProps) => {
         <FieldPrimitive.Root name={ name } className={classNames("space-y-1.5", className)}>
             { children }
         </FieldPrimitive.Root>
+    )
+}
+
+export const FieldLabel = ({ className, children }: LabelHTMLAttributes<HTMLLabelElement>) => {
+
+    return (
+        <FieldPrimitive.Label className={classNames("block pb-1 text-sm font-medium text-neutral-700", className)}>
+            { children }
+        </FieldPrimitive.Label>
+    )
+}
+
+export const FieldError = () => {
+    
+    return (
+        <FieldPrimitive.Error className={classNames("text-sm text-red-600")} />
     )
 }
 
