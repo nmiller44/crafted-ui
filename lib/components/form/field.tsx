@@ -22,7 +22,12 @@ export const Field = ({ name, className, children }: FieldProps) => {
 export const FieldLabel = ({ className, children }: LabelHTMLAttributes<HTMLLabelElement>) => {
 
     return (
-        <FieldPrimitive.Label className={classNames("block pb-1 text-sm font-medium text-neutral-700", className)}>
+        <FieldPrimitive.Label className={classNames(
+                                // "inline-block", // switched to flex for Checkbox and Inline Elements
+                                "flex items-center gap-x-1.5",
+                                "pb-1 text-sm font-medium text-neutral-700", 
+                                className
+                            )}>
             { children }
         </FieldPrimitive.Label>
     )
@@ -37,21 +42,20 @@ export const FieldError = () => {
 
 export type FieldInsetProps = {
     text?: string;
-    insetPosition?: string;
+    position?: string;
     children?: React.ReactNode;
 }
 
 export const FieldInset = ({
     text,
-    insetPosition = "right",
+    position = "right",
     children,
 }: FieldInsetProps) => {
 
     return (
         <div    className={classNames(
                     "pointer-events-none absolute inset-y-0 flex items-end pb-[9px]",
-                    "text-neutral-500 text-sm",
-                    insetPosition === "left" ? "left-0 pl-3" : "right-0 pr-3"
+                    position === "left" ? "left-0 pl-3" : "right-0 pr-3"
                 )}>
             { !!text
                 ? <span className="text-neutral-500 text-sm">{ text }</span>

@@ -1,16 +1,19 @@
+import { Badge } from "./components/badge.js";
 import { Button } from "./components/button.js";
 import { Card, CardHeader, CardBody, CardFooter } from "./components/card.js";
+import { Checkbox } from "./components/form/checkbox.js";
 import { Dropdown, DropdownButton, DropdownMenu, DropdownMenuItem } from "./components/dropdown.js";
 import { EmptyState } from "./components/empty.js";
 import { Field, FieldError, FieldInset, FieldLabel } from "./components/form/field.js";
+import { Fieldset, FieldsetLegend, FieldsetList } from "./components/form/fieldset.js";
 import { Form } from "./components/form/form.js";
-import { FormArea } from "./components/form/area.js";
-import { FormCheck } from "./components/form/check.js";
+import { FormArea } from "./components/form/legacy-area.js";
+import { FormCheck } from "./components/form/legacy-check.js";
 import { FormInput, FormInputInset } from "./components/form/legacy-input.js";
 import { FormLabel } from "./components/form/label.js";
-import { FormSelect, FormSelectOption } from "./components/form/select.js";
+import { FormSelect, FormSelectOption } from "./components/form/legacy-select.js";
 import { FormToggle } from "./components/form/toggle.js";
-import { Heading1, Heading2, Heading3, Heading4 } from "./components/heading.js";
+import { Heading1, Heading2, Heading3, Heading4, Heading5 } from "./components/heading.js";
 import { HeadingSection } from './components/heading/section.js'; 
 import { HeadingPage } from "./components/heading/page.js";
 import { Input } from "./components/form/input.js";
@@ -19,15 +22,19 @@ import { Navbar, NavbarCollapseButton, NavbarCollapseList, NavbarCollapseListIte
 import { Page, PageHeader } from "./components/page.js";
 import { Pane } from "./components/pane.js";
 import { Section, SectionHeader } from "./components/section.js";
+import { Select, SelectOption } from "./components/form/select.js";
 import { SidebarFlex, SidebarFlexTile } from "./components/sidebar.js";
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "./components/table.js";
+import { Textarea } from "./components/form/textarea.js";
 
 export { 
+    Badge,
     Button,
     Card,
     CardHeader,
     CardBody,
     CardFooter,
+    Checkbox,
     Dropdown,
     DropdownButton,
     DropdownMenu,
@@ -37,6 +44,9 @@ export {
     FieldError,
     FieldInset,
     FieldLabel,
+    Fieldset,
+    FieldsetLegend,
+    FieldsetList,
     Form,
     FormArea,               // Deprecate
     FormCheck,              // Deprecate
@@ -50,6 +60,7 @@ export {
     Heading2,
     Heading3,
     Heading4,
+    Heading5,
     HeadingSection,         // Deprecate by 0.5
     HeadingPage,            // Deprecate by 0.5
     Input,
@@ -66,6 +77,8 @@ export {
     Pane,
     Section,
     SectionHeader, 
+    Select,
+    SelectOption,
     SidebarFlex,               // Deprecate by 0.5
     SidebarFlexTile,           // Deprecate by 0.5
     Table,
@@ -73,5 +86,6 @@ export {
     TableCell,
     TableHead,
     TableHeadCell,
-    TableRow
+    TableRow,
+    Textarea,
  }

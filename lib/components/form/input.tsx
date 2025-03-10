@@ -17,8 +17,8 @@ export const Input = ({
         Children.forEach(children, (child) => {
             if (isValidElement(child)) {
                 if (child.type === FieldInset) {
-                    if(child.props.insetPosition === "left") { hasLeftInsetChild = true; }
-                    if(child.props.insetPosition === "right") { hasRightInsetChild = true; }
+                    if(child.props.position === "left") { hasLeftInsetChild = true; }
+                    if(child.props.position === "right") { hasRightInsetChild = true; }
                 }
             }
         });

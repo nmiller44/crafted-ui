@@ -53,3 +53,15 @@ export const Heading4 = ({ title, subtitle, children }: HeadingProps) => {
         </div>
     )
 }
+
+export const Heading5 = ({ title, subtitle, children }: HeadingProps) => {
+    return (
+        <div className="space-y-2">
+            { title
+                ? <h4 className="text-lg font-bold tracking-tight">{ title }</h4>
+                : children
+            }
+            { subtitle && <p className="text-sm text-neutral-500">{ subtitle }</p> }
+        </div>
+    )
+}
