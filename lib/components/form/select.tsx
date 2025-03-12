@@ -40,6 +40,7 @@ export const Select = ({
             <SelectPrimitive.Portal>
                 <SelectPrimitive.Positioner align={ align } alignOffset={ alignOffset }>
                     <SelectPrimitive.Popup className={classNames(
+                                                "bg-white",
                                                 "w-[calc(var(--anchor-width)-2px)] mx-px rounded-b-md border-0 ring-1 ring-neutral-300 shadow-sm outline-0",
                                                 "transition-[transform,scale,opacity] data-[ending-style]:scale-95 data-[starting-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
                                                 )}>

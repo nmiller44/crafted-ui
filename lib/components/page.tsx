@@ -1,3 +1,4 @@
+import { classNames } from "../utils.js"; 
 import { Heading1 } from "./heading.js";
 
 
@@ -17,15 +18,32 @@ export const Page = ({ children }: PageProps) => {
 export type PageHeaderProps = {
     title?: string;
     subtitle?: string;
+    className?: string;
+    wrapperClassName?: string;
     children?: React.ReactNode;
 }
 
-export const PageHeader = ({ title, subtitle, children }: PageHeaderProps) => {
+export const PageHeader = ({ title, subtitle, className, wrapperClassName, children }: PageHeaderProps) => {
+
     return (
-        <div className="pb-10">
-            <Heading1 title={title} subtitle={subtitle}>
-                { children }
-            </Heading1>
+        <div className={classNames(
+                            "pb-10", 
+                            (!!title && !!children) ? "md:flex md:items-center md:justify-between" : "",
+                            wrapperClassName
+                        )}>
+            { !!title
+            ?   <>
+                    <div>
+                        <Heading1 title={title} subtitle={subtitle} className={ className } />
+                    </div>
+                    { !!children &&
+                    <div>
+                        { children }
+                    </div>
+                    }
+                </>
+            :   children 
+            }
         </div>
     )
 }

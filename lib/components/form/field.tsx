@@ -15,6 +15,7 @@ export const Field = ({ name, className, children }: FieldProps) => {
     return (
         <FieldPrimitive.Root name={ name } className={classNames("space-y-1.5", className)}>
             { children }
+            <FieldError />
         </FieldPrimitive.Root>
     )
 }

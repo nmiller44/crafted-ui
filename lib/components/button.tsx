@@ -1,65 +1,61 @@
 import { classNames } from "../utils.js";
 
+// React.ButtonHTMLAttributes<HTMLButtonElement>
 export type ButtonProps = {
-    id?: string;
     type?: "button" | "submit" | "reset";
-    value?: string;
-    color?: string;                             //"green" | "red" | "yellow" | "white";
+    color?: 'default' | 'green' | 'red' | 'yellow' | 'blue' | 'indigo' | 'purple' | 'pink';
+    outline?: boolean;
     rounded?: boolean;
-    square?: boolean;
+    children?: React.ReactNode;
     className?: string;
-    form?: string;
-    btnRef?: React.RefObject<HTMLButtonElement>;
-    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-    children: React.ReactNode;
 }
 
-const colorStyleMapper = (color: string) => {
-    switch(color) {
-        case "green":               return "border-transparent text-white bg-green-700 hover:bg-green-800 focus:ring-green-300 ";
-        case "red":                 return "border-transparent text-white bg-red-700 hover:bg-red-800 focus:ring-red-300 ";
-        case "yellow":              return "border-transparent text-white bg-yellow-400 hover:bg-yellow-800 focus:ring-yellow-300 ";
-        case "white":               return "border-gray-300 text-neutral-700 bg-white hover:bg-gray-50 focus:ring-indigo-500 ";
-
-        case "outline-red":         return "border-red-700 text-red-700 bg-transparent hover:bg-red-50 focus:ring-red-300 ";
-        case "outline-green":       return "border-green-700 text-green-700 bg-transparent hover:bg-green-50 focus:ring-green-300 ";
-
-        default:                    return "border-transparent text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-indigo-300 ";
-    }
+const colorStyle = {
+    default: 'border-transparent text-neutral-700 bg-neutral-100 hover:bg-neutral-200 focus:ring-neutral-100',
+    green: 'border-transparent text-white bg-green-600 hover:bg-green-500 focus:ring-green-300',
+    red: 'border-transparent text-white bg-red-600 hover:bg-red-500 focus:ring-red-300',
+    yellow: 'border-transparent text-white bg-yellow-600 hover:bg-yellow-500 focus:ring-yellow-300',
+    blue: 'border-transparent text-white bg-blue-600 hover:bg-blue-500 focus:ring-blue-300',
+    indigo: 'border-transparent text-white bg-indigo-600 hover:bg-indigo-500 focus:ring-indigo-300',
+    purple: 'border-transparent text-white bg-purple-600 hover:bg-purple-500 focus:ring-purple-300',
+    pink: 'border-transparent text-white bg-pink-600 hover:bg-pink-500 focus:ring-pink-300',
 }
 
-export const Button = (props: ButtonProps) => {
-    const id = props.id || 'button-base-undefined';
-    const type = props.type || 'button';
-    const value = props.value;
-    const btnRef = props.btnRef;
-    const className = props.className ? ` ${props.className}` : "";
-    const form = props.form;
-    
-    const colorStyle = props.color ? colorStyleMapper(props.color) : " ";
-    
+const outlineStyle = {
+    default: 'border-neutral-700 text-neutral-700 bg-transparent hover:bg-neutral-50 focus:ring-neutral-300',
+    green: 'border-green-700 text-green-700 bg-transparent hover:bg-green-50 focus:ring-green-300',
+    red: 'border-red-700 text-red-700 bg-transparent hover:bg-red-50 focus:ring-red-300',
+    yellow: 'border-yellow-700 text-yellow-700 bg-transparent hover:bg-yellow-50 focus:ring-yellow-300',
+    blue: 'border-blue-700 text-blue-700 bg-transparent hover:bg-blue-50 focus:ring-blue-300',
+    indigo: 'border-indigo-700 text-indigo-700 bg-transparent hover:bg-indigo-50 focus:ring-indigo-300',
+    purple: 'border-purple-700 text-purple-700 bg-transparent hover:bg-purple-50 focus:ring-purple-300',
+    pink: 'border-pink-700 text-pink-700 bg-transparent hover:bg-pink-50 focus:ring-pink-300',
+}
+
+export const Button = ({
+    type = "button",
+    color = "default",
+    outline = false,
+    rounded = false,
+    children,
+    className,
+    ...props
+}: ButtonProps) => {
     return (
-        <button 
-            type={type}   
-            // className={`${colorStyle}inline-flex justify-center ${rounded} border py-2 ${square} text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2${className}`}
+        <button  
+            type={ type }
             className={classNames(
-                colorStyle,
-                "inline-flex w-full justify-center",
-                props.rounded ? "rounded-full" : "rounded-md",                              
-                "border py-2",
-                props.square ? "px-2" : "px-3",
+                "px-3.5 py-2.5",
+                outline ? outlineStyle[color] : colorStyle[color],
+                "inline-flex justify-center",
+                rounded ? "rounded-full" : "rounded-md",                              
                 "text-sm font-semibold shadow-sm",
                 "focus:outline-none focus:ring-2 focus:ring-offset-2",
                 className
             )}
-            id={id}
-            name={id}
-            { ...(value && {value: value})}
-            onClick={props.onClick}
-            ref={btnRef}
-            { ...(form && {form: form})}
+            {...props}
         >
-                { props.children }
+                { children }
         </button>    
     )
 }
