@@ -1,6 +1,6 @@
 import { Fieldset as FieldsetPrimitive } from "@base-ui-components/react"
 import { classNames } from "../../utils.js"; 
-import { Heading3 } from "../heading";
+import { Heading3 } from "../heading.js";
 
 export const Fieldset = ({ 
     className,
