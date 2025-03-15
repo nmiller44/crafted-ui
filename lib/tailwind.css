@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+
+    body {
+		@apply dark:bg-black dark:text-white min-h-screen relative;
+	}
+
     :root {
       --background: 142 32% 99%;
       --foreground: 142 67% 5%;
