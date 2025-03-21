@@ -4,29 +4,25 @@
 
 @layer base {
 
-    body {
-		@apply dark:bg-black dark:text-white min-h-screen relative;
-	}
-
     :root {
       --background: 142 32% 99%;
-      --foreground: 142 67% 5%;
+      --foreground: 0 0% 14.9%;                 /*neutral-800*/
       --muted: 112 11% 94%;
-      --muted-foreground: 112 6% 26%;
+      --muted-foreground: 0 0% 45.1%;           /*neutral-500*/
       --popover: 142 32% 99%;
       --popover-foreground: 142 67% 5%;
       --card: 142 32% 99%;
       --card-foreground: 142 67% 5%;
       --border: 142 6% 91%;
       --input: 142 6% 91%;
-      --primary: 142 72% 29%;
+      --primary: 142.4 71.8% 29.2%;             /*green-700*/
       --primary-foreground: 0 0% 100%;
       --secondary: 112 72% 29%;
       --secondary-foreground: 0 0% 100%;
       --accent: 172 72% 29%;
       --accent-foreground: 0 0% 100%;
       --destructive: 10 99% 28%;
-      --destructive-foreground: 10 99% 88%;
+      --destructive-foreground: 10 35.83% 97.2%;
       --ring: 142 72% 29%;
       --chart-1: 142 72% 29%;
       --chart-2: 112 72% 29%;
@@ -36,8 +32,8 @@
       --radius: 0.5rem;
     }
   
-    .dark {
-      --background: 142 49% 3%;
+    :root[class~="dark"] {
+      --background: 0 0% 9%;
       --foreground: 142 14% 97%;
       --muted: 112 11% 6%;
       --muted-foreground: 112 6% 74%;
@@ -62,5 +58,14 @@
       --chart-4: 112 72% 32%;
       --chart-5: 142 75% 29%;
     }
-  }
-  
+}
+
+@layer base {
+	body {
+		@apply bg-background text-foreground;
+	}
+
+	.Root {
+		@apply bg-background isolate min-h-screen;
+	}
+}  
