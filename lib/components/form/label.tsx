@@ -8,7 +8,7 @@ export const FormLabel = (props: FormLabelProps) => {
     const children = props.children;
 
     return (
-        <label htmlFor={ id } className="block pb-1 text-sm font-medium text-neutral-700">
+        <label htmlFor={ id } className="block pb-1 text-sm font-medium">
             { children }
         </label>              
     )

@@ -20,7 +20,7 @@ export const Select = ({
 }: SelectProps) => {
 
     return (
-        <SelectPrimitive.Root   defaultValue={ defaultValue }>
+        <SelectPrimitive.Root defaultValue={ defaultValue }>
             <SelectPrimitive.Trigger className={classNames(
                                         "flex gap-2 items-center",
                                         "mt-1 block w-full py-2 px-3",

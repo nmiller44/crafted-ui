@@ -77,7 +77,7 @@ export const ModalHeader = (props: ModalHeaderProps) => {
                 </h3>
             }
             { !!subtitle &&
-                <p className="mt-2 text-sm text-neutral-500">
+                <p className="mt-2 text-sm text-muted-foreground">
                     { subtitle }
                 </p>
             }

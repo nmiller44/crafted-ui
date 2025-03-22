@@ -59,7 +59,7 @@ export const FieldInset = ({
                     position === "left" ? "left-0 pl-3" : "right-0 pr-3"
                 )}>
             { !!text
-                ? <span className="text-neutral-500 text-sm">{ text }</span>
+                ? <span className="text-muted-foreground text-sm">{ text }</span>
                 : children
             }
         </div>
