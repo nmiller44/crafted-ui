@@ -23,9 +23,12 @@ import { Page, PageHeader } from "./components/page.js";
 import { Pane } from "./components/pane.js";
 import { Section, SectionHeader } from "./components/section.js";
 import { Select, SelectOption } from "./components/form/select.js";
-import { SidebarFlex, SidebarFlexTile } from "./components/sidebar.js";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from "./components/sidebar.js";
+import { SidebarFlex, SidebarFlexTile } from "./components/legacy-sidebar.js";
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "./components/table.js";
 import { Textarea } from "./components/form/textarea.js";
+import { Vertlist, VertlistItem } from "./components/vertlist.js";
+import { Tablist, TablistItem } from "./components/tablist.js";
 
 export { 
     Badge,
@@ -61,8 +64,8 @@ export {
     Heading3,
     Heading4,
     Heading5,
-    HeadingSection,         // Deprecate by 0.5
-    HeadingPage,            // Deprecate by 0.5
+    HeadingSection,         // Deprecate
+    HeadingPage,            // Deprecate
     Input,
     Modal,
     ModalButtonBar,
@@ -79,13 +82,21 @@ export {
     SectionHeader, 
     Select,
     SelectOption,
-    SidebarFlex,               // Deprecate by 0.5
-    SidebarFlexTile,           // Deprecate by 0.5
+    Sidebar,
+    SidebarHeader,
+    SidebarContent,
+    SidebarFooter,
+    SidebarFlex,               // Deprecate
+    SidebarFlexTile,           // Deprecate
     Table,
     TableBody,
     TableCell,
     TableHead,
     TableHeadCell,
     TableRow,
+    Tablist,
+    TablistItem,
     Textarea,
+    Vertlist,
+    VertlistItem,
  }

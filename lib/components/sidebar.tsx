@@ -1,41 +1,63 @@
-export type SideBarFlexProps = {
-    children: React.ReactNode;
+import { classNames, colorStyle } from "../utils.js";
+import { Heading5 } from "./heading.js";
+
+
+export type SidebarProps = {
+    color?: "default" | "primary" | "dark";
+    className?: string;
+    children?: React.ReactNode;
 }
 
-export const SidebarFlex = (props: SideBarFlexProps) => {
-
+export const Sidebar = ({ color = "default", className, children }: SidebarProps) => {
     return (
-        <div>
-            <aside id="flex-sidebar" className="w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
-                <div className="px-3 py-4 overflow-y-auto">
-                    <ul className="space-y-2 font-medium">
-                        { props.children }
-                    </ul>
-                </div>
-            </aside>
+        <div className={classNames(
+                            "h-screen flex flex-col w-72 space-y-6", 
+                            "group",
+                            colorStyle(color),
+                            className)}>
+            { children }
         </div>
     )
 }
 
-export type SidebarFlexTileProps = {
-    title: string;
-    href: string;
-    icon: any;
+export type SidebarHeaderProps = {
+    title?: string;
+    subtitle?: string;
+    className?: string;
+    children?: React.ReactNode;
 }
 
-export const SidebarFlexTile = (props: SidebarFlexTileProps) => {
-    const title = props.title || "Section";
-    const href = props.href || "#";
-    const Icon = props.icon;
-
+export const SidebarHeader = ({ title, subtitle, className, children }: SidebarHeaderProps) => {
     return (
-        <li>
-            <a href={href} className="flex items-center p-2 text-neutral-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-            { Icon && 
-                <Icon className="flex-shrink-0 w-5 h-5 text-neutral-500 transition duration-75 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white" /> 
+        <div className={classNames("px-6 pt-6", className)}>
+            { !!title 
+                ? <Heading5 title={title} subtitle={subtitle} />
+                : children
             }
-            <span className="flex-1 ms-3 whitespace-nowrap">{ title }</span>
-            </a>
-        </li>
+        </div>
+    )
+}
+
+export type SidebarContentProps = {
+    children?: React.ReactNode;
+}
+
+export const SidebarContent = ({ children }: SidebarContentProps) => {
+    return (
+        <div className="grow px-6">
+            { children }
+        </div>
+    )
+}
+
+export type SidebarFooterProps = {
+    children?: React.ReactNode;
+}
+
+export const SidebarFooter = ({ children }: SidebarFooterProps) => {
+    return (
+        <div className="px-6 pb-6">
+            { children }
+        </div>
     )
 }
