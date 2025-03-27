@@ -13,7 +13,7 @@
       --popover-foreground: 142 67% 5%;
       --card: 142 32% 99%;
       --card-foreground: 142 67% 5%;
-      --border: 142 6% 91%;
+      --border: 0 0% 89.8%;                     /*neutral-200*/
       --input: 142 6% 91%;
       --primary: 142.4 71.8% 29.2%;             /*green-700*/
       --primary-foreground: 0 0% 100%;
