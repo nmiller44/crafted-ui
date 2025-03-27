@@ -12,13 +12,14 @@ export const Badge = ({
     title?: string;
     children?: React.ReactNode;
     className?: string;
-    color?: 'default' | 'green' | 'red' | 'yellow' | 'blue' | 'indigo' | 'purple' | 'pink';
+    color?: 'blank' | 'default' | 'green' | 'red' | 'yellow' | 'blue' | 'indigo' | 'purple' | 'pink';
     outline?: boolean;
     pill?: boolean;
 }) => {
 
     const colorStyle = {
-        default: 'bg-neutral-100 text-neutral-800 ring-neutral-600/20',
+        blank: 'bg-transparent text-foreground ring-transparent',
+        default: 'bg-neutral-100 text-foreground ring-neutral-600/20',
         green: 'bg-green-100 text-green-800 ring-green-600/20',
         red: 'bg-red-100 text-red-800 ring-red-600/20',
         yellow: 'bg-yellow-100 text-yellow-800 ring-yellow-600/20',
@@ -29,7 +30,8 @@ export const Badge = ({
     }
 
     const outlineStyle = {
-        default: 'bg-transparent text-neutral-800 ring-neutral-600/20',
+        blank: 'bg-transparent text-foreground ring-transparent',
+        default: 'bg-transparent text-foreground ring-neutral-600/20',
         green: 'bg-transparent text-green-800 ring-green-600/20',
         red: 'bg-transparent text-red-800 ring-red-600/20',
         yellow: 'bg-transparent text-yellow-800 ring-yellow-600/20',
