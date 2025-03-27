@@ -18,6 +18,7 @@ import { Heading1, Heading2, Heading3, Heading4, Heading5 } from "./components/h
 import { HeadingSection } from './components/heading/section.js'; 
 import { HeadingPage } from "./components/heading/page.js";
 import { Input } from "./components/form/input.js";
+import { Metric, MetricValue, MetricTitle, MetricDiff } from "./components/metric.js";
 import { Modal, ModalButtonBar, ModalHeader, ModalPane } from "./components/modal.js";
 import { Navbar, NavbarCollapseButton, NavbarCollapseList, NavbarCollapseListItem } from "./components/navbar.js";
 import { Page, PageHeader } from "./components/page.js";
@@ -71,6 +72,10 @@ export {
     HeadingSection,         // Deprecate
     HeadingPage,            // Deprecate
     Input,
+    Metric,
+    MetricValue,
+    MetricTitle,
+    MetricDiff,
     Modal,
     ModalButtonBar,
     ModalHeader,
