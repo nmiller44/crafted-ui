@@ -1,6 +1,5 @@
-import * as exp from "constants";
 import { classNames } from "../utils.js";
-import { Badge } from "./badge";
+import { Badge } from "./badge.js";
 
 const dirToColor: { blank: "blank"; positive: "green"; negative: "red"; neutral: "yellow"; } = {
     blank: "blank",
