@@ -1,4 +1,5 @@
 import { Badge } from "./components/badge.js";
+import { Breadcrumb, BreadcrumbList, BreadcrumbListItem } from "./components/breadcrumb.js";
 import { Button } from "./components/button.js";
 import { Card, CardHeader, CardBody, CardFooter } from "./components/card.js";
 import { Checkbox } from "./components/form/checkbox.js";
@@ -32,6 +33,9 @@ import { Tablist, TablistItem } from "./components/tablist.js";
 
 export { 
     Badge,
+    Breadcrumb,
+    BreadcrumbList,
+    BreadcrumbListItem,
     Button,
     Card,
     CardHeader,
