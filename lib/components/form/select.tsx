@@ -1,26 +1,24 @@
 import { Select as SelectPrimitive } from "@base-ui-components/react"
 import { classNames } from "../../utils.js"; 
 
-export type SelectProps = {
-    defaultValue?: string;
+export type SelectProps = React.ComponentProps<typeof SelectPrimitive.Root> & {
     placeholder?: string;
     align?: "start" | "center" | "end";
     alignOffset?: number;
-    children?: React.ReactNode;
     className?: string;
 }
 
 export const Select = ({
-    defaultValue,
     placeholder,
     align = "start",
     alignOffset = 0,
     children,
-    className
+    className,
+    ...props
 }: SelectProps) => {
 
     return (
-        <SelectPrimitive.Root defaultValue={ defaultValue }>
+        <SelectPrimitive.Root {...props}>
             <SelectPrimitive.Trigger className={classNames(
                                         "flex gap-2 items-center",
                                         "mt-1 block w-full py-2 px-3",
