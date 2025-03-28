@@ -9,10 +9,10 @@ export type TablistProps = {
 
 export const Tablist = ({ bordered = false, className, children }:TablistProps) => {
     return (
-        <ul className={classNames(  "mb-8",
-                                    bordered ? "border-b border-border" : "", 
-                                    "flex space-x-12",
-                                    className
+        <ul className={classNames(  
+                            bordered ? "border-b border-border" : "", 
+                            "flex space-x-12",
+                            className
         )}>
             { children }
         </ul>
