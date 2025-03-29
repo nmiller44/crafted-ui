@@ -1,26 +1,17 @@
 import { Field as FieldPrimitive } from "@base-ui-components/react"
 import { classNames } from "../../utils.js"; 
-import { LabelHTMLAttributes } from "react";
 
-
-
-export type FieldProps = {
-    name?: string;
-    className?: string;
-    children?: React.ReactNode;
-}
-
-export const Field = ({ name, className, children }: FieldProps) => {
+export const Field = ({ className, children, ...props }: React.ComponentProps<typeof FieldPrimitive.Root>) => {
 
     return (
-        <FieldPrimitive.Root name={ name } className={classNames("space-y-1.5", className)}>
+        <FieldPrimitive.Root className={classNames("space-y-1.5", className)} {...props}>
             { children }
             <FieldError />
         </FieldPrimitive.Root>
     )
 }
 
-export const FieldLabel = ({ className, children }: LabelHTMLAttributes<HTMLLabelElement>) => {
+export const FieldLabel = ({ className, children, ...props }: React.ComponentProps<typeof FieldPrimitive.Label>) => {
 
     return (
         <FieldPrimitive.Label className={classNames(
@@ -28,16 +19,18 @@ export const FieldLabel = ({ className, children }: LabelHTMLAttributes<HTMLLabe
                                 "flex items-center gap-x-1.5",
                                 "pb-1 text-sm font-medium text-neutral-700", 
                                 className
-                            )}>
+                            )} {...props}>
             { children }
         </FieldPrimitive.Label>
     )
 }
 
-export const FieldError = () => {
+export const FieldError = ({ className, children, ...props }: React.ComponentProps<typeof FieldPrimitive.Error>) => {
     
     return (
-        <FieldPrimitive.Error className={classNames("text-sm text-red-600")} />
+        <FieldPrimitive.Error className={classNames("text-sm text-red-600", className)} {...props}>
+            { children }
+        </FieldPrimitive.Error>
     )
 }
 
