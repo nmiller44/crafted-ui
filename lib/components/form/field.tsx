@@ -28,9 +28,7 @@ export const FieldLabel = ({ className, children, ...props }: React.ComponentPro
 export const FieldError = ({ className, children, ...props }: React.ComponentProps<typeof FieldPrimitive.Error>) => {
     
     return (
-        <FieldPrimitive.Error className={classNames("text-sm text-red-600", className)} {...props}>
-            { children }
-        </FieldPrimitive.Error>
+        <FieldPrimitive.Error className={classNames("text-sm text-red-600", className)} />
     )
 }
 
