@@ -1,13 +1,10 @@
 import { classNames } from "../utils.js";
 
-// React.ButtonHTMLAttributes<HTMLButtonElement>
-export type ButtonProps = {
-    type?: "button" | "submit" | "reset";
+export type ButtonProps = React.ComponentProps<"button"> & {
     color?: 'default' | 'green' | 'red' | 'yellow' | 'blue' | 'indigo' | 'purple' | 'pink';
     outline?: boolean;
+    full?: boolean;
     rounded?: boolean;
-    children?: React.ReactNode;
-    className?: string;
 }
 
 const colorStyle = {
@@ -36,6 +33,7 @@ export const Button = ({
     type = "button",
     color = "default",
     outline = false,
+    full = false,
     rounded = false,
     children,
     className,
@@ -43,12 +41,14 @@ export const Button = ({
 }: ButtonProps) => {
     return (
         <button  
-            type={ type }
+            type={type}
             className={classNames(
-                "px-3.5 py-2.5",
+                "relative *:after:absolute *:after:inset-0", //stretched link
                 outline ? outlineStyle[color] : colorStyle[color],
-                "inline-flex justify-center",
-                rounded ? "rounded-full" : "rounded-md",                              
+                full ? "w-full" : "",
+                "inline-flex text-center justify-center content-center items-center",
+                rounded ? "rounded-full" : "rounded-md", 
+                "border px-3.5 py-2.5 space-x-2",
                 "text-sm font-semibold shadow-sm",
                 "focus:outline-none focus:ring-2 focus:ring-offset-2",
                 className

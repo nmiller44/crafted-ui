@@ -18,19 +18,24 @@ import { Heading1, Heading2, Heading3, Heading4, Heading5 } from "./components/h
 import { HeadingSection } from './components/heading/section.js'; 
 import { HeadingPage } from "./components/heading/page.js";
 import { Input } from "./components/form/input.js";
-import { Metric, MetricValue, MetricTitle, MetricDiff } from "./components/metric.js";
 import { Modal, ModalButtonBar, ModalHeader, ModalPane } from "./components/modal.js";
 import { Navbar, NavbarCollapseButton, NavbarCollapseList, NavbarCollapseListItem } from "./components/navbar.js";
 import { Page, PageHeader } from "./components/page.js";
 import { Pane } from "./components/pane.js";
-import { Section, SectionHeader } from "./components/section.js";
 import { Select, SelectOption } from "./components/form/select.js";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from "./components/sidebar.js";
 import { SidebarFlex, SidebarFlexTile } from "./components/legacy-sidebar.js";
-import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "./components/table.js";
 import { Textarea } from "./components/form/textarea.js";
 import { Vertlist, VertlistItem } from "./components/vertlist.js";
 import { Tablist, TablistItem } from "./components/tablist.js";
+import { Section } from "./components/section/Section.js";
+import { SectionHeader } from "./components/section/SectionHeader.js";
+import { Metric } from "./components/metric/Metric.js";
+import { MetricValue } from "./components/metric/MetricValue.js";
+import { MetricTitle } from "./components/metric/MetricTitle.js";
+import { MetricDiff } from "./components/metric/MetricDiff.js";
+
+export * from "./components/table"
 
 export { 
     Badge,
@@ -97,12 +102,6 @@ export {
     SidebarFooter,
     SidebarFlex,               // Deprecate
     SidebarFlexTile,           // Deprecate
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeadCell,
-    TableRow,
     Tablist,
     TablistItem,
     Textarea,

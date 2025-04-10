@@ -11,7 +11,7 @@ export const Tablist = ({ bordered = false, className, children }:TablistProps) 
     return (
         <ul className={classNames(  
                             bordered ? "border-b border-border" : "", 
-                            "flex space-x-12",
+                            "flex space-x-8",
                             className
         )}>
             { children }

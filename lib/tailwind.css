@@ -5,6 +5,13 @@
 @layer base {
 
     :root {
+      /* Crafted Vars */
+      --container-container: 80rem;
+      --container-navbar: 4rem;
+      --container-sidebar: 12rem;
+
+
+      /* Standard Vars */
       --background: 142 32% 99%;
       --foreground: 0 0% 14.9%;                 /*neutral-800*/
       --muted: 112 11% 94%;

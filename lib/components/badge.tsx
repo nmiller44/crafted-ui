@@ -43,10 +43,11 @@ export const Badge = ({
 
 
     const badgeClass = classNames(
+        "relative *:after:absolute *:after:inset-0", //stretched link
         outline ? outlineStyle[color] : colorStyle[color],
         "inline-flex items-center",
         pill ? "rounded-full" : "rounded-md", 
-        "px-2 py-1", 
+        "px-2 py-1 h-min", 
         "text-xs font-medium",
         "ring-1 ring-inset",
         "whitespace-nowrap",
@@ -54,12 +55,12 @@ export const Badge = ({
     )
 
     return (
-        <span className={ badgeClass } { ...props }>
+        <div className={ badgeClass } { ...props }>
             {   
                 !!title
                 ? title
                 : children 
             }
-        </span>
+        </div>
     )
 }

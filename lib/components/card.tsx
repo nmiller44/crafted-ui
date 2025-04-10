@@ -15,10 +15,10 @@ export const Card = ({ title, subtitle, className, children }: CardProps) => {
                                 "flex flex-col",
                                 "rounded-md border border-border bg-card text-card-foreground shadow",
                                 className)}>
-            { !!title
-                ? <CardHeader title={ title } subtitle={ subtitle } />
-                : children
+            { !!title &&
+                <CardHeader title={ title } subtitle={ subtitle } />
             }
+            { children }
         </div>
     )
 }

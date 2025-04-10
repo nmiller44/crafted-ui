@@ -15,7 +15,6 @@ export const FieldLabel = ({ className, children, ...props }: React.ComponentPro
 
     return (
         <FieldPrimitive.Label className={classNames(
-                                // "inline-block", // switched to flex for Checkbox and Inline Elements
                                 "flex items-center gap-x-1.5",
                                 "pb-1 text-sm font-medium text-neutral-700", 
                                 className
@@ -25,7 +24,7 @@ export const FieldLabel = ({ className, children, ...props }: React.ComponentPro
     )
 }
 
-export const FieldError = ({ className, children, ...props }: React.ComponentProps<typeof FieldPrimitive.Error>) => {
+export const FieldError = ({ className, ...props }: React.ComponentProps<typeof FieldPrimitive.Error>) => {
     
     return (
         <FieldPrimitive.Error className={classNames("text-sm text-red-600", className)} />

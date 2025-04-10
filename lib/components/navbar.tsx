@@ -2,17 +2,21 @@
 import { classNames } from "../utils.js";
 
 export type NavbarProps = {
+    border?: boolean;
     children?: React.ReactNode;
 }
 
-export const Navbar = (props: NavbarProps) => {
-
-    const children = props.children;
+export const Navbar = ({ border = true, children }: NavbarProps) => {
 
     return (
-        <nav className="bg-white h-14 border-b">
-            <div className="flex flex-wrap justify-between items-center mx-auto max-w-7xl">
-                { children }
+        <nav className={classNames(
+            "bg-white", 
+            border ? "border-b" : ""
+        )}>
+            <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+                <div className="relative flex h-14 items-center justify-between">
+                    { children }
+                </div>
             </div>
         </nav>
     )
@@ -81,7 +85,7 @@ export const NavbarCollapseListItem = (props: NavbarCollapseListItemProps) => {
         <a  href={href}
             className={classNames(
             "ml-0 md:ml-8 px-3 py-2 rounded-md",
-            "font-medium text-neutral-600 md:text-sm md:text-neutral-500",
+            "font-medium text-neutral-600 md:text-sm md:text-muted-foreground",
             "hover:text-neutral-800 hover:bg-neutral-100",
         )}>
             { children }
