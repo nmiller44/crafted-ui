@@ -2,10 +2,15 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
-import tailwindcss from 'tailwindcss'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './lib'),
+      '@components': resolve(__dirname, './lib/components'),
+    },
+  },
   plugins: [
     react(),
     dts({ 

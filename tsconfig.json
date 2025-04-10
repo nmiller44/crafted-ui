@@ -10,6 +10,11 @@
     "jsx": "react-jsx",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["lib/*"],
+      "@components/*": ["lib/components/*"],
+      "@storybook/*": ["lib/storybook/*"],
+    }
   }
 }
