@@ -32,7 +32,10 @@ export default defineConfig({
     rollupOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime'],
       input: Object.fromEntries(
-        globSync('lib/**/*.{ts,tsx}').map(file => [
+        globSync('lib/**/*.{ts,tsx}', { 
+          exclude: (path) => {
+            return path.includes('.stories.tsx');
+          }}).map(file => [
           relative(
             'lib',
             file.slice(0, file.length - extname(file).length)
