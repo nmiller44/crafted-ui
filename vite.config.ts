@@ -17,8 +17,9 @@ export default defineConfig({
     react(), 
     tailwindcss(),
     dts({ 
+      tsconfigPath: resolve(__dirname, "tsconfig.app.json"),
       include: ['lib'],
-      exclude: ['lib/**/*.stories.tsx'] 
+      exclude: ['lib/**/*.stories.tsx']
     })
   ],
   build: {
