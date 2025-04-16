@@ -13,3 +13,9 @@
     @apply text-muted-foreground;
   }
 }
+
+@layer base {
+  body {
+    @apply bg-background text-foreground min-w-xs min-h-screen;
+  }
+}
