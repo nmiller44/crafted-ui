@@ -1,12 +1,14 @@
 import { classNames } from "~/utils"
 
-export type TablistProps = React.ComponentProps<"ul">
+export type TablistProps = React.ComponentProps<"ul"> & {
+    bordered?: boolean
+}
 
-export const Tablist = ({ className, children, ...props }: TablistProps) => {
+export const Tablist = ({ bordered = false, className, children, ...props }: TablistProps) => {
 
     return (
         <ul className={classNames(  
-                        // bordered ? "border-b border-border" : "", 
+                        bordered ? "group border-b border-border" : "", 
                         "flex space-x-8",
                         className
                     )} {...props}>
