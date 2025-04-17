@@ -2,13 +2,13 @@ import { classNames } from "~/utils";
 
 export type BadgeProps = React.ComponentProps<"div"> & {
     title?: string;
-    color?: 'blank' | 'default' | 'primary' | 'muted' | 'secondary' | 'accent' | 'destructive' | 
+    clr?: 'blank' | 'default' | 'primary' | 'muted' | 'secondary' | 'accent' | 'destructive' | 
         'green' | 'red' | 'yellow' | 'blue' | 'indigo' | 'purple' | 'pink';
     outline?: boolean;
     pill?: boolean;
 }
 
-export const Badge = ({ title, color = 'default', outline = false, pill = false, className, children, ...props }: BadgeProps) => {
+export const Badge = ({ title, clr = 'default', outline = false, pill = false, className, children, ...props }: BadgeProps) => {
 
     const colorStyle = {
         blank: 'bg-transparent text-foreground ring-transparent',
@@ -49,7 +49,7 @@ export const Badge = ({ title, color = 'default', outline = false, pill = false,
 
     const badgeClass = classNames(
         "relative *:after:absolute *:after:inset-0", //stretched link
-        outline ? outlineStyle[color] : colorStyle[color],
+        outline ? outlineStyle[clr] : colorStyle[clr],
         "inline-flex items-center",
         pill ? "rounded-full" : "rounded-md", 
         "px-2 py-1 h-min", 

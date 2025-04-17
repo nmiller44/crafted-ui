@@ -14,12 +14,10 @@ export const MetricDiff = ({ diff, dir = "blank", className, children, ...props 
         neutral: "yellow"
     }
 
-    const color: ("blank" | "green" | "red" | "yellow") = dirToColor[dir] || "blank";
-
     return (
         <>  
             { !!diff
-                ? <Badge color={ color } className={ className } { ...props }>{ diff }</Badge>
+                ? <Badge clr={ dirToColor[dir] } className={ className } { ...props }>{ diff }</Badge>
                 : <div className={ className } { ...props }>{ children }</div>
             }
         </>

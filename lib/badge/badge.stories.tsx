@@ -20,28 +20,28 @@ export const Basic: Story = {
             <Badge title="Outline" outline />
             <Badge title="Blank" />
             <Badge title="Blank" outline />
-            <Badge title="Primary" color="primary" />
-            <Badge title="Primary" color="primary" outline />
-            <Badge title="Muted" color="muted" />
-            <Badge title="Muted" color="muted" outline />
-            <Badge title="Secondary" color="secondary" />
-            <Badge title="Secondary" color="secondary" outline />
-            <Badge title="Accent" color="accent" />
-            <Badge title="Accent" color="accent" outline />
-            <Badge title="Destructive" color="destructive" />
-            <Badge title="Destructive" color="destructive" outline />
+            <Badge title="Primary" clr="primary" />
+            <Badge title="Primary" clr="primary" outline />
+            <Badge title="Muted" clr="muted" />
+            <Badge title="Muted" clr="muted" outline />
+            <Badge title="Secondary" clr="secondary" />
+            <Badge title="Secondary" clr="secondary" outline />
+            <Badge title="Accent" clr="accent" />
+            <Badge title="Accent" clr="accent" outline />
+            <Badge title="Destructive" clr="destructive" />
+            <Badge title="Destructive" clr="destructive" outline />
         </div>
         <div className="max-w-sm flex flex-wrap gap-3">
-            <Badge title="Green" color="green" />
-            <Badge title="Green Outline" color="green" outline />
-            <Badge title="Red" color="red" />
-            <Badge title="Red Outline" color="red" outline />
-            <Badge title="Yellow" color="yellow" />
-            <Badge title="Yellow Outline" color="yellow" outline />
-            <Badge title="Blue" color="blue" />
-            <Badge title="Blue Outline" color="blue" outline />
-            <Badge title="Purple" color="purple" />
-            <Badge title="Purple Outline" color="purple" outline />
+            <Badge title="Green" clr="green" />
+            <Badge title="Green Outline" clr="green" outline />
+            <Badge title="Red" clr="red" />
+            <Badge title="Red Outline" clr="red" outline />
+            <Badge title="Yellow" clr="yellow" />
+            <Badge title="Yellow Outline" clr="yellow" outline />
+            <Badge title="Blue" clr="blue" />
+            <Badge title="Blue Outline" clr="blue" outline />
+            <Badge title="Purple" clr="purple" />
+            <Badge title="Purple Outline" clr="purple" outline />
         </div>
     </div>
   )
