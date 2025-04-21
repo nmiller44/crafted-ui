@@ -7,6 +7,9 @@ export const TablistItem = ({ className, children, ...props }: TablistItemProps)
         <li className={classNames(  "relative px-2 py-1.5", 
                                     "text-sm",
 
+                                    // Handle full height in nav
+                                    "flex h-full items-center",
+
                                     // Don't round bottom on bordered
                                     "rounded-t-md not-group-[.border-b]:rounded-md",
 
