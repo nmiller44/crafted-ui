@@ -14,7 +14,7 @@ export const Heading1 = ({ title, subtitle, className, children, subtitleClass, 
                 ? <h1 className={classNames("text-4xl font-bold tracking-tight", className)}>{ title }</h1>
                 : children
             }
-            { !!subtitle && <p className={classNames("text-sm text-muted-foreground", subtitleClass)}>{ subtitle }</p> }
+            { !!subtitle && <p className={classNames("text-lg text-muted-foreground", subtitleClass)}>{ subtitle }</p> }
         </div>
     )
 }
