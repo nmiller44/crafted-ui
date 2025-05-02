@@ -6,7 +6,7 @@ export type ModalDescriptionProps = React.ComponentProps<typeof DialogPrimitive.
 export const ModalDescription = ({ className, children, ...props}: ModalDescriptionProps) => {
 
     return (
-        <DialogPrimitive.Description className={classNames("", className)} { ...props }>
+        <DialogPrimitive.Description className={classNames("text-sm text-muted-foreground", className)} { ...props }>
             { children }
         </DialogPrimitive.Description>
     )
