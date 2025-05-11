@@ -21,11 +21,12 @@ export const ModalContent = ({ title, subtitle, size = "md", className, children
         <DialogPrimitive.Portal>
             <DialogPrimitive.Backdrop className="fixed inset-0 bg-black opacity-20 transition-all duration-150 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0 dark:opacity-70" />
             <DialogPrimitive.Popup className={classNames(
+                                    "flex flex-col space-y-8",
                                     "fixed top-1/2 left-1/2 -mt-8 max-w-[calc(100vw-3rem)]", 
                                     sizeClass,
                                     "-translate-x-1/2 -translate-y-1/2",
                                     "p-6",
-                                    "rounded-lg bg-muted outline outline-1 outline-border", 
+                                    "rounded-lg bg-card outline outline-1 outline-border", 
                                     "transition-all duration-150 data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0",
                                     className
                                 )} { ...props }>
