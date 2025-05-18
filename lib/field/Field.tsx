@@ -10,7 +10,11 @@ export type FieldProps = React.ComponentProps<typeof FieldPrimitive.Root> & {
 export const Field = ({ label, className, children, ...props }: FieldProps) => {
 
     return (
-        <FieldPrimitive.Root className={classNames("relative space-y-1.5", className)} {...props}>
+        <FieldPrimitive.Root 
+            className={classNames(
+                        "relative space-y-1.5",
+                        "col-span-full",
+                        className)} {...props}>
             { !!label && <FieldLabel>{ label }</FieldLabel> }
             { children }
             <FieldError />
