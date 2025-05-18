@@ -11,7 +11,7 @@ export type ModalTitleProps = React.ComponentProps<typeof DialogPrimitive.Title>
 export const ModalTitle = ({ title, subtitle, className, children, ...props}: ModalTitleProps) => {
 
     return (
-        <DialogPrimitive.Title className={classNames("pb-5", className)} { ...props }>
+        <DialogPrimitive.Title className={classNames("", className)} { ...props }>
 
             { !!title
             ?   <div className="flex items-top justify-between">

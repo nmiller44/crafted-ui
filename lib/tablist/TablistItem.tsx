@@ -18,11 +18,13 @@ export const TablistItem = ({ className, children, ...props }: TablistItemProps)
                                     "group-[.bg-foreground]:text-background", 
 
                                     // Hover bg color based on parent bg
+                                    "not-[.group]:has-[a]:hover:bg-muted",
                                     "group-[.bg-primary]:has-[a]:hover:bg-secondary group-[.text-primary-foreground]:has-[a]:hover:text-secondary-foreground",
                                     "group-[.bg-background]:has-[a]:hover:bg-muted",
                                     "group-[.bg-foreground]:has-[a]:hover:bg-muted-foreground",
 
                                     // Active bg color based on parent bg with border
+                                    "not-[.group]:has-[.active]:bg-muted",
                                     "has-[.active]:group-[.bg-primary]:bg-secondary has-[.active]:group-[.text-primary-foreground]:text-secondary-foreground",
                                     "has-[.active]:group-[.bg-background]:bg-muted",
                                     "has-[.active]:group-[.bg-foreground]:bg-muted-foreground",

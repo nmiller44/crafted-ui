@@ -10,7 +10,11 @@ export type FieldsetLegendProps = React.ComponentProps<typeof FieldsetPrimitive.
 export const FieldsetLegend = ({ title, subtitle, className, children, ...props }: FieldsetLegendProps) => {
 
     return (
-        <FieldsetPrimitive.Legend className={classNames("space-y-1.5", className)} {...props}>
+        <FieldsetPrimitive.Legend 
+            className={classNames(
+                        "space-y-1.5",
+                        "col-span-full",
+                        className)} {...props}>
             { !!title && <Heading5 title={ title } subtitle={ subtitle } /> }
             { children }
         </FieldsetPrimitive.Legend>
