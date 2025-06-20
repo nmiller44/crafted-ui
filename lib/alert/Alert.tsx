@@ -3,7 +3,7 @@ import { classNames } from "~/utils";
 
 export type AlertProps = React.ComponentProps<"div"> & {
     status?: 'warning' | 'error' | 'success' | 'info', 
-    title: string,  
+    title?: string,  
 }
 
 export const Alert = ({ status = 'warning', title, className, children, ...props }: AlertProps) => {
