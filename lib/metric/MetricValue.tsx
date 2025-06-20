@@ -1,7 +1,7 @@
 import { classNames } from "~/utils";
 
 export type MetricValueProps = React.ComponentProps<"div"> & {
-    value: string;
+    value?: string;
 }
 
 export const MetricValue = ({ value, className, children, ...props }: MetricValueProps) => {
