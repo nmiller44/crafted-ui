@@ -1,7 +1,7 @@
 import { Field as FieldPrimitive } from "@base-ui-components/react"
 import { classNames } from "~/utils";
 
-export type FieldLabelProps = React.ComponentProps<typeof FieldPrimitive.Root>
+export type FieldLabelProps = React.ComponentProps<typeof FieldPrimitive.Label>
 
 export const FieldLabel = ({ className, children, ...props }: FieldLabelProps) => {
 
