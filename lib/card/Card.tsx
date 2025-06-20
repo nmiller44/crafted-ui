@@ -13,12 +13,13 @@ export const Card = ({ title, subtitle, body = false, className, children, ...pr
         <div className={classNames( 
                                 "flex flex-col",
                                 "rounded-md border border-border bg-card text-card-foreground shadow",
-                                body ? "p-5 py-6" : "",
                                 className)} { ...props }>
             { !!title &&
                 <CardHeader title={ title } subtitle={ subtitle } />
             }
-            { children }
+            <div className={classNames(body ? "p-5 py-6" : "")}>
+                { children }
+            </div>
         </div>
     )
 }
