@@ -11,7 +11,7 @@ export const DescListHeader = ({ title, subtitle, className, children, ...props 
     return (
         <div 
             className={classNames(
-                        "space-y-1.5",
+                        "border-b pb-5",
                         className)} {...props}>
             { !!title && <Heading5 title={ title } subtitle={ subtitle } /> }
             { children }

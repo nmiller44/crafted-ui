@@ -10,12 +10,12 @@ export const DescListItem = ({ label, value, className, children, ...props }: De
 
     return (
         <div className={classNames(
-            "space-y-1",
+            "space-y-2",
             "col-span-full",
             className
         )} {...props}>
             <DescListLabel>{ label }</DescListLabel>
-            <dd className="text-base text-foreground">
+            <dd className="text-sm text-foreground leading-6">
                 {value || children}
             </dd>
         </div>

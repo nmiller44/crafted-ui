@@ -8,7 +8,7 @@ export const DescListLabel = ({ className, children, ...props }: DescListLabelPr
 
     return (
         <dt className={classNames(
-            "text-sm font-medium text-muted-foreground",
+            "text-sm font-semibold text-foreground",
             className
         )} {...props}>
             {children}
