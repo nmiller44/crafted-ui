@@ -33,7 +33,7 @@ export const Select = ({
                 <SelectPrimitive.Icon className="text-neutral-800">
                     ▼
                 </SelectPrimitive.Icon>
-                <SelectPrimitive.Value placeholder={ placeholder } />
+                <SelectPrimitive.Value />
             </SelectPrimitive.Trigger>
             <SelectPrimitive.Portal>
                 <SelectPrimitive.Positioner align={ align } alignOffset={ alignOffset }>
