@@ -22,15 +22,16 @@ export const Select = ({
             <SelectPrimitive.Trigger className={classNames(
                                         "flex gap-2 items-center",
                                         "mt-1 block w-full py-2 px-3",
-                                        "rounded-t-md border-0 ring-1 ring-inset ring-neutral-300 outline-0 shadow-sm",
+                                        "rounded-t-md border-0 ring-1 ring-inset ring-border outline-0 shadow-sm",
                                         "aria-[expanded=false]:rounded-b-md",
-                                        "aria-[invalid=true]:ring-red-600",
-                                        "text-sm text-neutral-900 placeholder:text-neutral-400", 
-                                        "focus:ring-2 focus:ring-inset focus:border-neutral-800 focus:outline-0 focus:ring-neutral-800",
+                                        "aria-[invalid=true]:ring-danger",
+                                        "text-sm text-foreground placeholder:text-muted-foreground", 
+                                        "focus:ring-2 focus:ring-inset focus:border-foreground focus:outline-0 focus:ring-foreground",
                                         "cursor-pointer *:cursor-pointer", // "*:outline-0"
+                                        "data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed data-[disabled]:[&>*]:cursor-not-allowed",
                                         className
                                     )}>
-                <SelectPrimitive.Icon className="text-neutral-800">
+                <SelectPrimitive.Icon className="text-foreground mr-2">
                     ▼
                 </SelectPrimitive.Icon>
                 <SelectPrimitive.Value />
@@ -39,7 +40,7 @@ export const Select = ({
                 <SelectPrimitive.Positioner align={ align } alignOffset={ alignOffset }>
                     <SelectPrimitive.Popup className={classNames(
                                                 "bg-white",
-                                                "w-[calc(var(--anchor-width)-2px)] mx-px rounded-b-md border-0 ring-1 ring-neutral-300 shadow-sm outline-0",
+                                                "w-[calc(var(--anchor-width)-2px)] mx-px rounded-b-md border-0 ring-1 ring-border shadow-sm outline-0",
                                                 "transition-[transform,scale,opacity] data-[ending-style]:scale-95 data-[starting-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
                                                 )}>
                         { children }
