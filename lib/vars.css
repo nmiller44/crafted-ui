@@ -6,6 +6,11 @@
   --container-navbar: 4rem;
   --container-sidebar: 12rem;
 
+  /* Crafted Colors */
+  --danger: hsl(10 99% 28%);
+  --warning: hsl(39 100% 50%);
+  --success: hsl(142 71% 29%);
+  --info: hsl(210 100% 50%);
 
   /* Standard Vars */
   --radius: hsl(0.5rem);
@@ -67,6 +72,11 @@
   --container-navbar: var(--container-navbar);
   --container-sidebar: var(--container-sidebar);
   --radius: var(--radius);
+
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+  --color-success: var(--success);
+  --color-info: var(--info);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
