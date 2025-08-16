@@ -26,13 +26,7 @@ export const Basic: Story = {
       <div className="flex flex-col space-y-12 grow">
         <div className="w-64">
           <Field label="Choose a beer style">
-            <Select items={beerStyles}>
-              {beerStyles.map((style) => (
-                <SelectOption key={style.value} value={style.value}>
-                  {style.label}
-                </SelectOption>
-              ))}
-            </Select>
+            <Select items={beerStyles} />
           </Field>
         </div>
       </div>
@@ -53,13 +47,7 @@ export const WithDefaultValue: Story = {
       <div className="flex flex-col space-y-12 grow">
         <div className="w-64">
           <Field label="Preferred beer type">
-            <Select items={beerTypes} defaultValue="pale-ale">
-              {beerTypes.map((type) => (
-                <SelectOption key={type.value} value={type.value}>
-                  {type.label}
-                </SelectOption>
-              ))}
-            </Select>
+            <Select items={beerTypes} defaultValue="pale-ale" />
           </Field>
         </div>
       </div>
@@ -89,13 +77,7 @@ export const WithManyOptions: Story = {
       <div className="flex flex-col space-y-12 grow">
         <div className="w-64">
           <Field label="Beer styles">
-            <Select items={beerStyles}>
-              {beerStyles.map((style) => (
-                <SelectOption key={style.value} value={style.value}>
-                  {style.label}
-                </SelectOption>
-              ))}
-            </Select>
+            <Select items={beerStyles} />
           </Field>
         </div>
       </div>
@@ -116,13 +98,7 @@ export const Disabled: Story = {
       <div className="flex flex-col space-y-12 grow">
         <div className="w-64">
           <Field label="Unavailable beer (out of stock)">
-            <Select items={unavailableBeers} disabled defaultValue="seasonal">
-              {unavailableBeers.map((beer) => (
-                <SelectOption key={beer.value} value={beer.value}>
-                  {beer.label}
-                </SelectOption>
-              ))}
-            </Select>
+            <Select items={unavailableBeers} disabled defaultValue="seasonal" />
           </Field>
         </div>
       </div>

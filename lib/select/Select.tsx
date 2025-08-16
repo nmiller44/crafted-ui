@@ -1,5 +1,7 @@
 import { Select as SelectPrimitive } from "@base-ui-components/react"
 import { classNames } from "~/utils";
+import { SelectOption } from "./SelectOption";
+import { ReactNode } from "react";
 
 export type SelectProps = React.ComponentProps<typeof SelectPrimitive.Root> & {
     placeholder?: string;
@@ -8,17 +10,23 @@ export type SelectProps = React.ComponentProps<typeof SelectPrimitive.Root> & {
     className?: string;
 }
 
+export type SelectItemProp = {
+    value: unknown;
+    label: ReactNode;
+};
+
 export const Select = ({
     placeholder,
     align = "start",
     alignOffset = 0,
+    items = [] as SelectItemProp[],
     children,
     className,
     ...props
 }: SelectProps) => {
 
     return (
-        <SelectPrimitive.Root {...props}>
+        <SelectPrimitive.Root items={items} {...props}>
             <SelectPrimitive.Trigger className={classNames(
                                         "flex gap-2 items-center",
                                         "mt-1 block w-full py-2 px-3",
@@ -43,6 +51,12 @@ export const Select = ({
                                                 "w-[calc(var(--anchor-width)-2px)] mx-px rounded-b-md border-0 ring-1 ring-border shadow-sm outline-0",
                                                 "transition-[transform,scale,opacity] data-[ending-style]:scale-95 data-[starting-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
                                                 )}>
+                        { !children && Array.isArray(items) &&
+                            items.map((type: SelectItemProp, idx: number) => (
+                            <SelectOption key={`${type.value}-${idx}`} value={`${type.value}`}>
+                                {type.label}
+                            </SelectOption>
+                        ))}
                         { children }
                     </SelectPrimitive.Popup>
                 </SelectPrimitive.Positioner>
