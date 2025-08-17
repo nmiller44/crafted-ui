@@ -17,7 +17,7 @@ export const PageHeader = ({ title, subtitle, className, children, wrapperClassN
                     wrapperClassName
                 )} { ...props }>
         { !!title
-            ?   <>
+            ?   <div className="space-y-6">
                     <div>
                         <Heading1 title={title} subtitle={subtitle} className={ className } />
                     </div>
@@ -26,8 +26,8 @@ export const PageHeader = ({ title, subtitle, className, children, wrapperClassN
                         { children }
                     </div>
                     }
-                </>
-            :   children 
+                </div>
+            :   children
         }
         </header>
     )
