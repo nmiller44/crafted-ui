@@ -1,7 +1,8 @@
 import { Heading1 } from "~/heading/Heading1";
 import { classNames } from "~/utils";
+import { pageWrapperClass } from "./Page";
 
-export type PageHeaderProps = React.ComponentProps<"div"> & {
+export type PageHeaderProps = React.ComponentProps<"header"> & {
     title?: string;
     subtitle?: string;
     wrapperClassName?: string;
@@ -10,9 +11,9 @@ export type PageHeaderProps = React.ComponentProps<"div"> & {
 export const PageHeader = ({ title, subtitle, className, children, wrapperClassName, ...props }: PageHeaderProps) => {
 
     return (
-        <div className={classNames(
-                    "pb-10", 
+        <header className={classNames(
                     (!!title && !!children) ? "md:flex md:items-center md:justify-between" : "",
+                    pageWrapperClass,
                     wrapperClassName
                 )} { ...props }>
         { !!title
@@ -28,6 +29,6 @@ export const PageHeader = ({ title, subtitle, className, children, wrapperClassN
                 </>
             :   children 
         }
-        </div>
+        </header>
     )
 }
