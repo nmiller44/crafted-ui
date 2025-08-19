@@ -12,12 +12,12 @@ export const PageHeader = ({ title, subtitle, className, children, wrapperClassN
 
     return (
         <header className={classNames(
-                    (!!title && !!children) ? "md:flex md:items-center md:justify-between" : "",
+                    (!!title && !!children) ? "space-y-6 md:flex md:items-top md:justify-between" : "",
                     pageWrapperClass,
                     wrapperClassName
                 )} { ...props }>
         { !!title
-            ?   <div className="space-y-6">
+            ?   <>
                     <div>
                         <Heading1 title={title} subtitle={subtitle} className={ className } />
                     </div>
@@ -26,7 +26,7 @@ export const PageHeader = ({ title, subtitle, className, children, wrapperClassN
                         { children }
                     </div>
                     }
-                </div>
+                </>
             :   children
         }
         </header>
