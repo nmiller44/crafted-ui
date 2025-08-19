@@ -6,11 +6,11 @@
   --container-navbar: 4rem;
   --container-sidebar: 12rem;
 
-  /* Crafted Colors */
-  --danger: hsl(10 99% 28%);
-  --warning: hsl(39 100% 50%);
-  --success: hsl(142 71% 29%);
-  --info: hsl(210 100% 50%);
+    /* Status Color Indicators */
+    --danger: hsl(10 97% 40%);
+    --warning: hsl(45 98% 45%);
+    --success: hsl(142 71% 29%);
+    --info: hsl(210 100% 50%);
 
   /* Standard Vars */
   --radius: hsl(0.5rem);
