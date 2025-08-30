@@ -12,8 +12,7 @@ export const SectionHeader = ({ title, subtitle, lined = false, className, child
 
     return (
         <div className={classNames(
-                            "pb-3", 
-                            !!lined ? "border-b border-border" : "",
+                            !!lined ? "border-b border-border pb-3" : "",
                             (!!title && !!children) ? "md:flex md:items-center md:justify-between" : "",
                             wrapperClassName
                         )} { ...props }>

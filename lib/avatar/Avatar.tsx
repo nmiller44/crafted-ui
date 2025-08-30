@@ -5,10 +5,24 @@ import { classNames } from "~/utils"
 export type AvatarProps = React.ComponentProps<typeof AvatarPrimitive.Root> & {
     size?: "sm" | "md" | "lg" | "xl"
     fallback?: string;
+    src?: string;
+    height?: string;
+    width?: string;
+    imgClassName?: string;
     delay?: number;
 }
 
-export const Avatar = ({ size = "md", fallback, delay = 600, className, children, ...props}: AvatarProps) => {
+export const Avatar = ({ 
+        size = "md", 
+        fallback,
+        src,
+        height,
+        width,
+        imgClassName,
+        delay = 600, 
+        className, 
+        children, 
+        ...props}: AvatarProps) => {
 
     const sizeClass = {
         sm: "size-10",
@@ -26,9 +40,17 @@ export const Avatar = ({ size = "md", fallback, delay = 600, className, children
                                 "select-none",
                                 className
                             )} { ...props }>
+            { !!src && 
+                <AvatarPrimitive.Image
+                    src={src}
+                    width={width || 48}
+                    height={height || 48}
+                    className={classNames("size-full object-cover bg-border", imgClassName)}
+                />
+            }
             { children }
             { !!fallback &&
-                <AvatarPrimitive.Fallback className="" delay={ delay }>
+                <AvatarPrimitive.Fallback delay={ delay } className="flex size-full items-center justify-center">
                     { fallback }
                 </AvatarPrimitive.Fallback>
             }
