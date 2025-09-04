@@ -47,7 +47,7 @@ export const Horizontal: Story = {
           subtitle="Select your preferred priority setting"
         >
           <Field>
-            <RadioGroup defaultValue="ale" className="flex space-x-6 space-y-0" {...args}>
+            <RadioGroup defaultValue="ale" className="flex-row space-x-6 space-y-0" {...args}>
                 <Radio value="ale">Ale</Radio>
                 <Radio value="lager">Lager</Radio>
                 <Radio value="na">Non-Alcoholic</Radio>
