@@ -1,10 +1,7 @@
 import { RadioGroup as RadioGroupPrimitive } from "@base-ui-components/react"
 import { classNames } from "~/utils";
 
-export type RadioGroupProps = React.ComponentProps<typeof RadioGroupPrimitive> & {
-    children?: React.ReactNode;
-    className?: string;
-}
+export type RadioGroupProps = React.ComponentProps<typeof RadioGroupPrimitive>;
 
 export const RadioGroup = ({
     children,
@@ -14,9 +11,8 @@ export const RadioGroup = ({
 
     return (
         <RadioGroupPrimitive className={classNames(
-                        "space-y-3",
-                        className
-                    )} {...props}>
+                        "flex flex-col space-y-3 space-x-6",
+                        className)} {...props}>
             {children}
         </RadioGroupPrimitive>
     )
