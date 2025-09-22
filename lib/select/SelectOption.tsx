@@ -2,7 +2,7 @@ import { Select as SelectPrimitive } from "@base-ui-components/react"
 import { classNames } from "~/utils";
 
 export type SelectOptionProps = React.ComponentProps<typeof SelectPrimitive.Item> & {
-    value: string;
+    value: any;
     children: React.ReactNode;
 }
 
