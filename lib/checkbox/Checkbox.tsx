@@ -2,34 +2,71 @@ import { Checkbox as CheckboxPrimitive } from "@base-ui-components/react"
 import { classNames } from "~/utils";
 
 export type CheckboxProps = React.ComponentProps<typeof CheckboxPrimitive.Root> & {
+    title?: string;
+    subtitle?: string;
+    size: "xs" | "sm" | "md" | "lg" | "xl";
     children: React.ReactNode;
     className?: string;
 }
 
+const sizeMapper = {
+    "xs": "size-2",
+    "sm": "size-3",
+    "md": "size-4",
+    "lg": "size-5",
+    "xl": "size-6",
+}
+
+const checkSizeMapper = {
+    "xs": "size-1",
+    "sm": "size-2",
+    "md": "size-3",
+    "lg": "size-4",
+    "xl": "size-5",
+}
+
+const checkAlignMapper = {
+    "xs": "mt-1.5",
+    "sm": "mt-1.25",
+    "md": "mt-0.75",
+    "lg": "mt-0.25",
+    "xl": "",
+}
+
 export const Checkbox = ({ 
+    size = "md",
+    title,
+    subtitle,
     children, 
     className, 
     ...props 
 }: CheckboxProps) => {
     return (
       <CheckboxPrimitive.Root
-        className={classNames("flex items-center gap-2 cursor-pointer group", className)}
+        className={classNames("flex gap-2 cursor-pointer group", className)}
         {...props}
       >
         <div className={classNames(
                 "text-foreground",
-                "size-4 rounded-sm border-0 ring-1 ring-inset ring-border shadow-sm", 
+                sizeMapper[size],
+                checkAlignMapper[size], // align the check icon vertically instead of items-center
+                "flex-shrink-0",
+                "rounded-sm border-0 ring-1 ring-inset ring-border shadow-sm", 
                 "flex items-center justify-center", 
                 "group-data-[checked]:border-2 group-data-[checked]:border-primary", 
                 "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2", 
                 "transition-colors duration-200")}>
             <CheckboxPrimitive.Indicator className="flex data-[unchecked]:hidden">
-                <CheckIcon className="size-3 text-primary" />
+                <CheckIcon className={classNames(checkSizeMapper[size], "text-primary")} />
             </CheckboxPrimitive.Indicator>
         </div>
-        <span className="text-sm select-none">
-            {children}
-        </span>
+        <div className="text-left text-sm select-none flex-col space-y-1">
+            { !!title
+                ? title
+                : children
+            }
+            { !!subtitle && <p className="text-xs text-muted-foreground">{ subtitle }</p> }
+        </div>
       </CheckboxPrimitive.Root>
     );
 };
