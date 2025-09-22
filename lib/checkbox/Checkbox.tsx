@@ -4,8 +4,8 @@ import { classNames } from "~/utils";
 export type CheckboxProps = React.ComponentProps<typeof CheckboxPrimitive.Root> & {
     title?: string;
     subtitle?: string;
-    size: "xs" | "sm" | "md" | "lg" | "xl";
-    children: React.ReactNode;
+    size?: "xs" | "sm" | "md" | "lg" | "xl";
+    children?: React.ReactNode;
     className?: string;
 }
 
