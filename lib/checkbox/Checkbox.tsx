@@ -27,10 +27,10 @@ const checkSizeMapper = {
 
 const checkAlignMapper = {
     "xs": "mt-1.5",
-    "sm": "mt-1.25",
+    "sm": "mt-1",
     "md": "mt-0.75",
-    "lg": "mt-0.25",
-    "xl": "",
+    "lg": "",
+    "xl": "-mt-0.25",
 }
 
 export const Checkbox = ({ 
