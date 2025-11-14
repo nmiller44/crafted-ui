@@ -1,18 +1,18 @@
 import { classNames } from "~/utils";
 
 export type ButtonProps = React.ComponentProps<"button"> & {
-    clr?: 'blank' | 'default' | 'primary' | 'muted' | 'secondary' | 'accent' | 'destructive' |
+    clr?: 'blank' | 'dark' | 'primary' | 'muted' | 'secondary' | 'accent' | 'destructive' |
            'green' | 'red' | 'yellow' | 'blue' | 'indigo' | 'purple' | 'pink',
     outline?: boolean,
     full?: boolean,
     rounded?: boolean,
 }
 
-export const Button = ({ clr = "default", outline = false, full = false, rounded = false, type = "button", className, children, ...props }: ButtonProps) => {
+export const Button = ({ clr = "primary", outline = false, full = false, rounded = false, type = "button", className, children, ...props }: ButtonProps) => {
 
     const colorStyle = {
         blank: 'border-transparent text-foreground bg-transparent hover:bg-foreground/10 focus:ring-foreground',
-        default: 'border-transparent text-background bg-foreground hover:bg-foreground/80 focus:ring-foreground',
+        dark: 'border-transparent text-background bg-foreground hover:bg-foreground/80 focus:ring-foreground',
         primary: 'border-transparent text-primary-foreground bg-primary hover:bg-primary/80 focus:ring-primary',
         muted: 'border-transparent text-muted-foreground bg-muted hover:bg-muted/10 focus:ring-muted',
         secondary: 'border-transparent text-secondary-foreground bg-secondary hover:bg-secondary/80 focus:ring-secondary',
@@ -30,7 +30,7 @@ export const Button = ({ clr = "default", outline = false, full = false, rounded
 
     const outlineStyle = {
         blank: 'border-foreground text-foreground bg-transparent hover:bg-foreground/10 focus:ring-foreground',
-        default: 'border-foreground text-foreground bg-transparent hover:bg-foreground/10 focus:ring-foreground',
+        dark: 'border-foreground text-foreground bg-transparent hover:bg-foreground/10 focus:ring-foreground',
         primary: 'border-primary text-primary bg-transparent hover:bg-primary/10 focus:ring-primary',
         muted: 'border-muted text-muted-foreground bg-transparent hover:bg-muted/80 focus:ring-muted',
         secondary: 'border-secondary text-secondary bg-transparent hover:bg-secondary/10 focus:ring-secondary',

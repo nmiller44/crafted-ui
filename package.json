@@ -1,7 +1,7 @@
 {
   "name": "crafted-ui",
   "private": false,
-  "version": "0.1.19",
+  "version": "0.1.20",
   "description": "Crafted UI is a React component library styled with Tailwind",
   "type": "module",
   "author": "https://github.com/nmiller44",
@@ -9,9 +9,19 @@
   "main": "dist/main.js",
   "module": "dist/main.js",
   "types": "dist/main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.js"
+    },
+    "./styles": "./dist/library.css"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && tailwindcss -i ./lib/build.css -o ./dist/library.css --minify",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006 --ci",
