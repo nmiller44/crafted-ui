@@ -1,6 +1,5 @@
 import { Heading1 } from "~/heading/Heading1";
 import { classNames } from "~/utils";
-import { pageWrapperClass } from "./Page";
 
 export type PageHeaderProps = React.ComponentProps<"header"> & {
     title?: string;
@@ -12,8 +11,9 @@ export const PageHeader = ({ title, subtitle, className, children, wrapperClassN
 
     return (
         <header className={classNames(
+                    "max-w-container mx-auto",
+                    "px-4 py-6 sm:px-6 lg:px-8 lg:py-8",
                     (!!title && !!children) ? "space-y-6 md:flex md:items-top md:justify-between" : "",
-                    pageWrapperClass,
                     wrapperClassName
                 )} { ...props }>
         { !!title

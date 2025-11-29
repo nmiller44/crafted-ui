@@ -6,7 +6,7 @@ export const CardFooter = ({ className, children, ...props }: CardFooterProps) =
 
     return (
         <div className={classNames(
-                        "px-5 py-6 border-t border-border",
+                        "px-8 py-6 border-t border-border",
                         "text-foreground",
                         className)} { ...props }>
             { children }

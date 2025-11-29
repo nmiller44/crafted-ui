@@ -1,7 +1,9 @@
 import "~/tailwind.css"
 
-export * from "~/alert"
-export * from "~/avatar"
+export * from "~/types";
+
+export * from "~/alert";
+export * from "~/avatar";
 export * from "~/badge"
 export * from "~/breadcrumb"
 export * from "~/button"
@@ -13,11 +15,13 @@ export * from "~/field"
 export * from "~/fieldset"
 export * from "~/form"
 export * from "~/heading"
+export * from "~/icons"
 export * from "~/input"
 export * from "~/menu"
 export * from "~/metric"
 export * from "~/modal"
 export * from "~/page"
+export * from "~/pagination"
 export * from "~/radio"
 export * from "~/section"
 export * from "~/select"

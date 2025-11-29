@@ -11,25 +11,26 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Alert>;
 
-export const Basic: Story = {
+export const Feature: Story = {
   args: {},
   render: (args) => (
     <div className="flex flex-col space-y-12 grow">
-        <Alert {...args} title="No data available">
-            Please check back later.
+        <Alert {...args} title="Low Inventory Warning" status="warning">
+            Cascade hops inventory below minimum threshold. Reorder recommended.
         </Alert>
-        <Alert {...args} title="Errors were returned!" status="error">
+        <Alert {...args} title="Fermentation Failure" status="danger">
             <ul>
-                <li>Error #1</li>
-                <li>Stack trace</li>
+                <li>Temperature spike detected in Tank 3</li>
+                <li>Check temperature control system immediately</li>
             </ul>
         </Alert>
-        <Alert {...args} title="No data available" status="success">
-            <div className="text-sm">Please check back later.</div>
+        <Alert {...args} title="Batch Complete" status="success">
+            <div className="text-sm">IPA Batch #247 has completed fermentation and is ready for kegging.</div>
         </Alert>
-        <Alert {...args} title="No data available" status="info">
-            <div className="text-sm">Please check back later.</div>
+        <Alert {...args} title="Seasonal Release Scheduled" status="info">
+            <div className="text-sm">Pumpkin Ale release scheduled for October 1st. Update taproom menu.</div>
         </Alert>
     </div>
   )
 };
+

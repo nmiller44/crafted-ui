@@ -2,7 +2,7 @@ import { Heading5 } from "~/heading";
 import { classNames } from "~/utils";
 
 export type AlertProps = React.ComponentProps<"div"> & {
-    status?: 'warning' | 'error' | 'success' | 'info', 
+    status?: 'warning' | 'danger' | 'success' | 'info', 
     title?: string,  
 }
 
@@ -10,7 +10,7 @@ export const Alert = ({ status = 'warning', title, className, children, ...props
 
     const colors = {
         warning: 'bg-warning/10 border-warning/50 text-warning',
-        error: 'bg-danger/10 border-danger/50 text-danger',
+        danger: 'bg-danger/10 border-danger/50 text-danger',
         success: 'bg-success/10 border-success/50 text-success',
         info: 'bg-info/10 border-info/50 text-info',
       };

@@ -13,6 +13,34 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Card>;
 
+export const Feature: Story = {
+  args: {},
+  render: (args) => (
+    <div className="flex flex-col space-y-12 grow max-w-md">
+        <Card {...args}>
+            <CardHeader title="West Coast IPA" subtitle="American IPA - 7.2% ABV" />
+            <CardBody>
+                <p className="text-sm text-muted-foreground mb-4">
+                    Bold and bitter with pine and citrus hop character. Crisp, dry finish 
+                    showcasing Cascade, Centennial, and Chinook hops.
+                </p>
+                <div className="flex gap-4 text-sm">
+                    <div>
+                        <span className="font-medium">IBU:</span> 68
+                    </div>
+                    <div>
+                        <span className="font-medium">SRM:</span> 8
+                    </div>
+                </div>
+            </CardBody>
+            <CardFooter>
+                <span className="text-sm text-muted-foreground">Available in 16oz cans and on draft</span>
+            </CardFooter>
+        </Card>
+    </div>
+  )
+};
+
 export const Basic: Story = {
   args: {},
   render: (args) => (

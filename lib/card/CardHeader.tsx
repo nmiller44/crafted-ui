@@ -10,7 +10,7 @@ export const CardHeader = ({ title, subtitle, className, children, ...props }: C
 
     return (
         <div className={classNames(
-                            "px-5 py-6 border-b border-border",
+                            "px-8 py-6 border-b border-border",
                             className)} { ...props }>
             { !!title 
                 ? <Heading5 title={ title } subtitle={ subtitle } />
