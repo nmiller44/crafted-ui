@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Button } from './Button';
-import { CalendarIcon, ShareIcon } from '../icons';
+import { IconCalendar, IconShare } from '../icons';
 
 const meta = {
   title: 'CraftedUI/Components/Button',
@@ -24,10 +24,10 @@ export const Feature: Story = {
           <Button clr="primary">Register</Button>
           <Button clr="primary" outline>Details</Button>
           <Button clr="secondary" outline>
-            <CalendarIcon />
+            <IconCalendar />
           </Button>
           <Button clr="accent" outline>
-            <ShareIcon />
+            <IconShare />
           </Button>
           <Button clr="destructive" outline>Cancel</Button>
         </div>

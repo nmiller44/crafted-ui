@@ -1,8 +1,8 @@
 import { classNames } from "~/utils";
 
-export type CalendarIconProps = React.ComponentProps<"svg">;
+export type IconCalendarProps = React.ComponentProps<"svg">;
 
-export const CalendarIcon = ({ className, ...props }: CalendarIconProps) => (
+export const IconCalendar = ({ className, ...props }: IconCalendarProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 

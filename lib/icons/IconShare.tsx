@@ -1,8 +1,8 @@
 import { classNames } from "~/utils";
 
-export type ShareIconProps = React.ComponentProps<"svg">;
+export type IconShareProps = React.ComponentProps<"svg">;
 
-export const ShareIcon = ({ className, ...props }: ShareIconProps) => (
+export const IconShare = ({ className, ...props }: IconShareProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 
