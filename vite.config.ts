@@ -45,7 +45,14 @@ export default defineConfig({
         ])
       ),
       output: {
-        assetFileNames: 'assets/[name][extname]',
+        // Backwards compatibility for old imports, REMOVE by next major release
+        assetFileNames: (assetInfo) => {
+          // Rename the main CSS file to library.css for backwards compatibility
+          if (assetInfo.name?.endsWith('.css')) {
+            return 'library.css';
+          }
+          return 'assets/[name][extname]';
+        },
         entryFileNames: '[name].js',
         globals: {
           react: 'React',

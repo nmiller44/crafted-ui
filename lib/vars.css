@@ -13,7 +13,7 @@
     --info: hsl(210 100% 50%);
 
   /* Standard Vars */
-  --radius: hsl(0.5rem);
+  --radius: 0.5rem;
   --background: hsl(142 32% 99%);
   --foreground: hsl(0 0% 14.9%);                 /*neutral-800*/
   --muted: hsl(112 11% 94%);
