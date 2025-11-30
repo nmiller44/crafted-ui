@@ -8,7 +8,7 @@ export const Tablist = ({ bordered = false, className, children, ...props }: Tab
 
     return (
         <ul className={classNames(  
-                        bordered ? "group border-b border-border" : "",
+                        bordered ? "group bordered border-b border-border" : "",
 
                         // Handle full height in nav
                         "h-full items-center",

@@ -11,7 +11,10 @@ export const TablistItem = ({ className, children, ...props }: TablistItemProps)
                                     "flex h-full items-center",
 
                                     // Don't round bottom on bordered
-                                    "rounded-t-md not-group-[.border-b]:rounded-md",
+                                    "rounded-t-md not-group-[.bordered]:rounded-md",
+
+                                    // Reserve border space on bordered tabs to prevent shift
+                                    "group-[.bordered]:border-b-2 group-[.bordered]:border-transparent",
 
                                     // Text color based on parent bg
                                     "group-[.bg-primary]:text-primary-foreground",
@@ -30,12 +33,10 @@ export const TablistItem = ({ className, children, ...props }: TablistItemProps)
                                     "has-[.active]:group-[.bg-foreground]:bg-muted-foreground",
                                     
                                     // Bordered active highlight
-                                    "group-[.border-b]:has-[.active]:bg-transparent",
+                                    "group-[.bordered]:has-[.active]:bg-transparent",
 
-                                    // Bordered active border and text color primary
-                                    "group-[.border-b]:has-[.active]:text-primary group-[.border-b]:has-[.active]:font-bold group-[.border-b]:has-[.active]:border-b-2 group-[.border-b]:has-[.active]:border-primary",
-
-                                    "*:after:absolute *:after:inset-0",
+                                // Bordered active border and text color primary
+                                "group-[.bordered]:has-[.active]:text-primary group-[.bordered]:has-[.active]:[text-shadow:0.5px_0_0_currentColor] group-[.bordered]:has-[.active]:border-primary",                                    "*:after:absolute *:after:inset-0",
                                     className)} {...props}>
             { children }
         </li>
