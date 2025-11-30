@@ -68,7 +68,7 @@ export const Button = ({ clr = "primary", outline = false, full = false, rounded
         blank: 'border-foreground text-foreground bg-transparent hover:bg-foreground/10 focus:ring-foreground',
         dark: 'border-foreground text-foreground bg-transparent hover:bg-foreground/10 focus:ring-foreground',
         primary: 'border-primary text-primary bg-transparent hover:bg-primary/10 focus:ring-primary',
-        muted: 'border-muted text-muted-foreground bg-transparent hover:bg-muted/80 focus:ring-muted',
+        muted: 'border-muted text-muted bg-transparent hover:bg-muted/80 focus:ring-muted',
         secondary: 'border-secondary text-secondary bg-transparent hover:bg-secondary/10 focus:ring-secondary',
         accent: 'border-accent text-accent bg-transparent hover:bg-accent/10 focus:ring-accent',
         destructive: 'border-destructive text-destructive bg-transparent hover:bg-destructive/10 focus:ring-destructive',
