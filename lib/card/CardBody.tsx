@@ -7,7 +7,8 @@ export const CardBody = ({ className, children, ...props }: CardBodyProps) => {
     return (
         <div className={classNames(
                             "flex flex-col", 
-                            "p-5 py-6 grow", 
+                            "px-8 py-10 grow", 
+                            "space-y-6",
                             className
                     )} { ...props }>
             { children }

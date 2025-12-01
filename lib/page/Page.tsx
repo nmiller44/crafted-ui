@@ -6,11 +6,6 @@ export type PageProps = React.ComponentProps<"div"> & {
     subtitle?: string,
 }
 
-export const pageWrapperClass = classNames(
-    "max-w-container mx-auto",
-    "px-4 py-6 sm:px-6 lg:px-8 lg:py-8"
-);
-
 export const Page = ({ title, subtitle, className, children, ...props }: PageProps) => {
 
     return (
@@ -20,7 +15,8 @@ export const Page = ({ title, subtitle, className, children, ...props }: PagePro
                             subtitle={ subtitle } />
             }
             <div className={classNames(
-                    pageWrapperClass,
+                    "max-w-container mx-auto",
+                    "px-4 py-6 sm:px-6 lg:px-8 lg:py-8",
                     "space-y-12",
                     className)} { ...props }>
                 { children }

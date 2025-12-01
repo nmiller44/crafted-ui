@@ -11,11 +11,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Empty>;
 
-export const Basic: Story = {
+export const Feature: Story = {
   args: {},
   render: (args) => (
     <div className="flex flex-col space-y-12 grow">
-        <Empty {...args} title="No data available" subtitle="Please check back later." />
+        <Empty {...args} title="Empty Tap Line" subtitle="Click here to tap a new beer." />
     </div>
   )
 };

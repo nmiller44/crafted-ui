@@ -1,7 +1,7 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Button } from './Button';
+import { IconCalendar, IconShare } from '../icons';
 
 const meta = {
   title: 'CraftedUI/Components/Button',
@@ -10,6 +10,31 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof Button>;
+
+export const Feature: Story = {
+  args: {},
+  render: (args) => (
+    <div className="flex flex-col space-y-12 grow">
+      <div className="max-w-2xl p-6 bg-card border border-border rounded-lg">
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold text-foreground mb-1">Barrel-Aged Stout Tasting</h3>
+          <p className="text-sm text-muted-foreground">Join us for an exclusive tasting of our limited barrel-aged collection</p>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          <Button clr="primary">Register</Button>
+          <Button clr="primary" outline>Details</Button>
+          <Button clr="secondary" outline>
+            <IconCalendar />
+          </Button>
+          <Button clr="accent" outline>
+            <IconShare />
+          </Button>
+          <Button clr="destructive" outline>Cancel</Button>
+        </div>
+      </div>
+    </div>
+  )
+};
 
 export const Basic: Story = {
   args: {},

@@ -17,7 +17,7 @@ export const Card = ({ title, subtitle, body = false, className, children, ...pr
             { !!title &&
                 <CardHeader title={ title } subtitle={ subtitle } />
             }
-            <div className={classNames(body ? "p-5 py-6" : "")}>
+            <div className={classNames(body ? "px-8 py-10 space-y-6" : "")}>
                 { children }
             </div>
         </div>

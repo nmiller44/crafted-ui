@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Fieldset } from './Fieldset';
-import { FieldsetButtons } from './FieldSetButtons';
+import { FieldsetButtons } from './FieldsetButtons';
 import { Card } from '../card/Card';
 import { Field } from '../field/Field';
 import { FieldLabel } from '../field/FieldLabel';
@@ -10,7 +10,7 @@ import { Input } from '../input/input';
 import { Button } from '../button/Button';
 
 const meta = {
-  title: 'CraftedUI/Components/Fieldset',
+  title: 'CraftedUI/Forms/Fieldset',
   component: Fieldset,
 } satisfies Meta<typeof Fieldset>;
 
