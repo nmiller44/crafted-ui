@@ -57,6 +57,7 @@ This pattern provides better composability and maintains consistency across the 
 - The `classNames` function merges and deduplicates Tailwind classes using `clsx` and `tailwind-merge`
 - Always allow consumers to override styles via `className` prop
 - Apply `className` last in the `classNames()` call to ensure user overrides work
+- **Prefer `size-x` over `h-x w-x` for square sizing** - When width and height are equal, use the `size` utility for more concise code
 
 Example:
 ```tsx
@@ -73,6 +74,20 @@ export const Component = ({ className, ...props }: ComponentProps) => {
         </div>
     );
 };
+```
+
+**Sizing examples:**
+```tsx
+// ✅ Correct - use size for square dimensions
+<Icon className="size-4" />
+<Avatar className="size-10" />
+
+// ❌ Avoid - don't use separate h/w for equal dimensions
+<Icon className="h-4 w-4" />
+<Avatar className="h-10 w-10" />
+
+// ✅ Correct - use separate h/w only when dimensions differ
+<div className="h-20 w-full" />
 ```
 
 ### CSS Custom Properties
@@ -174,14 +189,68 @@ export * from "~/component-name";
 
 - Create stories in `{component}.stories.tsx` files
 - Use craft beer themed examples for consistency
-- Show different variants, sizes, and states
-- Include accessibility-focused examples
+- Follow the story organization pattern below
 - Stories should demonstrate real-world usage patterns
+- **NEVER explicitly set props to their default values** in stories or examples
+
+#### Default Prop Values
+
+When creating stories and examples:
+- **DO NOT** specify props when using their default values
+- This pattern demonstrates what happens when props are omitted
+- Only specify props when using non-default values
+
+Common default values:
+- Input `type` defaults to `"text"`
+- Button `type` defaults to `"button"`
+- FieldInset `position` defaults to `"right"`
+- Boolean props typically default to `false`
+
+Examples:
+- ❌ `<Input type="text" placeholder="Name" />` (redundant - text is default)
+- ✅ `<Input placeholder="Name" />` (correct - shows default behavior)
+- ✅ `<Input type="email" placeholder="Email" />` (correct - not default)
+- ❌ `<Button type="button">Click</Button>` (redundant - button is default)
+- ✅ `<Button>Click</Button>` (correct - shows default behavior)
+- ✅ `<Button type="submit">Submit</Button>` (correct - not default)
+- ❌ `<FieldInset text="USD" position="right" />` (redundant - right is default)
+- ✅ `<FieldInset text="USD" />` (correct - shows default behavior)
+- ✅ `<FieldInset text="USD" position="left" />` (correct - not default)
+
+#### Story Organization Pattern
+
+Stories should be organized to demonstrate both functionality and real-world usage:
+
+1. **Feature Story** - Shows the component in a complete, real-world example
+   - Named `Feature`
+   - Demonstrates the component as it would be used in an actual application
+   - Combines multiple features in a cohesive example
+   - Example: A complete form with multiple fields, labels, errors, and insets
+
+2. **Basic Story** - Shows common functionality and variants
+   - Named `Basic`
+   - Demonstrates the primary features of the main component
+   - Can include multiple examples to show different variations
+   - Keep focused on the core component functionality
+   - Example: Field with/without label, with error, unlabeled
+
+3. **Subcomponent Stories** - One story per significant subcomponent or feature
+   - Named descriptively (e.g., `WithInset`, `WithIcon`, `Horizontal`)
+   - Demonstrates variations of a specific subcomponent or feature
+   - Can show multiple examples of that specific feature
+   - Example: FieldInset with text (left/right), custom icon content
+
+**Guidelines:**
+- Keep the total number of stories minimal (typically 2-4 per component)
+- Combine related variations within a single story
+- Use `space-y-4` or similar spacing to show multiple examples within one story
+- Each story should have a clear, focused purpose
 
 Example story structure:
 ```tsx
 import type { Meta, StoryObj } from '@storybook/react';
 import { Component } from './Component';
+import { SubComponent } from './SubComponent';
 
 const meta = {
   title: 'CraftedUI/Category/Component',
@@ -191,10 +260,30 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Component>;
 
+export const Feature: Story = {
+  args: {},
+  render: (args) => (
+    <div className="max-w-lg">
+      {/* Complete real-world example */}
+    </div>
+  )
+};
+
 export const Basic: Story = {
   args: {},
   render: (args) => (
-    <Component {...args}>Content</Component>
+    <div className="space-y-4 max-w-sm">
+      {/* Multiple examples showing core functionality */}
+    </div>
+  )
+};
+
+export const WithSubcomponent: Story = {
+  args: {},
+  render: (args) => (
+    <div className="space-y-4 max-w-sm">
+      {/* Multiple examples of the subcomponent variations */}
+    </div>
   )
 };
 ```
