@@ -9,6 +9,7 @@ export type SelectProps = React.ComponentProps<typeof SelectPrimitive.Root> & {
     align?: "start" | "center" | "end";
     alignOffset?: number;
     className?: string;
+    "aria-invalid"?: boolean | "true" | "false";
 }
 
 export type SelectItemProp = {
@@ -23,9 +24,9 @@ export const Select = ({
     items = [] as SelectItemProp[],
     children,
     className,
+    "aria-invalid": ariaInvalid,
     ...props
 }: SelectProps) => {
-    const ariaInvalid = props["aria-invalid"];
 
     return (
         <div className="mt-1">
