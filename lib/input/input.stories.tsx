@@ -2,7 +2,6 @@ import React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-// import { FormToggle } from './toggle';
 import { Field, FieldInset, FieldLabel } from '../field';
 import { Input } from './input';
 
@@ -14,89 +13,121 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Input>;
 
+export const Feature: Story = {
+  args: {},
+  render: (args) => (
+    <div className="max-w-lg space-y-6">
+      <Field>
+        <FieldLabel>Beer Name</FieldLabel>
+        <Input placeholder="Hazy IPA" />
+      </Field>
+      <Field>
+        <FieldLabel>ABV</FieldLabel>
+        <Input type="number" className="pr-8" placeholder="6.5" />
+        <FieldInset text="%" />
+      </Field>
+      <Field>
+        <FieldLabel>Price</FieldLabel>
+        <Input type="number" className="pl-8" placeholder="12.99" />
+        <FieldInset text="$" position="left" />
+      </Field>
+    </div>
+  )
+};
+
 export const Basic: Story = {
-  args: {
-    value: "Beer"
-  },
-
+  args: {},
   render: (args) => (
-    <Field>
-      <FieldLabel>Labelled Input</FieldLabel>
-      <Input />
-    </Field>
-  )
-};
-
-export const InputValues: Story = {
-  args: {
-    value: "Beer"
-  },
-
-  render: (args) => (
-    <div className='space-y-8'>
+    <div className="space-y-6 max-w-sm">
       <Field>
-        <FieldLabel>Labelled Input</FieldLabel>
-        <Input />
+        <Input placeholder="Unlabeled input" />
       </Field>
+
       <Field>
-      <FieldLabel>Labelled Input</FieldLabel>
-        <Input readOnly />
+        <FieldLabel>With Label</FieldLabel>
+        <Input placeholder="Enter beer name..." />
       </Field>
-    </div>
-  )
-};
-
-export const PercentInset: Story = {
-  args: {
-    value: "75"
-  },
-
-  render: (args) => (
-    <div className='space-y-8'>
+      
       <Field>
-        <FieldLabel>Labelled Input</FieldLabel>
-        <Input />
-          <FieldInset text='%' position='right' />
+        <FieldLabel>With Error</FieldLabel>
+        <Input aria-invalid placeholder="This field has an error" />
+      </Field>
+      
+      <Field>
+        <FieldLabel>Disabled</FieldLabel>
+        <Input disabled placeholder="This input is disabled" />
+      </Field>
+      
+      <Field>
+        <FieldLabel>Read Only</FieldLabel>
+        <Input 
+          readOnly 
+          value="This content cannot be edited"
+        />
       </Field>
     </div>
   )
 };
 
-export const DollarInset: Story = {
-  args: {
-    value: "2,476,375"
-  },
-
+export const InputTypes: Story = {
+  args: {},
   render: (args) => (
-    <Field>
+    <div className="space-y-6 max-w-sm">
       <Field>
-        <FieldLabel>Labelled Input</FieldLabel>
-        <Input />
-          <FieldInset text='$' position='left' />
+        <FieldLabel>Email</FieldLabel>
+        <Input type="email" placeholder="you@example.com" />
       </Field>
-    </Field>
+      
+      <Field>
+        <FieldLabel>Password</FieldLabel>
+        <Input type="password" placeholder="Enter password" />
+      </Field>
+      
+      <Field>
+        <FieldLabel>Number</FieldLabel>
+        <Input type="number" placeholder="42" />
+      </Field>
+      
+      <Field>
+        <FieldLabel>Date</FieldLabel>
+        <Input type="date" />
+      </Field>
+      
+      <Field>
+        <FieldLabel>Search</FieldLabel>
+        <Input type="search" placeholder="Search beers..." />
+      </Field>
+    </div>
   )
 };
 
-export const TestingForm: Story = {
-  args: {
-    value: "2,476,375"
-  },
-
+export const WithInsets: Story = {
+  args: {},
   render: (args) => (
-    <div>
-    <Input {...args}>
-      <FieldLabel id={args.id}>Name</FieldLabel>
-    </Input>
-    <Input {...args}>
-      <FieldLabel id={args.id}>Price</FieldLabel>
-      <FieldInset insetPosition="left">$</FieldInset>
-    </Input>
-    {/* <FormToggle id="bside-modal-active"
-                value
-                name="Active"
-        />   */}
+    <div className="space-y-6 max-w-sm">
+      <Field>
+        <FieldLabel>Price</FieldLabel>
+        <Input type="number" className="pl-8" placeholder="12.99" />
+        <FieldInset text="$" position="left" />
+      </Field>
+      
+      <Field>
+        <FieldLabel>Percentage</FieldLabel>
+        <Input type="number" className="pr-8" placeholder="75" />
+        <FieldInset text="%" />
+      </Field>
+      
+      <Field>
+        <FieldLabel>Website</FieldLabel>
+        <Input className="pl-20" placeholder="example.com" />
+        <FieldInset text="https://" position="left" />
+      </Field>
+      
+      <Field>
+        <FieldLabel>Currency</FieldLabel>
+        <Input type="number" className="pr-12" placeholder="2500" />
+        <FieldInset text="USD" />
+      </Field>
     </div>
-
   )
 };
