@@ -14,13 +14,15 @@ export const Radio = ({
         <RadioPrimitive.Root value={value} className={classNames(
                                                 "flex items-center gap-2",
                                                 "cursor-pointer group",
+                                                "data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed",
                                                 className
                                             )} {...props}>
             <div className={classNames(
                     "text-foreground",
                     "size-4 rounded-full border-0 ring-1 ring-inset ring-border shadow-sm", 
                     "flex items-center justify-center",
-                    "group-data-[checked]:border-2 group-data-[checked]:border-primary", 
+                    "group-data-[checked]:border-2 group-data-[checked]:border-primary",
+                    "group-aria-[invalid=true]:ring-2 group-aria-[invalid=true]:ring-danger",
                     "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
                     "transition-colors duration-200"
                 )}>

@@ -17,8 +17,7 @@ export const Feature: Story = {
   args: {},
   render: (args) => (
     <div className="flex flex-col space-y-12 grow max-w-md">
-        <Card {...args}>
-            <CardHeader title="West Coast IPA" subtitle="American IPA - 7.2% ABV" />
+        <Card {...args} title="West Coast IPA" subtitle="American IPA - 7.2% ABV">
             <CardBody>
                 <p className="text-sm text-muted-foreground mb-4">
                     Bold and bitter with pine and citrus hop character. Crisp, dry finish 
@@ -41,21 +40,12 @@ export const Feature: Story = {
   )
 };
 
-export const Basic: Story = {
-  args: {},
-  render: (args) => (
-    <div className="flex flex-col space-y-12 grow">
-        <Card {...args} title="No data available" subtitle="Please check back later." />
-    </div>
-  )
-};
-
 export const Body: Story = {
   args: {},
   render: (args) => (
-    <div className="flex flex-col space-y-12 grow">
-        <Card {...args} body title="No data available" subtitle="Please check back later.">
-            Info...
+    <div className="flex flex-col space-y-12 grow max-w-md">
+        <Card {...args} body>
+            The body prop will automatically add CardBody for padding.
         </Card>
     </div>
   )
@@ -64,15 +54,11 @@ export const Body: Story = {
 export const Full: Story = {
   args: {},
   render: (args) => (
-    <div className="flex flex-col space-y-12 grow">
-        <Card {...args}>
-            <CardHeader title="No data available" subtitle="Please check back later." />
-            <CardBody>
-                Info...
-            </CardBody>
-            <CardFooter>
-                Footer content
-            </CardFooter>
+    <div className="flex flex-col space-y-12 grow max-w-xl">
+        <Card {...args} body full>
+            The body prop will automatically add CardBody for padding.
+            When using full, the border, shadow, and padding will disappear on mobile
+            for a full width view.
         </Card>
     </div>
   )

@@ -10,9 +10,13 @@ export const RadioGroup = ({
 }: RadioGroupProps) => {
 
     return (
-        <RadioGroupPrimitive className={classNames(
-                        "flex flex-col space-y-3 space-x-6",
-                        className)} {...props}>
+        <RadioGroupPrimitive 
+            className={classNames(
+                "flex flex-col space-y-3 space-x-6 group",
+                className
+            )} 
+            {...props}
+        >
             {children}
         </RadioGroupPrimitive>
     )

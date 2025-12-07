@@ -1,23 +1,20 @@
-import { Input as InputPrimitive } from "@base-ui-components/react"
 import { classNames } from "~/utils";
 
-export type InputProps = React.ComponentProps<typeof InputPrimitive>
+export type TextareaProps = React.ComponentProps<"textarea">
 
-export const Input = ({ type = "text", className, children, ...props }: InputProps) => {
+export const Textarea = ({ className, children, ...props }: TextareaProps) => {
 
     return (
-        <InputPrimitive type={ type } className={classNames(
+        <textarea className={classNames(
                                             "relative",
                                             "mt-1 block w-full py-2 px-3",
-                                            // hasLeftInsetChild ? "pl-7" : "pl-3",
-                                            // hasRightInsetChild ? "pr-7" : "pr-3",
                                             "rounded-md border-0 ring-1 ring-inset ring-border shadow-sm",
                                             "aria-[invalid=true]:ring-danger",
                                             "text-sm text-foreground placeholder:text-muted-foreground", 
                                             "focus:ring-2 focus:ring-inset focus:border-foreground focus:outline-none focus:ring-foreground",
                                             "disabled:opacity-50 disabled:cursor-not-allowed",
+                                            "resize-y",
                                             className
-                )} {...props} />
+                )} {...props}>{children}</textarea>
     )
 }
-

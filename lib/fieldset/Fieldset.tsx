@@ -13,7 +13,7 @@ export const Fieldset = ({ title, subtitle, grid = false, className, children, .
     return (
         <FieldsetPrimitive.Root 
             className={classNames(
-                        grid ? "grid grid-cols-12 gap-x-6 gap-y-8" : "flex flex-col space-y-8", 
+                        grid ? "grid grid-cols-2 md:grid-cols-6 lg:grid-cols-12 gap-x-6 gap-y-8" : "flex flex-col space-y-8", 
                         className
                     )} {...props}>
             { !!title && <FieldsetLegend title={ title } subtitle={ subtitle } /> }
