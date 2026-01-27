@@ -6,7 +6,7 @@ import { FieldsetButtons } from './FieldsetButtons';
 import { Card } from '../card/Card';
 import { Field } from '../field/Field';
 import { FieldLabel } from '../field/FieldLabel';
-import { Input } from '../input/input';
+import { Input } from '../input/Input';
 import { Button } from '../button/Button';
 
 const meta = {
