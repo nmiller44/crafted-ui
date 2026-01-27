@@ -9,7 +9,7 @@ export type HeadingProps = React.ComponentProps<"div"> & {
 
 export const Heading3 = ({ title, subtitle, className, children, subtitleClass, wrapperClass, ...props }: HeadingProps) => {
     return (
-        <div className={classNames("space-y-1", wrapperClass)} {...props}>
+        <div className={classNames("space-y-1.5", wrapperClass)} {...props}>
             { !!title
                 ? <h3 className={classNames("text-2xl font-bold tracking-tight", className)}>{ title }</h3>
                 : children

@@ -10,7 +10,7 @@ export const FieldInset = ({ text, position = "right", className, children, ...p
     return (
         <div className={classNames(                    
                             "pointer-events-none absolute top-[1.75rem] h-[2.5rem] flex items-center",
-                            position === "left" ? "left-0 pl-3" : "right-0 pr-3", 
+                            position === "left" ? "left-0 pl-3 inset-left" : "right-0 pr-3 inset-right", 
                             className
                         )} { ...props }>
             { !!text

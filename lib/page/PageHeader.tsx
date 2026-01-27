@@ -13,7 +13,7 @@ export const PageHeader = ({ title, subtitle, className, children, wrapperClassN
         <header className={classNames(
                     "max-w-container mx-auto",
                     "px-6 lg:px-8",
-                    (!!title && !!children) ? "space-y-6 md:flex md:items-top md:justify-between" : "",
+                    "space-y-6 md:flex md:items-start md:justify-between",
                     wrapperClassName
                 )} { ...props }>
         { !!title
