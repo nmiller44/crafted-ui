@@ -5,7 +5,7 @@ import { Field } from './Field';
 import { FieldLabel } from './FieldLabel';
 import { FieldError } from './FieldError';
 import { FieldInset } from './FieldInset';
-import { Input } from '../input/input';
+import { Input } from '../input/Input';
 import { Card } from '../card/Card';
 import { Fieldset } from '../fieldset/Fieldset';
 import { IconSearch } from '../icons/IconSearch';
