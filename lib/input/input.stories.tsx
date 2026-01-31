@@ -3,7 +3,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Field, FieldInset, FieldLabel } from '../field';
-import { Input } from './input';
+import { Input } from './Input';
 
 const meta = {
   title: 'CraftedUI/Forms/Input',
