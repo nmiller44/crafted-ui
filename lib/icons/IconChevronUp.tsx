@@ -1,8 +1,8 @@
 import { classNames } from "~/utils";
 
-export type IconCalendarProps = React.ComponentProps<"svg">;
+export type IconChevronUpProps = React.ComponentProps<"svg">;
 
-export const IconCalendar = ({ className, ...props }: IconCalendarProps) => (
+export const IconChevronUp = ({ className, ...props }: IconChevronUpProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 
@@ -14,7 +14,6 @@ export const IconCalendar = ({ className, ...props }: IconCalendarProps) => (
     strokeLinejoin="round"
     {...props}
   >
-    <rect x="3" y="5" width="18" height="16" rx="2" />
-    <path d="M3 10h18M8 3v4M16 3v4" />
+    <path d="M18 15l-6-6-6 6" />
   </svg>
 );
