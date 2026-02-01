@@ -5,7 +5,7 @@ import { Field } from './Field';
 import { FieldLabel } from './FieldLabel';
 import { FieldError } from './FieldError';
 import { FieldInset } from './FieldInset';
-import { Input } from '../input/input';
+import { Input } from '../input/Input';
 import { Card } from '../card/Card';
 import { Fieldset } from '../fieldset/Fieldset';
 import { IconSearch } from '../icons/IconSearch';
@@ -36,13 +36,13 @@ export const Feature: Story = {
 
           <Field>
             <FieldLabel>ABV</FieldLabel>
-            <Input type="number" className="pr-8" placeholder="6.5" />
+            <Input type="number" placeholder="6.5" />
             <FieldInset text="%" position="right" />
           </Field>
 
           <Field>
             <FieldLabel>Price</FieldLabel>
-            <Input type="number" className="pl-8" placeholder="12.99" />
+            <Input type="number" placeholder="12.99" />
             <FieldInset text="$" position="left" />
           </Field>
         </Fieldset>
@@ -78,18 +78,18 @@ export const WithInset: Story = {
     <div className="space-y-4 max-w-sm">
       <Field {...args}>
         <FieldLabel>Price</FieldLabel>
-        <Input type="number" className="pr-12" />
+        <Input type="number" className="!pr-12" />
         <FieldInset text="USD" position="right" />
       </Field>
 
       <Field {...args} label="Website">
-          <Input className="pl-20" />
+          <Input className="!pl-16" />
           <FieldInset text="https://" position="left" />
       </Field>
 
       <Field {...args}>
         <FieldLabel>Search Beers</FieldLabel>
-        <Input className="pr-10" placeholder="Search..." />
+        <Input className="!pr-10" placeholder="Search..." />
         <FieldInset position="right">
           <IconSearch className="size-4 text-muted-foreground" />
         </FieldInset>

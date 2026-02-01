@@ -3,7 +3,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Field, FieldInset, FieldLabel } from '../field';
-import { Input } from './input';
+import { Input } from './Input';
 
 const meta = {
   title: 'CraftedUI/Forms/Input',
@@ -23,12 +23,12 @@ export const Feature: Story = {
       </Field>
       <Field>
         <FieldLabel>ABV</FieldLabel>
-        <Input type="number" className="pr-8" placeholder="6.5" />
+        <Input type="number" placeholder="6.5" />
         <FieldInset text="%" />
       </Field>
       <Field>
         <FieldLabel>Price</FieldLabel>
-        <Input type="number" className="pl-8" placeholder="12.99" />
+        <Input type="number" placeholder="12.99" />
         <FieldInset text="$" position="left" />
       </Field>
     </div>
@@ -107,25 +107,25 @@ export const WithInsets: Story = {
     <div className="space-y-6 max-w-sm">
       <Field>
         <FieldLabel>Price</FieldLabel>
-        <Input type="number" className="pl-8" placeholder="12.99" />
+        <Input type="number" placeholder="12.99" />
         <FieldInset text="$" position="left" />
       </Field>
       
       <Field>
         <FieldLabel>Percentage</FieldLabel>
-        <Input type="number" className="pr-8" placeholder="75" />
+        <Input type="number" placeholder="75" />
         <FieldInset text="%" />
       </Field>
       
       <Field>
         <FieldLabel>Website</FieldLabel>
-        <Input className="pl-20" placeholder="example.com" />
+        <Input placeholder="example.com" />
         <FieldInset text="https://" position="left" />
       </Field>
       
       <Field>
         <FieldLabel>Currency</FieldLabel>
-        <Input type="number" className="pr-12" placeholder="2500" />
+        <Input type="number" placeholder="2500" />
         <FieldInset text="USD" />
       </Field>
     </div>

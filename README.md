@@ -23,8 +23,8 @@ Import the styles in your application's CSS file:
 
 tailwind.css
 ```css
-@import 'tailwindcss';
-@import 'crafted-ui/styles';
+@import "tailwindcss";
+@import "crafted-ui/styles" layer(components);
 ```
 
 Then import and use the components in your React application:

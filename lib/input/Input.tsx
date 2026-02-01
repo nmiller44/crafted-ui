@@ -8,9 +8,10 @@ export const Input = ({ type = "text", className, children, ...props }: InputPro
     return (
         <InputPrimitive type={ type } className={classNames(
                                             "relative",
-                                            "mt-1 block w-full py-2 px-3",
-                                            // hasLeftInsetChild ? "pl-7" : "pl-3",
-                                            // hasRightInsetChild ? "pr-7" : "pr-3",
+                                            "mt-1 block w-full px-3 py-2",
+
+                                            "has-[~_.inset-left]:pl-6",
+                                            "has-[~_.inset-right]:pr-6",
                                             "rounded-md border-0 ring-1 ring-inset ring-border shadow-sm",
                                             "aria-[invalid=true]:ring-danger",
                                             "text-sm text-foreground placeholder:text-muted-foreground", 

@@ -4,6 +4,8 @@ import { Page } from './Page';
 import { PageHeader } from './PageHeader';
 import { Section } from '../section/Section';
 import { Button } from '../button/Button';
+import { Heading1 } from '../heading/Heading1';
+import { Badge } from '../badge/Badge';
 
 const meta = {
   title: 'CraftedUI/Layout/Page',
@@ -141,11 +143,16 @@ export const HeaderVariants: Story = {
           <Button clr="primary">Save</Button>
         </div>
       </PageHeader>
-      
-      <PageHeader title="Custom Styled Header" 
-                  subtitle="With custom wrapper styling"
-                  wrapperClassName="bg-muted/50 p-6 rounded-lg border border-border">
-        <Button clr="accent">Special Action</Button>
+
+      <PageHeader wrapperClassName="bg-muted/50 p-6 rounded-lg border border-border">
+        <div className="flex items-start gap-3">
+          <Heading1 title="Fully Custom Header" subtitle="Using children only" />
+          <Badge clr="primary">New</Badge>
+        </div>
+        <div className="flex gap-2">
+          <Button>Edit</Button>
+          <Button clr="primary">Save</Button>
+        </div>
       </PageHeader>
     </div>
   )
@@ -174,6 +181,86 @@ export const ContainerDemo: Story = {
           </div>
         </Section>
       </Page>
+    </div>
+  )
+};
+
+export const PageHeaderCombinations: Story = {
+  args: {},
+  render: (args) => (
+    <div className="space-y-12">
+      {/* Case 1: !!title && !!children - Both title and children present */}
+      <div className="border border-border rounded-lg p-4">
+        <p className="text-sm font-medium mb-4 text-muted-foreground">Case 1: title=true, children=true</p>
+        <PageHeader title="Brewery Inventory" subtitle="Manage your craft beer collection">
+          <div className="flex gap-2">
+            <Button>View All</Button>
+            <Button clr="primary">Add Beer</Button>
+          </div>
+        </PageHeader>
+      </div>
+
+      {/* Case 2: !!title && !children - Title only, no children */}
+      <div className="border border-border rounded-lg p-4">
+        <p className="text-sm font-medium mb-4 text-muted-foreground">Case 2: title=true, children=false</p>
+        <PageHeader title="About Our Brewery" subtitle="Learn about our history and brewing process" />
+      </div>
+
+      {/* Case 3: !title && !!children - Children only, no title */}
+      <div className="border border-border rounded-lg p-4">
+        <p className="text-sm font-medium mb-4 text-muted-foreground">Case 3: title=false, children=true (custom content)</p>
+        <PageHeader>
+          <div className="flex items-start gap-3">
+            <Heading1 title="Custom Header Layout" subtitle="Using children for full control" />
+            <Badge clr="green">Active</Badge>
+          </div>
+          <div className="flex gap-2">
+            <Button>Settings</Button>
+            <Button clr="primary">Upgrade</Button>
+          </div>
+        </PageHeader>
+      </div>
+
+      {/* Case 4: !title && !children - Edge case, empty header */}
+      <div className="border border-border rounded-lg p-4">
+        <p className="text-sm font-medium mb-4 text-muted-foreground">Case 4: title=false, children=false (empty - edge case)</p>
+        <PageHeader />
+      </div>
+
+      {/* Case 5: Custom title with badge inline + actions */}
+      <div className="border border-border rounded-lg p-4">
+        <p className="text-sm font-medium mb-4 text-muted-foreground">Case 5: Custom layout with badge next to title</p>
+        <PageHeader subtitle="Premium barrel-aged collection">
+          <div className="flex items-center gap-3">
+            <h1 className="text-4xl font-bold tracking-tight">Limited Release</h1>
+            <Badge clr="yellow">Rare</Badge>
+          </div>
+          <div className="flex gap-2">
+            <Button>Browse</Button>
+            <Button clr="primary">Reserve</Button>
+          </div>
+        </PageHeader>
+      </div>
+
+      {/* Case 6: Single action button */}
+      <div className="border border-border rounded-lg p-4">
+        <p className="text-sm font-medium mb-4 text-muted-foreground">Case 6: title=true, children=single button</p>
+        <PageHeader title="Tap Room Hours" subtitle="Our brewing facility is open to visitors">
+          <Button clr="primary">Book Tour</Button>
+        </PageHeader>
+      </div>
+
+      {/* Case 7: Multiple action buttons */}
+      <div className="border border-border rounded-lg p-4">
+        <p className="text-sm font-medium mb-4 text-muted-foreground">Case 7: title=true, children=multiple buttons</p>
+        <PageHeader title="Beer Menu" subtitle="Today's rotating selection">
+          <div className="flex gap-2">
+            <Button outline>Print Menu</Button>
+            <Button>Share</Button>
+            <Button clr="primary">Order</Button>
+          </div>
+        </PageHeader>
+      </div>
     </div>
   )
 };
