@@ -6,6 +6,7 @@ export * from "./IconChevronDown";
 export * from "./IconChevronLeft";
 export * from "./IconChevronRight";
 export * from "./IconChevronUp";
+export * from "./IconCopy";
 export * from "./IconLocation";
 export * from "./IconMenu";
 export * from "./IconMinus";
