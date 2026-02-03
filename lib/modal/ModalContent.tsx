@@ -11,10 +11,10 @@ export type ModalContentProps = React.ComponentProps<typeof DialogPrimitive.Popu
 export const ModalContent = ({ title, subtitle, size = "md", className, children, ...props}: ModalContentProps) => {
 
     const sizeClass = {
-        sm: "w-96",
-        md: "w-medium",
-        lg: "w-large",
-        xl: "w-xl"
+        sm: "w-96",      // 384px - compact content
+        md: "w-[32rem]", // 512px - forms with 1-2 columns
+        lg: "w-[40rem]", // 640px - wider forms or data tables
+        xl: "w-[48rem]", // 768px - complex layouts
     }[size]
 
     return (
