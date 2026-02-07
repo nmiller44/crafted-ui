@@ -345,3 +345,35 @@ import { Button } from "~/button";
 4. **TypeScript** - Full type safety throughout
 5. **Consistency** - Follow established patterns for props, styling, and structure
 6. **Developer Experience** - Clear prop names, good defaults, predictable behavior
+
+## Code Change Protocol
+
+**IMPORTANT:** When addressing complex issues or making architectural changes:
+
+1. **Analyze First** - Thoroughly investigate the problem and gather all relevant information
+2. **Propose Solutions** - Present multiple approaches with pros/cons before implementing
+3. **Wait for Approval** - Do NOT modify code until the plan has been explicitly approved
+4. **Document Intent** - Explain what the changes will accomplish and potential impacts
+5. **Incremental Changes** - Break large changes into reviewable steps
+
+This ensures we make informed decisions and avoid premature or incorrect implementations.
+
+## Documentation Meta Patterns for AI and Automation
+
+### JSDoc Generation for New Components
+
+When a new component is added:
+- Always generate JSDoc comments for the component and its props.
+- For the @since value, use the current package.json version (e.g., 0.2.1) as an approximation.
+- Human reviewers may update the @since value if needed, but this ensures a reasonable default.
+
+This ensures new components are documented and versioned consistently.
+
+### JSDoc @see Link Verification
+
+When generating JSDoc comments for components or subcomponents:
+- Always verify that documentation pages and Storybook entries exist before adding @see links.
+- If a component or subcomponent does not have its own docs or story, omit those links or reference the parent component’s documentation if appropriate.
+- Never add dead links to JSDoc comments.
+
+This ensures all @see links in JSDoc are valid and useful.

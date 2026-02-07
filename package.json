@@ -1,7 +1,7 @@
 {
   "name": "crafted-ui",
   "private": false,
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Crafted UI is a React component library styled with Tailwind",
   "type": "module",
   "author": "https://github.com/nmiller44",
