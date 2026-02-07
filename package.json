@@ -6,6 +6,14 @@
   "type": "module",
   "author": "https://github.com/nmiller44",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nmiller44/crafted-ui.git"
+  },
+  "homepage": "https://crafted-ui.com",
+  "bugs": {
+    "url": "https://github.com/nmiller44/crafted-ui/issues"
+  },
   "main": "dist/main.js",
   "module": "dist/main.js",
   "types": "dist/main.d.ts",
