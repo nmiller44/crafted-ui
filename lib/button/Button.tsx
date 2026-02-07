@@ -2,12 +2,15 @@ import { classNames } from "~/utils";
 import type { Clr } from "~/types/colors";
 
 /**
- * A versatile button component with multiple color variants and styling options.
+ * A versatile button component for actions, links, and form submissions.
+ * Supports multiple color variants, outline, full width, rounded, and ghost styling.
  * 
  * @component
  * @category Components
  * @accessibility Supports keyboard navigation, focus states, and all native button attributes
  * @since 0.1.0
+ * @see {@link https://crafted-ui.com/docs/components/button}
+ * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-components-button}
  */
 export type ButtonProps = React.ComponentProps<"button"> & {
     clr?: Clr,
