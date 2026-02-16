@@ -24,43 +24,20 @@ export type SelectItemProp = {
 };
 
 /**
- * A dropdown select component for choosing from a list of options.
+ * Dropdown select for choosing from a list of options.
+ * The items prop is essential for proper functionality - without it, selected values display as raw strings.
  * 
- * **IMPORTANT**: The `items` prop is essential for proper functionality. While technically
- * optional in TypeScript, omitting it will cause selected values to display as raw strings
- * instead of formatted labels, resulting in a broken user experience.
+ * @component
+ * @category Forms
+ * @accessibility Full keyboard navigation and ARIA support from Base UI
+ * @since 0.1.0
+ * @related SelectOption - Custom option rendering (rarely needed)
+ * @see {@link https://crafted-ui.com/docs/forms/select}
+ * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-forms-select}
  * 
- * The component automatically disables itself when the items array is empty or not provided
- * (unless custom children are present) to prevent confusing interactions.
- * 
- * @example Standard usage with items array (recommended)
- * ```tsx
- * <Select items={[
- *   { value: 'option1', label: 'Option 1' },
- *   { value: 'option2', label: 'Option 2' }
- * ]} />
- * ```
- * 
- * @example Custom option rendering with children
- * ```tsx
- * <Select items={[
- *   { value: 'pro', label: 'Professional Plan' },
- *   { value: 'basic', label: 'Basic Plan' }
- * ]}>
- *   <SelectOption value="pro">
- *     <Badge>Pro</Badge> Professional - $99/mo
- *   </SelectOption>
- *   <SelectOption value="basic">Basic - $9/mo</SelectOption>
- * </Select>
- * ```
- * 
- * @param items - Array of option objects with value and label properties. Essential for proper display.
- * @param placeholder - Text shown when no option is selected
- * @param align - Alignment of the dropdown menu relative to the trigger
+ * @param items - Array of option objects with value and label properties. Essential for proper display
+ * @param align - Dropdown alignment relative to trigger (defaults to "start")
  * @param alignOffset - Pixel offset for dropdown alignment
- * @param children - Custom SelectOption components for advanced rendering
- * @param className - Additional CSS classes for the trigger
- * @param aria-invalid - Indicates validation error state
  */
 export const Select = ({
     placeholder,
