@@ -1,6 +1,16 @@
 import { Menu as MenuPrimitive } from "@base-ui-components/react"
 import { classNames } from "~/utils"
 
+/**
+ * MenuItem component for individual menu items.
+ * 
+ * Supports keyboard navigation and hover states via data-[highlighted] attribute.
+ * First and last items have rounded corners. Adapts styling based on parent MenuContent
+ * background using group classes (.bg-primary, .bg-background).
+ * 
+ * @see https://base-ui.com/components/react-menu
+ * @since 0.2.0
+ */
 export type MenuItemProps = React.ComponentProps<typeof MenuPrimitive.Item>
 
 export const MenuItem = ({ className, children, ...props}: MenuItemProps) => {  
