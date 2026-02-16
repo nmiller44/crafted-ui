@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { DescList } from './DescList';
 import { DescListItem } from './DescListItem';
+import { Badge } from '~/badge';
 
 const meta = {
   title: 'CraftedUI/Components/DescList',
@@ -11,49 +12,80 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof DescList>;
 
-export const Basic: Story = {
-  args: {
-    title: 'Applicant Information',
-    subtitle: 'Personal details and application.',
-  },
+export const Feature: Story = {
+  args: {},
   render: (args) => (
-    <DescList {...args}>
-      <DescListItem label="Full name" value="Margot Foster" />
-      <DescListItem label="Application for" value="Backend Developer" />
-      <DescListItem label="Email address" value="margotfoster@example.com" />
-      <DescListItem label="Salary expectation" value="$120,000" />
-      <DescListItem 
-        label="About" 
-        span={2}
-        value="Fugiat ipsum ipsum deserunt culpa qute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident."
-      />
-    </DescList>
+    <div className="max-w-3xl">
+      <DescList title="Brewery Information" subtitle="Details about the craft brewery" {...args}>
+        <DescListItem label="Brewery Name" value="Hoppy Hills Brewing Co." />
+        <DescListItem label="Location" value="Portland, Oregon" />
+        <DescListItem label="Founded" value="2015" />
+        <DescListItem label="Style Focus" value="West Coast IPAs" />
+        <DescListItem 
+          label="About" 
+          value="A small batch brewery focused on traditional West Coast style IPAs with bold hop profiles and clean finishes."
+        />
+      </DescList>
+    </div>
   ),
 };
 
-export const ProductDetails: Story = {
-  args: {
-    title: 'Product Details',
-    cols: 3,
-  },
+export const Basic: Story = {
+  args: {},
   render: (args) => (
-    <DescList {...args}>
-      <DescListItem label="Name" value="Hoppy IPA" />
-      <DescListItem label="Category" value="India Pale Ale" className="md:col-span-6" />
-      <DescListItem label="Type" value="Flagship" className="md:col-span-6" />
-      <DescListItem label="Style" value="American IPA" className="md:col-span-6" />
-      <DescListItem label="ABV" value="6.5%" className="md:col-span-3" />
-      <DescListItem label="IBU" value="65" className="md:col-span-3" />
-      <DescListItem label="Status">
-        <span className="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">
-          Active
-        </span>
-      </DescListItem>
-      <DescListItem 
-        label="Description" 
-        span={3}
-        value="A bold and hoppy India Pale Ale featuring citrus and pine notes from American hops. Perfect balance of malt sweetness and hop bitterness."
-      />
-    </DescList>
+    <div className="space-y-8 max-w-3xl">
+      <DescList {...args}>
+        <DescListItem label="Beer Name" value="Hazy Sunset IPA" />
+        <DescListItem label="Style" value="New England IPA" />
+        <DescListItem label="ABV" value="7.2%" />
+        <DescListItem label="IBU" value="45" />
+      </DescList>
+
+      <DescList title="Product Details" subtitle="Specifications and information" {...args}>
+        <DescListItem label="Name" value="Hoppy IPA" />
+        <DescListItem label="Category" value="India Pale Ale" />
+        <DescListItem label="Type" value="Flagship" />
+        <DescListItem label="ABV" value="6.5%" />
+        <DescListItem label="IBU" value="65" />
+      </DescList>
+    </div>
+  ),
+};
+
+export const CustomContent: Story = {
+  args: {},
+  render: (args) => (
+    <div className="max-w-3xl">
+      <DescList title="Beer Status" {...args}>
+        <DescListItem label="Status">
+          <Badge clr="success">Active</Badge>
+        </DescListItem>
+        <DescListItem label="Availability">
+          <Badge clr="primary">Year-Round</Badge>
+        </DescListItem>
+        <DescListItem label="Distribution">
+          <span className="text-sm">Available in: OR, WA, CA</span>
+        </DescListItem>
+      </DescList>
+    </div>
+  ),
+};
+
+export const GridLayout: Story = {
+  args: {},
+  render: (args) => (
+    <div className="max-w-3xl">
+      <DescList title="Brewery Specifications" {...args}>
+        <DescListItem label="Name" value="Cascade Brewing" className="md:col-span-6" />
+        <DescListItem label="Type" value="Microbrewery" className="md:col-span-6" />
+        <DescListItem label="Founded" value="2015" className="md:col-span-4" />
+        <DescListItem label="Capacity" value="5000 BBL/year" className="md:col-span-4" />
+        <DescListItem label="Taproom" value="Open Daily" className="md:col-span-4" />
+        <DescListItem 
+          label="Description" 
+          value="A family-owned microbrewery specializing in Belgian-inspired ales and experimental hop varieties."
+        />
+      </DescList>
+    </div>
   ),
 };

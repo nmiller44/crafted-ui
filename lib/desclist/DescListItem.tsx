@@ -1,6 +1,16 @@
 import { classNames } from "~/utils";
 import { DescListLabel } from "./DescListLabel";
 
+/**
+ * Individual key-value pair for DescList.
+ * By default spans full width. Use className with Tailwind grid utilities (md:col-span-6, md:col-span-4) for multi-column layouts.
+ * 
+ * @component
+ * @category Components
+ * @since 0.2.0
+ * @related DescList - Parent wrapper component
+ * @related DescListLabel - Label component for the key
+ */
 export type DescListItemProps = React.ComponentProps<"div"> & {
     label?: string;
     value?: React.ReactNode;
