@@ -1,25 +1,23 @@
 import { classNames } from "~/utils";
 
 /**
- * FieldsetButtons component for form action buttons.
- * CRITICAL: Always use FieldsetButtons for form buttons instead of custom div wrappers. Must be placed inside a Fieldset component.
+ * Action button container for Fieldset with automatic spacing and alignment.
+ * CRITICAL: Always place inside a Fieldset component for proper layout.
  * 
  * @component
  * @category Forms
- * @accessibility Provides proper layout and spacing for form action buttons
+ * @accessibility Proper layout and spacing for keyboard and touch navigation
  * @since 0.1.0
- * @related Fieldset - Parent component that should contain FieldsetButtons
- * @related Button - Typical children for form actions (Submit, Cancel, etc.)
- * @see {@link https://crafted-ui.com/docs/forms/fieldsetbuttons}
- * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-forms-fieldsetbuttons}
+ * @related Fieldset - Parent component that contains these buttons
+ * @see {@link https://crafted-ui.com/docs/forms/fieldset}
+ * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-forms-fieldset}
+ * 
+ * @param align - Button alignment (defaults to "right")
  */
 export type FieldsetButtonsProps = React.ComponentProps<"div"> & {
     align?: 'left' | 'center' | 'right';  
 }
 
-/**
- * @param align - Alignment of action buttons (defaults to 'right')
- */
 export const FieldsetButtons = ({ 
         align = 'right', 
         className, 
