@@ -1,6 +1,23 @@
 import { Select as SelectPrimitive } from "@base-ui-components/react"
 import { classNames } from "~/utils";
 
+/**
+ * Custom option component for Select dropdown rendering.
+ * 
+ * **IMPORTANT:** Only use SelectOption when you need custom rendering (badges, 
+ * icons, avatars, complex layouts). For simple text options, use the Select `items` 
+ * prop which auto-generates options automatically.
+ * 
+ * The Select component automatically renders SelectOption components from the `items`
+ * array. Manual SelectOption children are only needed when the dropdown options require
+ * custom content beyond plain text labels.
+ * 
+ * @component
+ * @category Forms
+ * @since 0.1.0
+ * @related Select - Parent component that auto-generates options from items prop
+ * @see {@link https://crafted-ui.com/docs/forms/select}
+ */
 export type SelectOptionProps = React.ComponentProps<typeof SelectPrimitive.Item> & {
     value: any;
     children: React.ReactNode;

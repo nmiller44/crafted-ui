@@ -103,3 +103,75 @@ export const WithManyOptions: Story = {
     );
   }
 };
+
+export const ItemsProp: Story = {
+  args: {},
+  render: (args) => (
+    <div className="space-y-8 max-w-sm">
+      {/* CORRECT USAGE */}
+      <div className="space-y-4">
+        <h3 className="text-sm font-semibold text-foreground">✅ Correct Usage</h3>
+        
+        <Field>
+          <FieldLabel>Items Only (Standard Pattern)</FieldLabel>
+          <Select items={beerStyles} defaultValue="ipa" />
+        </Field>
+
+        <Field>
+          <FieldLabel>Items + Children (Custom Rendering)</FieldLabel>
+          <Select 
+            items={[
+              { value: 'ipa', label: 'IPA Label from Items' },
+              { value: 'stout', label: 'Stout Label from Items' },
+            ]} 
+            defaultValue="ipa"
+          >
+            <SelectOption value="ipa">🍺 Custom IPA Rendering</SelectOption>
+            <SelectOption value="stout">🍺 Custom Stout Rendering</SelectOption>
+          </Select>
+        </Field>
+      </div>
+
+      {/* INCORRECT USAGE */}
+      <div className="space-y-4">
+        <h3 className="text-sm font-semibold text-destructive">❌ Incorrect Usage (Broken)</h3>
+        
+        <Field>
+          <FieldLabel>No Items Prop (Shows raw values)</FieldLabel>
+          <Select defaultValue="stout">
+            <SelectOption value="ipa">IPA</SelectOption>
+            <SelectOption value="stout">Stout</SelectOption>
+            <SelectOption value="porter">Porter</SelectOption>
+          </Select>
+        </Field>
+
+        <Field>
+          <FieldLabel>Mismatched Values (Child not in items)</FieldLabel>
+          <Select 
+            items={[
+              { value: 'items-only', label: 'From Items Array' },
+            ]} 
+            defaultValue="child-only"
+          >
+            <SelectOption value="child-only">From Children Only</SelectOption>
+          </Select>
+        </Field>
+      </div>
+
+      {/* DISABLED/EMPTY STATES */}
+      <div className="space-y-4">
+        <h3 className="text-sm font-semibold text-muted-foreground">⚠️ Disabled/Empty States</h3>
+        
+        <Field>
+          <FieldLabel>Empty Items Array</FieldLabel>
+          <Select items={[]} placeholder="No options available" disabled />
+        </Field>
+
+        <Field>
+          <FieldLabel>No Items, No Children</FieldLabel>
+          <Select placeholder="Nothing to select" disabled />
+        </Field>
+      </div>
+    </div>
+  )
+};
