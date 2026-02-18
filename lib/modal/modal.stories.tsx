@@ -9,10 +9,14 @@ import { ModalTitle } from './ModalTitle';
 import { ModalTrigger } from './ModalTrigger';
 
 import { Button } from '../button/Button';
+import { Checkbox } from '../checkbox/Checkbox';
 import { Field, FieldLabel } from '../field';
 import { Fieldset } from '../fieldset/Fieldset';
 import { FieldsetButtons } from '../fieldset/FieldsetButtons';
 import { Input } from '../input/Input';
+import { Radio } from '../radio/Radio';
+import { RadioGroup } from '../radio/RadioGroup';
+import { Select } from '../select/Select';
 import { Textarea } from '../textarea/Textarea';
 
 const meta = {
@@ -25,47 +29,63 @@ type Story = StoryObj<typeof Modal>;
 
 export const Feature: Story = {
   args: {},
-  render: (args) => (
-    <Modal {...args} defaultOpen={true}>
-      <ModalTrigger>
-        <Button clr="primary">Submit Your Recipe</Button>
-      </ModalTrigger>
-      <ModalContent title="Homebrew Recipe Contest" size="lg">
-        <ModalDescription className="text-sm text-muted-foreground">
-          Enter our annual homebrew competition by submitting your recipe. Winners will have their beer brewed at our facility and featured in our taproom.
-        </ModalDescription>
-        
-        <Fieldset grid>
-          <Field className="col-span-full">
-            <FieldLabel>Recipe Name</FieldLabel>
-            <Input placeholder="e.g., Hoppy Trail IPA" />
-          </Field>
+  render: (args) => {
+    const beerStyles = [
+      { value: 'ipa', label: 'IPA' },
+      { value: 'stout', label: 'Stout' },
+      { value: 'porter', label: 'Porter' },
+      { value: 'lager', label: 'Lager' },
+      { value: 'pilsner', label: 'Pilsner' },
+      { value: 'wheat', label: 'Wheat Beer' },
+      { value: 'saison', label: 'Saison' },
+    ];
+
+    return (
+      <Modal {...args} defaultOpen={true}>
+        <ModalTrigger>
+          <Button clr="primary">Submit Your Recipe</Button>
+        </ModalTrigger>
+        <ModalContent title="Homebrew Recipe Contest" size="lg">
+          <ModalDescription className="text-sm text-muted-foreground">
+            Enter our annual homebrew competition by submitting your recipe. Winners will have their beer brewed at our facility and featured in our taproom.
+          </ModalDescription>
           
-          <Field className="col-span-8">
-            <FieldLabel>Beer Style</FieldLabel>
-            <Input placeholder="e.g., West Coast IPA" />
-          </Field>
-          
-          <Field className="col-span-4">
-            <FieldLabel>ABV (%)</FieldLabel>
-            <Input type="number" placeholder="6.5" />
-          </Field>
-          
-          <Field className="col-span-full">
-            <FieldLabel>Recipe Description</FieldLabel>
-            <Textarea placeholder="Describe your recipe, ingredients, and brewing process..." rows={4} />
-          </Field>
-          
-          <FieldsetButtons>
-            <ModalClose>
-              <Button clr="secondary" outline>Cancel</Button>
-            </ModalClose>
-            <Button clr="primary">Submit Recipe</Button>
-          </FieldsetButtons>
-        </Fieldset>
-      </ModalContent>
-    </Modal>
-  )
+          <Fieldset grid>
+            <Field className="col-span-full">
+              <FieldLabel>Recipe Name</FieldLabel>
+              <Input placeholder="e.g., Hoppy Trail IPA" />
+            </Field>
+            
+            <Field className="col-span-8">
+              <FieldLabel>Beer Style</FieldLabel>
+              <Select items={beerStyles} placeholder="Choose a style..." />
+            </Field>
+            
+            <Field className="col-span-4">
+              <FieldLabel>ABV (%)</FieldLabel>
+              <Input type="number" placeholder="6.5" />
+            </Field>
+            
+            <Field className="col-span-full">
+              <FieldLabel>Recipe Description</FieldLabel>
+              <Textarea placeholder="Describe your recipe, ingredients, and brewing process..." rows={4} />
+            </Field>
+            
+            <Field className="col-span-full">
+              <Checkbox>I agree to the contest terms and conditions</Checkbox>
+            </Field>
+            
+            <FieldsetButtons>
+              <ModalClose>
+                <Button clr="secondary" outline>Cancel</Button>
+              </ModalClose>
+              <Button clr="primary">Submit Recipe</Button>
+            </FieldsetButtons>
+          </Fieldset>
+        </ModalContent>
+      </Modal>
+    )
+  }
 };
 
 export const Basic: Story = {
@@ -138,6 +158,15 @@ export const Sizes: Story = {
             <Field>
               <FieldLabel>Additional Comments</FieldLabel>
               <Textarea placeholder="Share your thoughts..." rows={3} />
+            </Field>
+            
+            <Field>
+              <FieldLabel>Would you recommend this flight?</FieldLabel>
+              <RadioGroup defaultValue="yes">
+                <Radio value="yes">Yes, definitely</Radio>
+                <Radio value="maybe">Maybe</Radio>
+                <Radio value="no">No</Radio>
+              </RadioGroup>
             </Field>
             
             <FieldsetButtons>

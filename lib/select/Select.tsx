@@ -12,11 +12,33 @@ export type SelectProps = React.ComponentProps<typeof SelectPrimitive.Root> & {
     "aria-invalid"?: boolean | "true" | "false";
 }
 
+/**
+ * Configuration for individual select options.
+ * 
+ * @property value - The value associated with the option (can be any type)
+ * @property label - The display text/content shown when the option is selected
+ */
 export type SelectItemProp = {
     value: unknown;
     label: ReactNode;
 };
 
+/**
+ * Dropdown select for choosing from a list of options.
+ * The items prop is essential for proper functionality - without it, selected values display as raw strings.
+ * 
+ * @component
+ * @category Forms
+ * @accessibility Full keyboard navigation and ARIA support from Base UI
+ * @since 0.1.0
+ * @related SelectOption - Custom option rendering (rarely needed)
+ * @see {@link https://crafted-ui.com/docs/forms/select}
+ * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-forms-select}
+ * 
+ * @param items - Array of option objects with value and label properties. Essential for proper display
+ * @param align - Dropdown alignment relative to trigger (defaults to "start")
+ * @param alignOffset - Pixel offset for dropdown alignment
+ */
 export const Select = ({
     placeholder,
     align = "start",
@@ -25,12 +47,16 @@ export const Select = ({
     children,
     className,
     "aria-invalid": ariaInvalid,
+    disabled = false,
     ...props
 }: SelectProps) => {
+    // Auto-disable when items is empty and no children provided
+    const isEmpty = !items || items.length === 0;
+    const shouldDisable = disabled || (isEmpty && !children);
 
     return (
         <div className="mt-1">
-            <SelectPrimitive.Root items={items} {...props}>
+            <SelectPrimitive.Root items={items} {...props} disabled={shouldDisable}>
                 <SelectPrimitive.Trigger 
                     aria-invalid={ariaInvalid}
                     className={classNames(

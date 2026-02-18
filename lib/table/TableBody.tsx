@@ -1,3 +1,10 @@
+/**
+ * TableBody component for the table body section.
+ * 
+ * Contains TableRow components with table data.
+ * 
+ * @since 0.2.0
+ */
 export type TableBodyProps = React.ComponentProps<"tbody">
 
 export const TableBody = ({ children, className, ...props }: TableBodyProps) => {

@@ -2,12 +2,22 @@ import { classNames } from "~/utils";
 import type { Clr } from "~/types/colors";
 
 /**
- * A versatile button component with multiple color variants and styling options.
+ * Interactive button for actions, links, and form submissions.
+ * Supports multiple color variants, outline, full width, rounded, and ghost styling.
  * 
  * @component
  * @category Components
  * @accessibility Supports keyboard navigation, focus states, and all native button attributes
  * @since 0.1.0
+ * @see {@link https://crafted-ui.com/docs/components/button}
+ * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-components-button}
+ * 
+ * @param clr - Color variant (defaults to "primary")
+ * @param outline - Outline styling instead of filled
+ * @param full - Full width button
+ * @param rounded - Pill-shaped borders
+ * @param ghost - Minimal styling with no border or background
+ * @param type - Defaults to "button". Use "submit" only for form submissions
  */
 export type ButtonProps = React.ComponentProps<"button"> & {
     clr?: Clr,
@@ -18,14 +28,6 @@ export type ButtonProps = React.ComponentProps<"button"> & {
     type?: "button" | "submit" | "reset",
 }
 
-/**
- * @param clr - Color variant (defaults to "primary")
- * @param outline - Outline styling instead of filled (defaults to false)
- * @param full - Full width button (defaults to false)
- * @param rounded - Pill-shaped borders (defaults to false)
- * @param ghost - Minimal styling with no border or background, only text color and hover effect (defaults to false)
- * @param type - Defaults to "button". Only use "submit" for form submissions to prevent unintended form submissions
- */
 export const Button = ({ clr = "primary", outline = false, full = false, rounded = false, ghost = false, type = "button", className, children, ...props }: ButtonProps) => {
 
     const colorStyle = {
