@@ -1,5 +1,12 @@
 import { classNames } from "~/utils";
 
+/**
+ * TableCell component for individual data cells.
+ * 
+ * @see {@link TableCellProps.colspan} - Spans multiple columns when set
+ * @since 0.2.0
+ * @param colspan - Number of columns to span (maps to colSpan attribute)
+ */
 export type TableCellProps = React.ComponentProps<"td"> & {
     colspan?: number
 }

@@ -1,5 +1,13 @@
 import { classNames } from "~/utils";
 
+/**
+ * Heading3 component for subsection headings.
+ * 
+ * Use the `title` prop for simple text headings or pass children for custom content.
+ * Optional subtitle provides context below the main heading.
+ * 
+ * @since 0.2.0
+ */
 export type HeadingProps = React.ComponentProps<"div"> & {
     title?: string;
     subtitle?: string;  
