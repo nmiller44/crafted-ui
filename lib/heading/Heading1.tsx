@@ -1,4 +1,5 @@
 import { classNames } from "~/utils";
+import { renderHeadingContent } from "./utils";
 
 /**
  * Heading1 component for page-level titles.
@@ -26,10 +27,12 @@ export type HeadingProps = React.ComponentProps<"div"> & {
 export const Heading1 = ({ title, subtitle, className, children, subtitleClass, wrapperClass, ...props }: HeadingProps) => {
     return (
         <div className={classNames("space-y-1.5", wrapperClass)} {...props}>
-            { !!title
-                ? <h1 className={classNames("text-4xl font-bold tracking-tight", className)}>{ title }</h1>
-                : children
-            }
+            {renderHeadingContent({
+                title,
+                children,
+                tag: "h1",
+                className: classNames("text-4xl font-bold tracking-tight", className),
+            })}
             { !!subtitle && <p className={classNames("text-lg text-muted-foreground", subtitleClass)}>{ subtitle }</p> }
         </div>
     )

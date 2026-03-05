@@ -62,6 +62,30 @@ export const Basic: Story = {
   )
 };
 
+export const HeadingUsageOptions: Story = {
+  args: {},
+  render: (args) => (
+    <div className="space-y-8 max-w-3xl">
+      <Heading1
+        {...args}
+        title="Pale Ale Tasting Notes"
+        subtitle="Bright citrus aroma with a crisp finish"
+      />
+
+      <Heading1 {...args} subtitle="Children passed as plain text is auto-styled as h1">
+        Session IPA Profile
+      </Heading1>
+
+      <Heading1 {...args} subtitle="Children passed as custom elements render as-is">
+        <h1 className="text-4xl font-bold tracking-tight flex items-center gap-2">
+          <span>🍺</span>
+          <span>Custom Heading Layout</span>
+        </h1>
+      </Heading1>
+    </div>
+  )
+};
+
 export const WithCustomContent: Story = {
   args: {},
   render: (args) => (
