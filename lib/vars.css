@@ -15,29 +15,29 @@
   /* Standard Vars */
   --radius: 0.5rem;
   --background: hsl(142 32% 99%);
-  --foreground: hsl(0 0% 14.9%);                 /*neutral-800*/
+  --foreground: hsl(0 0% 14.9%);
   --muted: hsl(112 11% 94%);
-  --muted-foreground: hsl(0 0% 45.1%);           /*neutral-500*/
-  --popover: hsl(142 32% 99%);
-  --popover-foreground: hsl(142 67% 5%);
-  --card: hsl(142 32% 99%);
-  --card-foreground: hsl(142 67% 5%);
-  --border: hsl(0 0% 89.8%);                     /*neutral-200*/
+  --muted-foreground: hsl(0 0% 45.1%);
+  --popover: var(--background);
+  --popover-foreground: var(--foreground);
+  --card: var(--background);
+  --card-foreground: var(--foreground);
+  --border: hsl(0 0% 89.8%);
   --input: hsl(142 6% 91%);
-  --primary: hsl(142.4 71.8% 29.2%);             /*green-700*/
+  --primary: hsl(142.4 71.8% 29.2%);
   --primary-foreground: hsl(0 0% 100%);
-  --secondary: hsl(142.8 64.2% 24.1%);           /*green-800*/   
-  --secondary-foreground: hsl(0 0% 100%);
-  --accent: hsl(172 72% 29%);
-  --accent-foreground: hsl(0 0% 100%);
+  --secondary: hsl(208 21% 63%);
+  --secondary-foreground: var(--foreground);
+  --accent: hsl(138 13% 81%);
+  --accent-foreground: var(--primary);
   --destructive: hsl(10 99% 28%);
-  --destructive-foreground: hsl(10 35.83% 97.2%);
-  --ring: hsl(142 72% 29%);
-  --chart-1: hsl(142 72% 29%);
-  --chart-2: hsl(112 72% 29%);
-  --chart-3: hsl(172 72% 29%);
-  --chart-4: hsl(112 72% 32%);
-  --chart-5: hsl(142 75% 29%);
+  --destructive-foreground: var(--background);
+  --ring: var(--primary);
+  --chart-1: hsl(168 33% 38%);
+  --chart-2: hsl(206 29% 49%);
+  --chart-3: hsl(260 24% 57%);
+  --chart-4: hsl(20 37% 55%);
+  --chart-5: hsl(46 35% 52%);
 }
 
 :root[class~="dark"] {
@@ -53,18 +53,18 @@
   --input: hsl(142 6% 14%);
   --primary: hsl(142 72% 29%);
   --primary-foreground: hsl(0 0% 100%);
-  --secondary: hsl(112 72% 29%);
-  --secondary-foreground: hsl(0 0% 100%);
-  --accent: hsl(172 72% 29%);
-  --accent-foreground: hsl(0 0% 100%);
+  --secondary: hsl(208 24% 70%);
+  --secondary-foreground: var(--foreground);
+  --accent: hsl(138 16% 84%);
+  --accent-foreground: hsl(0 0% 12%);
   --destructive: hsl(10 99% 47%);
   --destructive-foreground: hsl(0 0% 100%);
   --ring: hsl(142 72% 29%);
-  --chart-1: hsl(142 72% 29%);
-  --chart-2: hsl(112 72% 29%);
-  --chart-3: hsl(172 72% 29%);
-  --chart-4: hsl(112 72% 32%);
-  --chart-5: hsl(142 75% 29%);
+  --chart-1: hsl(168 34% 46%);
+  --chart-2: hsl(206 31% 58%);
+  --chart-3: hsl(260 26% 65%);
+  --chart-4: hsl(20 40% 63%);
+  --chart-5: hsl(46 38% 60%);
 }
 
 @theme inline {
