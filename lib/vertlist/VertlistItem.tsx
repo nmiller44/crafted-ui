@@ -1,5 +1,15 @@
 import { classNames } from "~/utils"
 
+/**
+ * Individual item within a Vertlist component.
+ * 
+ * Supports stretched links: placing a single `<a>` tag as a child makes the entire item 
+ * clickable. Commonly used for navigation lists.
+ * 
+ * @component
+ * @category Components
+ * @since 0.1.0
+ */
 export type VertlistItemProps = React.ComponentProps<"li">
 
 export const VertlistItem = ({ className, children, ...props }: VertlistItemProps) => {

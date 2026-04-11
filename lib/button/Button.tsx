@@ -5,6 +5,9 @@ import type { Clr } from "~/types/colors";
  * Interactive button for actions, links, and form submissions.
  * Supports multiple color variants, outline, full width, rounded, and ghost styling.
  * 
+ * Supports stretched links: placing a single `<a>` tag as a child makes the entire button 
+ * clickable, useful for navigation styled as buttons.
+ * 
  * @component
  * @category Components
  * @accessibility Supports keyboard navigation, focus states, and all native button attributes
