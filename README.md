@@ -9,6 +9,11 @@ Crafted UI is a modern React component library that combines the flexibility of 
 - 🎭 **Themeable** - CSS custom properties for easy theme customization
 - 🚀 **Modern Stack** - React 19, Vite, and the latest web standards
 
+## Documentation
+
+- 📚 **[Documentation](https://crafted-ui.com)** - Complete component documentation, guides, and examples
+- 🎨 **[Storybook](https://storybook.crafted-ui.com)** - Interactive component explorer and live examples
+
 ## Installation
 
 Install Crafted UI using npm or your preferred package manager:

@@ -46,3 +46,64 @@ export const Basic: Story = {
     </div>
   )
 };
+
+export const WithLinks: Story = {
+  args: {},
+  render: (args) => (
+    <div className="flex flex-col space-y-6 max-w-2xl">
+      <div>
+        <h3 className="text-lg font-semibold text-foreground mb-2">Stretched Links</h3>
+        <p className="text-sm text-muted-foreground mb-4">
+          Badge supports stretched links: placing a single <code className="px-1.5 py-0.5 rounded bg-muted text-muted-foreground text-xs">&lt;a&gt;</code> tag 
+          as a child makes the entire badge clickable. This is useful for clickable tags and filter chips.
+        </p>
+      </div>
+
+      <div className="space-y-4">
+        <div>
+          <div className="text-sm font-medium text-foreground mb-2">Example Usage:</div>
+          <pre className="p-4 rounded-md bg-muted text-sm overflow-x-auto">
+{`<Badge clr="primary">
+  <a href="/filter/ipa">IPA</a>
+</Badge>
+
+<Badge clr="green" outline>
+  <a href="/status/available">Available</a>
+</Badge>`}
+          </pre>
+        </div>
+
+        <div>
+          <div className="text-sm font-medium text-foreground mb-2">Visual Reference:</div>
+          <div className="flex flex-wrap gap-3">
+            <Badge clr="primary">
+              <a href="#" onClick={(e) => e.preventDefault()}>IPA</a>
+            </Badge>
+            <Badge clr="blue">
+              <a href="#" onClick={(e) => e.preventDefault()}>Stout</a>
+            </Badge>
+            <Badge clr="green">
+              <a href="#" onClick={(e) => e.preventDefault()}>Lager</a>
+            </Badge>
+            <Badge clr="purple" outline>
+              <a href="#" onClick={(e) => e.preventDefault()}>Sour</a>
+            </Badge>
+            <Badge clr="yellow" outline>
+              <a href="#" onClick={(e) => e.preventDefault()}>Citrus</a>
+            </Badge>
+            <Badge clr="red">
+              <a href="#" onClick={(e) => e.preventDefault()}>Sold Out</a>
+            </Badge>
+          </div>
+        </div>
+      </div>
+
+      <div className="p-4 rounded-md bg-muted/30 border border-border">
+        <p className="text-xs text-muted-foreground">
+          <strong>Note:</strong> The link's clickable area automatically expands to cover the entire badge. 
+          Use this pattern for filter tags, status indicators, and category navigation. Only use one link per badge.
+        </p>
+      </div>
+    </div>
+  )
+};

@@ -1,5 +1,15 @@
 import { classNames } from "~/utils"
 
+/**
+ * Individual tab item within a Tablist component.
+ * 
+ * Supports stretched links: placing a single `<a>` tag as a child makes the entire item 
+ * clickable. Commonly used for navigation lists.
+ * 
+ * @component
+ * @category Components
+ * @since 0.1.0
+ */
 export type TablistItemProps = React.ComponentProps<"li">
 
 export const TablistItem = ({ className, children, ...props }: TablistItemProps) => {

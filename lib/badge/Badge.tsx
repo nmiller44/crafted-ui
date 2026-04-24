@@ -1,5 +1,17 @@
 import { classNames } from "~/utils";
 
+/**
+ * Display labels, statuses, and counts with color variants.
+ * 
+ * Supports stretched links: placing a single `<a>` tag as a child makes the entire badge 
+ * clickable, useful for clickable tags and filter chips.
+ * 
+ * @component
+ * @category Components
+ * @since 0.1.0
+ * @see {@link https://crafted-ui.com/docs/components/badge}
+ * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-components-badge}
+ */
 export type BadgeProps = React.ComponentProps<"div"> & {
     title?: string;
     clr?: 'blank' | 'default' | 'primary' | 'muted' | 'secondary' | 'accent' | 'destructive' | 

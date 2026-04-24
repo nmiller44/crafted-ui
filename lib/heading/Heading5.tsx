@@ -1,4 +1,5 @@
 import { classNames } from "~/utils";
+import { renderHeadingContent } from "./utils";
 
 /**
  * Heading5 component for the smallest semantic heading level.
@@ -18,10 +19,12 @@ export type HeadingProps = React.ComponentProps<"div"> & {
 export const Heading5 = ({ title, subtitle, className, children, subtitleClass, wrapperClass, ...props }: HeadingProps) => {
     return (
         <div className={classNames("space-y-1.5", wrapperClass)} {...props}>
-            { !!title
-                ? <h5 className={classNames("text-lg font-bold tracking-tight", className)}>{ title }</h5>
-                : children
-            }
+            {renderHeadingContent({
+                title,
+                children,
+                tag: "h5",
+                className: classNames("text-lg font-bold tracking-tight", className),
+            })}
             { !!subtitle && <p className={classNames("text-sm text-muted-foreground", subtitleClass)}>{ subtitle }</p> }
         </div>
     )

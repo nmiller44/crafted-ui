@@ -1,5 +1,15 @@
 import { classNames } from "~/utils"
 
+/**
+ * Header item within a Vertlist component for grouping and labeling sections.
+ * 
+ * Supports stretched links: placing a single `<a>` tag as a child makes the entire item 
+ * clickable. Commonly used for navigation lists.
+ * 
+ * @component
+ * @category Components
+ * @since 0.1.0
+ */
 export type VertlistHeaderProps = React.ComponentProps<"li">
 
 export const VertlistHeader = ({ className, children, ...props }: VertlistHeaderProps) => {

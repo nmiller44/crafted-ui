@@ -1,4 +1,5 @@
 import { classNames } from "~/utils";
+import { renderHeadingContent } from "./utils";
 
 /**
  * Heading2 component for major section headings.
@@ -18,10 +19,12 @@ export type HeadingProps = React.ComponentProps<"div"> & {
 export const Heading2 = ({ title, subtitle, className, children, subtitleClass, wrapperClass, ...props }: HeadingProps) => {
     return (
         <div className={classNames("space-y-1.5", wrapperClass)} {...props}>
-            { !!title
-                ? <h2 className={classNames("text-3xl font-bold tracking-tight", className)}>{ title }</h2>
-                : children
-            }
+            {renderHeadingContent({
+                title,
+                children,
+                tag: "h2",
+                className: classNames("text-3xl font-bold tracking-tight", className),
+            })}
             { !!subtitle && <p className={classNames("text-md text-muted-foreground", subtitleClass)}>{ subtitle }</p> }
         </div>
     )

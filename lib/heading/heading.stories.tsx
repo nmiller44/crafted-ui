@@ -7,6 +7,8 @@ import { Heading3 } from './Heading3';
 import { Heading4 } from './Heading4';
 import { Heading5 } from './Heading5';
 import { Card, CardBody } from '../card';
+import { Button } from '../button';
+import { IconDownload } from '../icons';
 
 const meta = {
   title: 'CraftedUI/Typography/Heading',
@@ -21,21 +23,29 @@ export const Feature: Story = {
   render: (args) => (
     <div className="max-w-3xl space-y-12">
       <div>
-        <Heading1 {...args} title="Craft Beer Brewing Guide" subtitle="Everything you need to know about homebrewing" />
+        <Heading1 {...args} title="Craft Beer Brewing Guide" subtitle="Everything you need to know about homebrewing">
+          <Button clr="primary">Get Started</Button>
+        </Heading1>
         <div className="mt-8 space-y-8">
           <Heading2 title="Getting Started" subtitle="Essential equipment and ingredients" />
           <p className="text-muted-foreground">
             Before you begin brewing, it's important to gather the right equipment...
           </p>
           
-          <Heading3 title="Equipment Checklist" subtitle="What you'll need for your first batch" />
+          <Heading3 title="Equipment Checklist" subtitle="What you'll need for your first batch">
+            <Button clr="secondary" ghost>
+              <IconDownload />
+            </Button>
+          </Heading3>
           <ul className="list-disc list-inside space-y-2 text-muted-foreground">
             <li>Brew kettle (5+ gallon capacity)</li>
             <li>Fermentation vessel</li>
             <li>Airlock and stopper</li>
           </ul>
 
-          <Heading4 title="Sanitation Basics" />
+          <Heading4 title="Sanitation Basics">
+            <Button outline clr="blank">Learn More</Button>
+          </Heading4>
           <p className="text-muted-foreground">
             Clean and sanitized equipment is crucial for successful brewing...
           </p>
@@ -58,6 +68,30 @@ export const Basic: Story = {
         <Heading4 {...args} title="Heading Four" subtitle="Minor headings" />
         <Heading5 {...args} title="Heading Five" subtitle="Smallest semantic heading" />
       </div>
+    </div>
+  )
+};
+
+export const HeadingUsageOptions: Story = {
+  args: {},
+  render: (args) => (
+    <div className="space-y-8 max-w-3xl">
+      <Heading1
+        {...args}
+        title="Pale Ale Tasting Notes"
+        subtitle="Bright citrus aroma with a crisp finish"
+      />
+
+      <Heading1 {...args} subtitle="Children passed as plain text is auto-styled as h1">
+        Session IPA Profile
+      </Heading1>
+
+      <Heading1 {...args} subtitle="Children passed as custom elements render as-is">
+        <h1 className="text-4xl font-bold tracking-tight flex items-center gap-2">
+          <span>🍺</span>
+          <span>Custom Heading Layout</span>
+        </h1>
+      </Heading1>
     </div>
   )
 };
@@ -114,6 +148,42 @@ export const CustomStyling: Story = {
           />
         </CardBody>
       </Card>
+    </div>
+  )
+};
+
+export const ActionButtons: Story = {
+  args: {},
+  render: (args) => (
+    <div className="space-y-8 max-w-3xl">
+      <Heading1 title="Brewing Recipes" subtitle="Explore our collection of craft beer recipes">
+        <Button clr="primary">Add Recipe</Button>
+      </Heading1>
+
+      <Heading2 title="Active Batches" subtitle="Currently fermenting">
+        <div className="flex gap-2">
+          <Button outline>Filter</Button>
+          <Button clr="primary">New Batch</Button>
+        </div>
+      </Heading2>
+
+      <Heading3 title="Equipment Inventory">
+        <Button clr="secondary" ghost>
+          <IconDownload />
+        </Button>
+      </Heading3>
+
+      <Heading3 title="Fermentation Logs" subtitle="Track temperature and gravity readings">
+        <Button outline clr="blank">Export Data</Button>
+      </Heading3>
+
+      <Heading4 title="Yeast Strains">
+        <Button clr="accent">Manage</Button>
+      </Heading4>
+
+      <Heading5 title="Hop Schedule" subtitle="Timing and quantities">
+        <Button outline>Edit</Button>
+      </Heading5>
     </div>
   )
 };

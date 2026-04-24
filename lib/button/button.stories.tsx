@@ -266,3 +266,58 @@ export const Disabled: Story = {
     </div>
   )
 };
+
+export const WithLinks: Story = {
+  args: {},
+  render: (args) => (
+    <div className="flex flex-col space-y-6 max-w-2xl">
+      <div>
+        <h3 className="text-lg font-semibold text-foreground mb-2">Stretched Links</h3>
+        <p className="text-sm text-muted-foreground mb-4">
+          Button supports stretched links: placing a single <code className="px-1.5 py-0.5 rounded bg-muted text-muted-foreground text-xs">&lt;a&gt;</code> tag 
+          as a child makes the entire button clickable. This is useful for navigation styled as buttons.
+        </p>
+      </div>
+
+      <div className="space-y-4">
+        <div>
+          <div className="text-sm font-medium text-foreground mb-2">Example Usage:</div>
+          <pre className="p-4 rounded-md bg-muted text-sm overflow-x-auto">
+{`<Button clr="primary">
+  <a href="/dashboard">Go to Dashboard</a>
+</Button>
+
+<Button clr="secondary" ghost>
+  <a href="/settings">Settings</a>
+</Button>`}
+          </pre>
+        </div>
+
+        <div>
+          <div className="text-sm font-medium text-foreground mb-2">Visual Reference:</div>
+          <div className="flex flex-wrap gap-3">
+            <Button clr="primary">
+              <a href="#" onClick={(e) => e.preventDefault()}>Go to Dashboard</a>
+            </Button>
+            <Button clr="secondary">
+              <a href="#" onClick={(e) => e.preventDefault()}>Settings</a>
+            </Button>
+            <Button clr="accent" outline>
+              <a href="#" onClick={(e) => e.preventDefault()}>View Profile</a>
+            </Button>
+            <Button ghost>
+              <a href="#" onClick={(e) => e.preventDefault()}>Contact</a>
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <div className="p-4 rounded-md bg-muted/30 border border-border">
+        <p className="text-xs text-muted-foreground">
+          <strong>Note:</strong> The link's clickable area automatically expands to cover the entire button. 
+          Use this pattern for navigation actions styled as buttons. Only use one link per button.
+        </p>
+      </div>
+    </div>
+  )
+};
