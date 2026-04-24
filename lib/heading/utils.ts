@@ -20,6 +20,16 @@ const isTextOnlyChildren = (children: ReactNode) => {
 };
 
 export const renderHeadingContent = ({ title, children, tag, className }: RenderHeadingContentProps) => {
+    // When both title and children are provided, flex them with title on left and children on right
+    if (title && children) {
+        return createElement(
+            "div",
+            { className: "flex items-center justify-between gap-4" },
+            createElement(tag, { className }, title),
+            children
+        );
+    }
+
     if (title) {
         return createElement(tag, { className }, title);
     }
