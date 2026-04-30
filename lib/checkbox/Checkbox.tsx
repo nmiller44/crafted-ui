@@ -1,4 +1,4 @@
-import { Checkbox as CheckboxPrimitive } from "@base-ui-components/react"
+import { Checkbox as CheckboxPrimitive } from "@base-ui/react"
 import { classNames } from "~/utils";
 
 export type CheckboxProps = React.ComponentProps<typeof CheckboxPrimitive.Root> & {

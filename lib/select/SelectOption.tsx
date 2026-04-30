@@ -1,4 +1,4 @@
-import { Select as SelectPrimitive } from "@base-ui-components/react"
+import { Select as SelectPrimitive } from "@base-ui/react"
 import { classNames } from "~/utils";
 
 /**

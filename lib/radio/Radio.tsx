@@ -1,4 +1,4 @@
-import { Radio as RadioPrimitive } from "@base-ui-components/react"
+import { Radio as RadioPrimitive } from "@base-ui/react"
 import { classNames } from "~/utils";
 
 export type RadioProps = React.ComponentProps<typeof RadioPrimitive.Root>;

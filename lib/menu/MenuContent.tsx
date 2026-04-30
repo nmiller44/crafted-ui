@@ -1,4 +1,4 @@
-import { Menu as MenuPrimitive } from "@base-ui-components/react"
+import { Menu as MenuPrimitive } from "@base-ui/react"
 import { classNames } from "~/utils"
 
 /**

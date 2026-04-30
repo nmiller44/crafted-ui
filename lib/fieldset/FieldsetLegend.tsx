@@ -1,4 +1,4 @@
-import { Fieldset as FieldsetPrimitive } from "@base-ui-components/react"
+import { Fieldset as FieldsetPrimitive } from "@base-ui/react"
 import { Heading5 } from "~/heading";
 import { classNames } from "~/utils";
 

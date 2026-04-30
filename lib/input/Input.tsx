@@ -1,4 +1,4 @@
-import { Input as InputPrimitive } from "@base-ui-components/react"
+import { Input as InputPrimitive } from "@base-ui/react"
 import { classNames } from "~/utils";
 
 export type InputProps = React.ComponentProps<typeof InputPrimitive>

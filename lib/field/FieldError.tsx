@@ -1,4 +1,4 @@
-import { Field as FieldPrimitive } from "@base-ui-components/react"
+import { Field as FieldPrimitive } from "@base-ui/react"
 import { classNames } from "~/utils";
 
 export type FieldErrorProps = React.ComponentProps<typeof FieldPrimitive.Root>
