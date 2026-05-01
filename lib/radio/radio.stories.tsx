@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { RadioGroup } from './RadioGroup';
 import { Radio } from './Radio';
 import { Field, FieldLabel } from '../field';
-import { Fieldset } from '../fieldset/Fieldset';
+import { Fieldset } from '../fieldset';
 
 const meta = {
   title: 'CraftedUI/Forms/Radio',
@@ -56,7 +56,7 @@ export const Basic: Story = {
       
       <Field>
         <FieldLabel>With Error</FieldLabel>
-        <RadioGroup aria-invalid={true}>
+        <RadioGroup data-invalid>
           <Radio value="option1">This radio group has an error</Radio>
           <Radio value="option2">Option 2</Radio>
         </RadioGroup>

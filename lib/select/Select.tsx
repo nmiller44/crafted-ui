@@ -10,6 +10,7 @@ export type SelectProps = React.ComponentProps<typeof SelectPrimitive.Root> & {
     alignOffset?: number;
     className?: string;
     "aria-invalid"?: boolean | "true" | "false";
+    "data-invalid"?: string | boolean;
 }
 
 /**
@@ -47,6 +48,7 @@ export const Select = ({
     children,
     className,
     "aria-invalid": ariaInvalid,
+    "data-invalid": dataInvalid,
     disabled = false,
     ...props
 }: SelectProps) => {
@@ -59,6 +61,7 @@ export const Select = ({
             <SelectPrimitive.Root items={items} {...props} disabled={shouldDisable}>
                 <SelectPrimitive.Trigger 
                     aria-invalid={ariaInvalid}
+                    data-invalid={dataInvalid}
                     className={classNames(
                         "flex items-center justify-between",
                         "w-full",

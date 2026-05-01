@@ -3,7 +3,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Field, FieldLabel } from '../field';
-import { Textarea } from './Textarea';
+import { Textarea } from './textarea';
 
 const meta = {
   title: 'CraftedUI/Forms/Textarea',
@@ -48,7 +48,7 @@ export const Basic: Story = {
       
       <Field>
         <FieldLabel>With Error</FieldLabel>
-        <Textarea aria-invalid placeholder="This field has an error" rows={3} />
+        <Textarea data-invalid placeholder="This field has an error" rows={3} />
       </Field>
       
       <Field>

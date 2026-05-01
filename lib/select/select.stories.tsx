@@ -4,6 +4,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Select } from './Select';
 import { SelectOption } from './SelectOption';
 import { Field, FieldLabel } from '../field';
+import { Combobox } from '../combobox';
+import { Input } from '../input';
 
 const meta = {
   title: 'CraftedUI/Forms/Select',
@@ -27,19 +29,48 @@ export const Feature: Story = {
   args: {},
   render: (args) => (
     <div className="max-w-lg space-y-6">
-      <Field>
-        <FieldLabel>Beer Style</FieldLabel>
-        <Select items={beerStyles} defaultValue="ipa" />
-      </Field>
-      <Field>
-        <FieldLabel>Brewery Location</FieldLabel>
-        <Select items={[
-          { value: 'portland', label: 'Portland, OR' },
-          { value: 'denver', label: 'Denver, CO' },
-          { value: 'asheville', label: 'Asheville, NC' },
-          { value: 'san-diego', label: 'San Diego, CA' },
-        ]} />
-      </Field>
+      <div className="grid grid-cols-3 gap-4">
+        <Field className="col-span-2">
+          <FieldLabel>Select - Beer Style</FieldLabel>
+          <Select items={beerStyles} defaultValue="ipa" />
+        </Field>
+        <Field className="col-span-1">
+          <FieldLabel>Combobox - Beer Style</FieldLabel>
+          <Combobox items={beerStyles} defaultValue={beerStyles[0]} />
+        </Field>
+        <Field className="col-span-1">
+          <FieldLabel>Select - No Value</FieldLabel>
+          <Select items={beerStyles} placeholder="Choose a style..." />
+        </Field>
+        <Field className="col-span-1">
+          <FieldLabel>Combobox - Beer Style</FieldLabel>
+          <Input />
+        </Field>
+        <Field className="col-span-1">
+          <FieldLabel>Combobox - Beer Style</FieldLabel>
+          <Combobox items={beerStyles} defaultValue={beerStyles[0]} />
+        </Field>
+        <Field className="col-span-2">
+          <FieldLabel>Combobox - Beer Style</FieldLabel>
+          <Combobox items={beerStyles} defaultValue={beerStyles[0]} />
+        </Field>
+        <Field className="col-span-1">
+          <FieldLabel>Select - No Value</FieldLabel>
+          <Select items={beerStyles} placeholder="Choose a style..." />
+        </Field>
+        <Field className="col-span-1">
+          <FieldLabel>Select - No Value</FieldLabel>
+          <Select items={beerStyles} placeholder="Choose a style..." />
+        </Field>
+        <Field className="col-span-2">
+          <FieldLabel>Combobox - Beer Style</FieldLabel>
+          <Combobox items={beerStyles} defaultValue={beerStyles[0]} />
+        </Field>
+        <Field>
+          <FieldLabel>Combobox - No Value</FieldLabel>
+          <Combobox items={beerStyles} placeholder="Search styles..." />
+        </Field>
+      </div>
     </div>
   )
 };
@@ -59,7 +90,7 @@ export const Basic: Story = {
       
       <Field>
         <FieldLabel>With Error</FieldLabel>
-        <Select items={beerStyles} aria-invalid={true} placeholder="This field has an error" />
+        <Select items={beerStyles} data-invalid placeholder="This field has an error" />
       </Field>
       
       <Field>
