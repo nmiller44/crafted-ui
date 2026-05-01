@@ -1,4 +1,4 @@
-import { Select as SelectPrimitive } from "@base-ui-components/react"
+import { Select as SelectPrimitive } from "@base-ui/react"
 import { classNames } from "~/utils";
 import { SelectOption } from "./SelectOption";
 import { ReactNode } from "react";
@@ -61,19 +61,20 @@ export const Select = ({
                     aria-invalid={ariaInvalid}
                     className={classNames(
                         "flex items-center justify-between",
-                        "w-full py-2 px-3",
+                        "w-full",
                         "rounded-t-md border-0 ring-1 ring-inset ring-border outline-0 shadow-sm",
                         "aria-[expanded=false]:rounded-b-md",
                         "aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-danger",
+                        "data-[invalid]:ring-2 data-[invalid]:ring-danger",
                         "text-sm text-foreground placeholder:text-muted-foreground", 
                         "focus:ring-2 focus:ring-inset focus:border-foreground focus:outline-0 focus:ring-foreground",
-                        "cursor-pointer *:cursor-pointer", // "*:outline-0"
+                        "cursor-pointer *:cursor-pointer",
                         "data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed data-[disabled]:[&>*]:cursor-not-allowed",
                         className
                     )}
                 >
-                    <SelectPrimitive.Value />
-                    <SelectPrimitive.Icon className="text-muted-foreground flex-shrink-0">
+                    <SelectPrimitive.Value className="flex-1 min-w-0 truncate py-2 px-3 leading-5 text-left after:content-['\200b'] after:inline" />
+                    <SelectPrimitive.Icon className="text-muted-foreground flex-shrink-0 pr-3">
                         <IconChevronDown className="size-4" />
                     </SelectPrimitive.Icon>
                 </SelectPrimitive.Trigger>
