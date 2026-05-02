@@ -1,4 +1,4 @@
-import { CheckboxGroup as CheckboxGroupPrimitive } from "@base-ui-components/react";
+import { CheckboxGroup as CheckboxGroupPrimitive } from "@base-ui/react";
 import { classNames } from "~/utils";
 
 export type CheckboxGroupProps = React.ComponentProps<typeof CheckboxGroupPrimitive> & {

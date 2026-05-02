@@ -1,5 +1,5 @@
 
-import { Avatar as AvatarPrimitive } from "@base-ui-components/react"
+import { Avatar as AvatarPrimitive } from "@base-ui/react"
 import { classNames } from "~/utils"
 
 export type AvatarProps = React.ComponentProps<typeof AvatarPrimitive.Root> & {

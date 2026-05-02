@@ -1,4 +1,4 @@
-import { Dialog as DialogPrimitive } from "@base-ui-components/react"
+import { Dialog as DialogPrimitive } from "@base-ui/react"
 import { Heading5 } from "~/heading"
 import { classNames } from "~/utils"
 import { ModalClose } from "./ModalClose"

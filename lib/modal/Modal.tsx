@@ -1,4 +1,4 @@
-import { Dialog as DialogPrimitive } from "@base-ui-components/react"
+import { Dialog as DialogPrimitive } from "@base-ui/react"
 
 export type ModalProps = React.ComponentProps<typeof DialogPrimitive.Root>
 

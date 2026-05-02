@@ -1,4 +1,4 @@
-import { Form as FormPrimitive } from "@base-ui-components/react"
+import { Form as FormPrimitive } from "@base-ui/react"
 import { classNames } from "~/utils";
 
 /**

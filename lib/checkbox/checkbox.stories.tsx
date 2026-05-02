@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Checkbox } from './Checkbox';
 import { CheckboxGroup } from './CheckboxGroup';
 import { Field } from '../field/Field';
-import { Fieldset } from '../fieldset/Fieldset';
+import { Fieldset } from '../fieldset';
 
 const meta = {
   title: 'CraftedUI/Forms/Checkbox',
@@ -57,7 +57,7 @@ export const Basic: Story = {
       <Field>
         <Fieldset title="With Error">
           <CheckboxGroup>
-            <Checkbox aria-invalid>This checkbox has an error</Checkbox>
+            <Checkbox data-invalid>This checkbox has an error</Checkbox>
           </CheckboxGroup>
         </Fieldset>
       </Field>

@@ -1,4 +1,4 @@
-import { RadioGroup as RadioGroupPrimitive } from "@base-ui-components/react"
+import { RadioGroup as RadioGroupPrimitive } from "@base-ui/react"
 import { classNames } from "~/utils";
 
 export type RadioGroupProps = React.ComponentProps<typeof RadioGroupPrimitive>;

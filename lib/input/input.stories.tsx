@@ -50,7 +50,7 @@ export const Basic: Story = {
       
       <Field>
         <FieldLabel>With Error</FieldLabel>
-        <Input aria-invalid placeholder="This field has an error" />
+        <Input data-invalid placeholder="This field has an error" />
       </Field>
       
       <Field>

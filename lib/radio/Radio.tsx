@@ -1,4 +1,4 @@
-import { Radio as RadioPrimitive } from "@base-ui-components/react"
+import { Radio as RadioPrimitive } from "@base-ui/react"
 import { classNames } from "~/utils";
 
 export type RadioProps = React.ComponentProps<typeof RadioPrimitive.Root>;
@@ -23,6 +23,7 @@ export const Radio = ({
                     "flex items-center justify-center",
                     "group-data-[checked]:border-2 group-data-[checked]:border-primary",
                     "group-aria-[invalid=true]:ring-2 group-aria-[invalid=true]:ring-danger",
+                    "group-data-[invalid]:ring-2 group-data-[invalid]:ring-danger",
                     "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
                     "transition-colors duration-200"
                 )}>

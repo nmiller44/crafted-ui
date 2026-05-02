@@ -1,4 +1,4 @@
-import { Fieldset as FieldsetPrimitive } from "@base-ui-components/react"
+import { Fieldset as FieldsetPrimitive } from "@base-ui/react"
 import { classNames } from "~/utils";
 import { FieldsetLegend } from "./FieldsetLegend";
 
