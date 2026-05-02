@@ -3,7 +3,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Field, FieldLabel } from '../field';
-import { Textarea } from './textarea';
+import { Textarea } from './Textarea';
 
 const meta = {
   title: 'CraftedUI/Forms/Textarea',
