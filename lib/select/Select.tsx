@@ -76,7 +76,7 @@ export const Select = ({
                         className
                     )}
                 >
-                    <SelectPrimitive.Value className="flex-1 min-w-0 truncate py-2 px-3 leading-5 text-left after:content-['\200b'] after:inline" />
+                    <SelectPrimitive.Value placeholder={placeholder || ' '} className="flex-1 min-w-0 truncate py-2 px-3 leading-5 text-left" />
                     <SelectPrimitive.Icon className="text-muted-foreground flex-shrink-0 pr-3">
                         <IconChevronDown className="size-4" />
                     </SelectPrimitive.Icon>
