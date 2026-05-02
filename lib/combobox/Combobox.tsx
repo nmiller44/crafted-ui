@@ -57,12 +57,6 @@ export const Combobox = ({
     const isEmpty = !items || items.length === 0;
     const shouldDisable = disabled || (isEmpty && !children);
 
-    // Tell Base UI how to convert items to searchable strings
-    const itemToString = (item: ComboboxItemProp | null) => {
-        if (!item) return '';
-        return typeof item.label === 'string' ? item.label : String(item.value);
-    };
-
     return (
         <div className="mt-1">
             <ComboboxPrimitive.Root 
