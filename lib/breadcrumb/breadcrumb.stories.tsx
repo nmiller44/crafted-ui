@@ -58,7 +58,7 @@ export const SeparatorTypes: Story = {
 
       <div>
         <p className="text-sm text-muted-foreground mb-2">Slash</p>
-        <Breadcrumb {...args}>
+        <Breadcrumb {...args} aria-label="Breadcrumb - Slash">
           <BreadcrumbList>
             <BreadcrumbListItem><a href="/">Home</a></BreadcrumbListItem>
             <BreadcrumbSeparator type="slash" />
@@ -71,7 +71,7 @@ export const SeparatorTypes: Story = {
 
       <div>
         <p className="text-sm text-muted-foreground mb-2">Dot</p>
-        <Breadcrumb {...args}>
+        <Breadcrumb {...args} aria-label="Breadcrumb - Dot">
           <BreadcrumbList>
             <BreadcrumbListItem><a href="/">Home</a></BreadcrumbListItem>
             <BreadcrumbSeparator type="dot" />
@@ -84,7 +84,7 @@ export const SeparatorTypes: Story = {
 
       <div>
         <p className="text-sm text-muted-foreground mb-2">Custom separator</p>
-        <Breadcrumb {...args}>
+        <Breadcrumb {...args} aria-label="Breadcrumb - Custom">
           <BreadcrumbList>
             <BreadcrumbListItem><a href="/">Home</a></BreadcrumbListItem>
             <BreadcrumbSeparator>→</BreadcrumbSeparator>

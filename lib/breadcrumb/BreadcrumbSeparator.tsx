@@ -8,7 +8,7 @@ import { IconChevronRight } from "~/icons";
  * @category Layout
  * @accessibility Hidden from screen readers with aria-hidden="true"
  * @since 0.2.6
- * @see {@link https://crafted-ui.com/docs/components/breadcrumb}
+ * @see {@link https://crafted-ui.com/docs/layout/breadcrumb}
  * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-layout-breadcrumb}
  * 
  * @param type - Separator style: "chevron" (default), "slash", or "dot"
