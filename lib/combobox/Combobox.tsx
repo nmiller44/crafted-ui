@@ -9,8 +9,6 @@ export type ComboboxProps = React.ComponentProps<typeof ComboboxPrimitive.Root> 
     align?: "start" | "center" | "end";
     alignOffset?: number;
     className?: string;
-    "aria-invalid"?: boolean | "true" | "false";
-    "data-invalid"?: string | boolean;
 }
 
 /**
@@ -48,8 +46,6 @@ export const Combobox = ({
     items = [] as ComboboxItemProp[],
     children,
     className,
-    "aria-invalid": ariaInvalid,
-    "data-invalid": dataInvalid,
     disabled = false,
     ...props
 }: ComboboxProps) => {
@@ -65,8 +61,6 @@ export const Combobox = ({
                 disabled={shouldDisable}
             >
                 <ComboboxPrimitive.InputGroup
-                    aria-invalid={ariaInvalid}
-                    data-invalid={dataInvalid}
                     className={classNames(
                         "flex items-center",
                         "w-full",
@@ -74,6 +68,8 @@ export const Combobox = ({
                         "rounded-b-md data-[popup-open]:rounded-b-none",
                         "aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-danger",
                         "data-[invalid]:ring-2 data-[invalid]:ring-danger",
+                        "has-[[data-invalid]]:ring-2 has-[[data-invalid]]:ring-danger",
+                        "group-data-[invalid]:ring-2 group-data-[invalid]:ring-danger",
                         "text-sm text-foreground",
                         "focus-within:ring-2 focus-within:ring-inset focus-within:ring-foreground",
                         "data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed",
