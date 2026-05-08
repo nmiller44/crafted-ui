@@ -1,8 +1,15 @@
 import { classNames } from "~/utils";
 
-export type IconDownloadProps = React.ComponentProps<"svg">;
+/**
+ * Download icon.
+ * 
+ * @param props.label - Semantic label for accessibility contexts. Defaults to "Download".
+ */
+export type IconDownloadProps = React.ComponentProps<"svg"> & {
+  label?: string;
+};
 
-export const IconDownload = ({ className, ...props }: IconDownloadProps) => (
+export const IconDownload = ({ label = "Download", className, ...props }: IconDownloadProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 
@@ -19,3 +26,4 @@ export const IconDownload = ({ className, ...props }: IconDownloadProps) => (
     <line x1="12" y1="15" x2="12" y2="3" />
   </svg>
 );
+IconDownload.label = "Download";

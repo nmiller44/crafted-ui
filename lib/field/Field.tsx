@@ -29,6 +29,7 @@ export const Field = ({ label, className, children, ...props }: FieldProps) => {
     return (
         <FieldPrimitive.Root 
             className={classNames(
+                        "group",
                         "relative space-y-1.5",
                         "col-span-full",
                         className)} {...props}>

@@ -1,8 +1,15 @@
 import { classNames } from "~/utils";
 
-export type IconChevronDownProps = React.ComponentProps<"svg">;
+/**
+ * Downward chevron icon for expanding content.
+ * 
+ * @param props.label - Semantic label for accessibility contexts. Defaults to "Expand".
+ */
+export type IconChevronDownProps = React.ComponentProps<"svg"> & {
+  label?: string;
+};
 
-export const IconChevronDown = ({ className, ...props }: IconChevronDownProps) => (
+export const IconChevronDown = ({ label = "Expand", className, ...props }: IconChevronDownProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 
@@ -17,3 +24,5 @@ export const IconChevronDown = ({ className, ...props }: IconChevronDownProps) =
     <path d="M6 9l6 6 6-6" />
   </svg>
 );
+
+IconChevronDown.label = "Expand";

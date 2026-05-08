@@ -1,6 +1,13 @@
 import { classNames } from "~/utils";
 
+/**
+ * Location/map pin icon.
+ * 
+ * @param props.label - Semantic label for accessibility contexts. Defaults to "Location".
+ * @param props.size - Icon size variant.
+ */
 export type IconLocationProps = React.ComponentProps<"svg"> & {
+  label?: string;
   size?: "xs" | "sm" | "md" | "lg" | "xl";
 };
 
@@ -13,6 +20,7 @@ const sizeMapper = {
 };
 
 export const IconLocation = ({ 
+  label = "Location",
   size = "md", 
   className,
   ...props 
@@ -28,3 +36,5 @@ export const IconLocation = ({
     </svg>
   );
 };
+
+IconLocation.label = "Location";

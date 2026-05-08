@@ -1,8 +1,15 @@
 import { classNames } from "~/utils";
 
-export type IconArrowLeftProps = React.ComponentProps<"svg">;
+/**
+ * Left arrow icon for navigation.
+ * 
+ * @param props.label - Semantic label for accessibility contexts. Defaults to "Previous".
+ */
+export type IconArrowLeftProps = React.ComponentProps<"svg"> & {
+  label?: string;
+};
 
-export const IconArrowLeft = ({ className, ...props }: IconArrowLeftProps) => (
+export const IconArrowLeft = ({ label = "Previous", className, ...props }: IconArrowLeftProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 
@@ -17,3 +24,5 @@ export const IconArrowLeft = ({ className, ...props }: IconArrowLeftProps) => (
     <path d="M19 12H5M5 12l6-6M5 12l6 6" />
   </svg>
 );
+
+IconArrowLeft.label = "Previous";

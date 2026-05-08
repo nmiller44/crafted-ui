@@ -1,8 +1,15 @@
 import { classNames } from "~/utils";
 
-export type IconCopyProps = React.ComponentProps<"svg">;
+/**
+ * Copy/clipboard icon.
+ * 
+ * @param props.label - Semantic label for accessibility contexts. Defaults to "Copy".
+ */
+export type IconCopyProps = React.ComponentProps<"svg"> & {
+  label?: string;
+};
 
-export const IconCopy = ({ className, ...props }: IconCopyProps) => (
+export const IconCopy = ({ label = "Copy", className, ...props }: IconCopyProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 
@@ -18,3 +25,4 @@ export const IconCopy = ({ className, ...props }: IconCopyProps) => (
     <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
   </svg>
 );
+IconCopy.label = "Copy";

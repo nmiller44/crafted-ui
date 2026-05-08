@@ -1,8 +1,15 @@
 import { classNames } from "~/utils";
 
-export type IconChevronLeftProps = React.ComponentProps<"svg">;
+/**
+ * Left chevron icon for navigation.
+ * 
+ * @param props.label - Semantic label for accessibility contexts. Defaults to "Previous".
+ */
+export type IconChevronLeftProps = React.ComponentProps<"svg"> & {
+  label?: string;
+};
 
-export const IconChevronLeft = ({ className, ...props }: IconChevronLeftProps) => (
+export const IconChevronLeft = ({ label = "Previous", className, ...props }: IconChevronLeftProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 
@@ -17,3 +24,5 @@ export const IconChevronLeft = ({ className, ...props }: IconChevronLeftProps) =
     <path d="M15 18l-6-6 6-6" />
   </svg>
 );
+
+IconChevronLeft.label = "Previous";

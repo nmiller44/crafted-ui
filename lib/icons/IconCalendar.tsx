@@ -1,8 +1,15 @@
 import { classNames } from "~/utils";
 
-export type IconCalendarProps = React.ComponentProps<"svg">;
+/**
+ * Calendar icon.
+ * 
+ * @param props.label - Semantic label for accessibility contexts. Defaults to "Calendar".
+ */
+export type IconCalendarProps = React.ComponentProps<"svg"> & {
+  label?: string;
+};
 
-export const IconCalendar = ({ className, ...props }: IconCalendarProps) => (
+export const IconCalendar = ({ label = "Calendar", className, ...props }: IconCalendarProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 
@@ -18,3 +25,5 @@ export const IconCalendar = ({ className, ...props }: IconCalendarProps) => (
     <path d="M3 10h18M8 3v4M16 3v4" />
   </svg>
 );
+
+IconCalendar.label = "Calendar";

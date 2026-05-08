@@ -1,8 +1,15 @@
 import { classNames } from "~/utils";
 
-export type IconShareProps = React.ComponentProps<"svg">;
+/**
+ * Share icon.
+ * 
+ * @param props.label - Semantic label for accessibility contexts. Defaults to "Share".
+ */
+export type IconShareProps = React.ComponentProps<"svg"> & {
+  label?: string;
+};
 
-export const IconShare = ({ className, ...props }: IconShareProps) => (
+export const IconShare = ({ label = "Share", className, ...props }: IconShareProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 
@@ -20,3 +27,5 @@ export const IconShare = ({ className, ...props }: IconShareProps) => (
     <path d="M8.5 13.5l7 3M8.5 10.5l7-3" />
   </svg>
 );
+
+IconShare.label = "Share";
