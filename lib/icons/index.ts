@@ -1,6 +1,7 @@
 export * from "./IconArrowLeft";
 export * from "./IconArrowRight";
 export * from "./IconBeer";
+export * from "./IconBuilding";
 export * from "./IconCalendar";
 export * from "./IconCheck";
 export * from "./IconChevronDown";
