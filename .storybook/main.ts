@@ -6,6 +6,7 @@ const config: StorybookConfig = {
     "../lib/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
   "addons": [
+    "@storybook/addon-a11y",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions"
   ],
