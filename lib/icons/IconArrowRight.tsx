@@ -1,8 +1,15 @@
 import { classNames } from "~/utils";
 
-export type IconArrowRightProps = React.ComponentProps<"svg">;
+/**
+ * Right arrow icon for navigation.
+ * 
+ * @param props.label - Semantic label for accessibility contexts. Defaults to "Next".
+ */
+export type IconArrowRightProps = React.ComponentProps<"svg"> & {
+  label?: string;
+};
 
-export const IconArrowRight = ({ className, ...props }: IconArrowRightProps) => (
+export const IconArrowRight = ({ label = "Next", className, ...props }: IconArrowRightProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 
@@ -17,3 +24,4 @@ export const IconArrowRight = ({ className, ...props }: IconArrowRightProps) => 
     <path d="M5 12h14M19 12l-6-6M19 12l-6 6" />
   </svg>
 );
+IconArrowRight.label = "Next";

@@ -1,8 +1,15 @@
 import { classNames } from "~/utils";
 
-export type IconMinusProps = React.ComponentProps<"svg">;
+/**
+ * Minus icon for removing or decreasing.
+ * 
+ * @param props.label - Semantic label for accessibility contexts. Defaults to "Remove".
+ */
+export type IconMinusProps = React.ComponentProps<"svg"> & {
+  label?: string;
+};
 
-export const IconMinus = ({ className, ...props }: IconMinusProps) => (
+export const IconMinus = ({ label = "Remove", className, ...props }: IconMinusProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 
@@ -17,3 +24,5 @@ export const IconMinus = ({ className, ...props }: IconMinusProps) => (
     <path d="M5 12h14" />
   </svg>
 );
+
+IconMinus.label = "Remove";

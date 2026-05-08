@@ -1,8 +1,15 @@
 import { classNames } from "~/utils";
 
-export type IconPlusProps = React.ComponentProps<"svg">;
+/**
+ * Plus icon for adding or increasing.
+ * 
+ * @param props.label - Semantic label for accessibility contexts. Defaults to "Add".
+ */
+export type IconPlusProps = React.ComponentProps<"svg"> & {
+  label?: string;
+};
 
-export const IconPlus = ({ className, ...props }: IconPlusProps) => (
+export const IconPlus = ({ label = "Add", className, ...props }: IconPlusProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 
@@ -17,3 +24,5 @@ export const IconPlus = ({ className, ...props }: IconPlusProps) => (
     <path d="M12 5v14M5 12h14" />
   </svg>
 );
+
+IconPlus.label = "Add";

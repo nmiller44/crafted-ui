@@ -1,8 +1,15 @@
 import { classNames } from "~/utils";
 
-export type IconPencilProps = React.ComponentProps<"svg">;
+/**
+ * Pencil/edit icon.
+ * 
+ * @param props.label - Semantic label for accessibility contexts. Defaults to "Edit".
+ */
+export type IconPencilProps = React.ComponentProps<"svg"> & {
+  label?: string;
+};
 
-export const IconPencil = ({ className, ...props }: IconPencilProps) => (
+export const IconPencil = ({ label = "Edit", className, ...props }: IconPencilProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 
@@ -17,3 +24,5 @@ export const IconPencil = ({ className, ...props }: IconPencilProps) => (
     <path d="M17 3l4 4L7 21H3v-4L17 3z" />
   </svg>
 );
+
+IconPencil.label = "Edit";

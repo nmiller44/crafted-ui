@@ -1,8 +1,15 @@
 import { classNames } from "~/utils";
 
-export type IconChevronUpProps = React.ComponentProps<"svg">;
+/**
+ * Upward chevron icon for collapsing content.
+ * 
+ * @param props.label - Semantic label for accessibility contexts. Defaults to "Collapse".
+ */
+export type IconChevronUpProps = React.ComponentProps<"svg"> & {
+  label?: string;
+};
 
-export const IconChevronUp = ({ className, ...props }: IconChevronUpProps) => (
+export const IconChevronUp = ({ label = "Collapse", className, ...props }: IconChevronUpProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 
@@ -17,3 +24,5 @@ export const IconChevronUp = ({ className, ...props }: IconChevronUpProps) => (
     <path d="M18 15l-6-6-6 6" />
   </svg>
 );
+
+IconChevronUp.label = "Collapse";

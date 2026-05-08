@@ -1,8 +1,15 @@
 import { classNames } from "~/utils";
 
-export type IconSearchProps = React.ComponentProps<"svg">;
+/**
+ * Search/magnifying glass icon.
+ * 
+ * @param props.label - Semantic label for accessibility contexts. Defaults to "Search".
+ */
+export type IconSearchProps = React.ComponentProps<"svg"> & {
+  label?: string;
+};
 
-export const IconSearch = ({ className, ...props }: IconSearchProps) => (
+export const IconSearch = ({ label = "Search", className, ...props }: IconSearchProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 
@@ -17,3 +24,5 @@ export const IconSearch = ({ className, ...props }: IconSearchProps) => (
     <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
   </svg>
 );
+
+IconSearch.label = "Search";

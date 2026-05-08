@@ -1,8 +1,15 @@
 import { classNames } from "~/utils";
 
-export type IconXProps = React.ComponentProps<"svg">;
+/**
+ * X/close icon.
+ * 
+ * @param props.label - Semantic label for accessibility contexts. Defaults to "Close".
+ */
+export type IconXProps = React.ComponentProps<"svg"> & {
+  label?: string;
+};
 
-export const IconX = ({ className, ...props }: IconXProps) => (
+export const IconX = ({ label = "Close", className, ...props }: IconXProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 
@@ -17,3 +24,5 @@ export const IconX = ({ className, ...props }: IconXProps) => (
     <path d="M6 18L18 6M6 6l12 12" />
   </svg>
 );
+
+IconX.label = "Close";

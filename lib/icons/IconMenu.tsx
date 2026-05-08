@@ -1,8 +1,15 @@
 import { classNames } from "~/utils";
 
-export type IconMenuProps = React.ComponentProps<"svg">;
+/**
+ * Menu/hamburger icon.
+ * 
+ * @param props.label - Semantic label for accessibility contexts. Defaults to "Menu".
+ */
+export type IconMenuProps = React.ComponentProps<"svg"> & {
+  label?: string;
+};
 
-export const IconMenu = ({ className, ...props }: IconMenuProps) => (
+export const IconMenu = ({ label = "Menu", className, ...props }: IconMenuProps) => (
   <svg
     className={classNames("size-5", className)}
     xmlns="http://www.w3.org/2000/svg"
@@ -17,3 +24,5 @@ export const IconMenu = ({ className, ...props }: IconMenuProps) => (
     <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
   </svg>
 );
+
+IconMenu.label = "Menu";

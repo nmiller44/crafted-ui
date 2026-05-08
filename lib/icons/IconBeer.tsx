@@ -1,8 +1,15 @@
 import { classNames } from "~/utils";
 
-export type IconBeerProps = React.ComponentProps<"svg">;
+/**
+ * Beer mug icon.
+ * 
+ * @param props.label - Semantic label for accessibility contexts. Defaults to "Beer".
+ */
+export type IconBeerProps = React.ComponentProps<"svg"> & {
+  label?: string;
+};
 
-export const IconBeer = ({ className, ...props }: IconBeerProps) => (
+export const IconBeer = ({ label = "Beer", className, ...props }: IconBeerProps) => (
   <svg 
     className={classNames("size-5", className)} 
     xmlns="http://www.w3.org/2000/svg" 
@@ -21,3 +28,4 @@ export const IconBeer = ({ className, ...props }: IconBeerProps) => (
     <line x1="7.99" y1="12.4" x2="7.99" y2="17.97"/>
   </svg>
 );
+IconBeer.label = "Beer";
