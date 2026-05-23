@@ -88,9 +88,9 @@ export const Basic: Story = {
         <Select items={beerStyles} placeholder="Choose a beer style..." />
       </Field>
       
-      <Field>
+      <Field data-invalid>
         <FieldLabel>With Error</FieldLabel>
-        <Select items={beerStyles} data-invalid placeholder="This field has an error" />
+        <Select items={beerStyles} placeholder="This field has an error" />
       </Field>
       
       <Field>

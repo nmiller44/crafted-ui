@@ -54,16 +54,15 @@ export const Combobox = ({
     const shouldDisable = disabled || (isEmpty && !children);
 
     return (
-        <div className="mt-1">
-            <ComboboxPrimitive.Root 
-                items={items}
-                {...props} 
-                disabled={shouldDisable}
-            >
-                <ComboboxPrimitive.InputGroup
-                    className={classNames(
-                        "flex items-center",
-                        "w-full",
+        <ComboboxPrimitive.Root 
+            items={items}
+            {...props} 
+            disabled={shouldDisable}
+        >
+            <ComboboxPrimitive.InputGroup
+                className={classNames(
+                    "flex items-center",
+                    "mt-1 w-full",
                         "rounded-t-md border-0 ring-1 ring-inset ring-border outline-0 shadow-sm",
                         "rounded-b-md data-[popup-open]:rounded-b-none",
                         "aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-danger",
@@ -113,7 +112,6 @@ export const Combobox = ({
                         </ComboboxPrimitive.Popup>
                     </ComboboxPrimitive.Positioner>
                 </ComboboxPrimitive.Portal>
-            </ComboboxPrimitive.Root>
-        </div>
+        </ComboboxPrimitive.Root>
     )
 }

@@ -48,9 +48,9 @@ export const Basic: Story = {
         <Input placeholder="Enter beer name..." />
       </Field>
       
-      <Field>
+      <Field data-invalid>
         <FieldLabel>With Error</FieldLabel>
-        <Input data-invalid placeholder="This field has an error" />
+        <Input placeholder="This field has an error" />
       </Field>
       
       <Field>

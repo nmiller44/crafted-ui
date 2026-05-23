@@ -1,5 +1,6 @@
 import { classNames } from "~/utils";
 import { DescListLabel } from "./DescListLabel";
+import { useDescListContext } from "./DescList";
 
 /**
  * Individual key-value pair for DescList.
@@ -10,22 +11,34 @@ import { DescListLabel } from "./DescListLabel";
  * @since 0.2.0
  * @related DescList - Parent wrapper component
  * @related DescListLabel - Label component for the key
+ * 
+ * @param inline - When true, displays label and value on the same line. Overrides parent DescList inline setting
+ * @param nocolon - When true, prevents automatic colon after inline labels
  */
 export type DescListItemProps = React.ComponentProps<"div"> & {
     label?: string;
     value?: React.ReactNode;
+    inline?: boolean;
+    nocolon?: boolean;
 }
 
-export const DescListItem = ({ label, value, className, children, ...props }: DescListItemProps) => {
+export const DescListItem = ({ label, value, inline, nocolon = false, className, children, ...props }: DescListItemProps) => {
+    const context = useDescListContext();
+    const isInline = inline !== undefined ? inline : context.inline;
 
     return (
         <div className={classNames(
-            "space-y-2",
+            isInline 
+                ? "flex items-center gap-x-2"
+                : "space-y-2",
             "col-span-full",
             className
         )} {...props}>
-            <DescListLabel>{ label }</DescListLabel>
-            <dd className="text-sm text-foreground leading-6">
+            <DescListLabel inline={isInline} nocolon={nocolon} className={isInline ? "flex-shrink-0" : ""}>{ label }</DescListLabel>
+            <dd className={classNames(
+                "text-sm text-foreground leading-6",
+                isInline ? "flex-1" : ""
+            )}>
                 {value || children}
             </dd>
         </div>

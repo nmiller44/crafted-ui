@@ -46,9 +46,9 @@ export const Basic: Story = {
         <Textarea placeholder="Unlabeled textarea" rows={3} />
       </Field>
       
-      <Field>
+      <Field data-invalid>
         <FieldLabel>With Error</FieldLabel>
-        <Textarea data-invalid placeholder="This field has an error" rows={3} />
+        <Textarea placeholder="This field has an error" rows={3} />
       </Field>
       
       <Field>

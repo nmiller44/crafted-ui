@@ -69,9 +69,9 @@ export const Basic: Story = {
         <Combobox items={beerStyles} placeholder="Search beer styles..." />
       </Field>
       
-      <Field>
+      <Field data-invalid>
         <FieldLabel>With Error</FieldLabel>
-        <Combobox items={beerStyles} data-invalid placeholder="This field has an error" />
+        <Combobox items={beerStyles} placeholder="This field has an error" />
       </Field>
       
       <Field>

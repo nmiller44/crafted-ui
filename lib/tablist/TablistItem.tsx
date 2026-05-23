@@ -45,6 +45,9 @@ export const TablistItem = ({ className, children, ...props }: TablistItemProps)
                                     // Bordered active highlight
                                     "group-[.bordered]:has-[.active]:bg-transparent",
 
+                                    // Bordered hover border
+                                    "group-[.bordered]:has-[a]:hover:border-secondary",
+
                                 // Bordered active border and text color primary
                                 "group-[.bordered]:has-[.active]:text-primary group-[.bordered]:has-[.active]:[text-shadow:0.5px_0_0_currentColor] group-[.bordered]:has-[.active]:border-primary",                                    "*:after:absolute *:after:inset-0",
                                     className)} {...props}>
