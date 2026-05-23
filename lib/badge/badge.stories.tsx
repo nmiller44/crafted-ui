@@ -30,6 +30,14 @@ export const Basic: Story = {
             <Badge title="Accent" clr="accent" outline />
             <Badge title="Destructive" clr="destructive" />
             <Badge title="Destructive" clr="destructive" outline />
+            <Badge title="Danger" clr="danger" />
+            <Badge title="Danger" clr="danger" outline />
+            <Badge title="Warning" clr="warning" />
+            <Badge title="Warning" clr="warning" outline />
+            <Badge title="Success" clr="success" />
+            <Badge title="Success" clr="success" outline />
+            <Badge title="Info" clr="info" />
+            <Badge title="Info" clr="info" outline />
         </div>
         <div className="max-w-sm flex flex-wrap gap-3">
             <Badge title="Green" clr="green" />

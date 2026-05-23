@@ -15,6 +15,7 @@ import { classNames } from "~/utils";
 export type BadgeProps = React.ComponentProps<"div"> & {
     title?: string;
     clr?: 'blank' | 'default' | 'primary' | 'muted' | 'secondary' | 'accent' | 'destructive' | 
+        'danger' | 'warning' | 'success' | 'info' |
         'green' | 'red' | 'yellow' | 'blue' | 'indigo' | 'purple' | 'pink';
     outline?: boolean;
     pill?: boolean;
@@ -31,6 +32,10 @@ export const Badge = ({ title, clr = 'default', outline = false, pill = false, c
         accent: 'bg-accent/10 text-accent ring-accent',
         destructive: 'bg-destructive/10 text-destructive ring-destructive',
 
+        danger: 'bg-danger/10 text-danger ring-danger/50',
+        warning: 'bg-warning/10 text-warning ring-warning/50',
+        success: 'bg-success/10 text-success ring-success/50',
+        info: 'bg-info/10 text-info ring-info/50',
 
         green: 'bg-green-100 text-green-800 ring-green-600/20',
         red: 'bg-red-100 text-red-800 ring-red-600/20',
@@ -49,6 +54,11 @@ export const Badge = ({ title, clr = 'default', outline = false, pill = false, c
         secondary: 'bg-transparent text-secondary ring-secondary/20',
         accent: 'bg-transparent text-accent ring-accent/20',
         destructive: 'bg-transparent text-destructive ring-destructive/20',
+
+        danger: 'bg-transparent text-danger ring-danger/50',
+        warning: 'bg-transparent text-warning ring-warning/50',
+        success: 'bg-transparent text-success ring-success/50',
+        info: 'bg-transparent text-info ring-info/50',
 
         green: 'bg-transparent text-green-800 ring-green-600/20',
         red: 'bg-transparent text-red-800 ring-red-600/20',
