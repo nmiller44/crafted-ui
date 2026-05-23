@@ -54,10 +54,10 @@ export const Basic: Story = {
         </Fieldset>
       </Field>
       
-      <Field>
+      <Field data-invalid>
         <Fieldset title="With Error">
           <CheckboxGroup>
-            <Checkbox data-invalid>This checkbox has an error</Checkbox>
+            <Checkbox>This checkbox has an error</Checkbox>
           </CheckboxGroup>
         </Fieldset>
       </Field>

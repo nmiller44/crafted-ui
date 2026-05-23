@@ -54,9 +54,9 @@ export const Basic: Story = {
         </RadioGroup>
       </Field>
       
-      <Field>
+      <Field data-invalid>
         <FieldLabel>With Error</FieldLabel>
-        <RadioGroup data-invalid>
+        <RadioGroup>
           <Radio value="option1">This radio group has an error</Radio>
           <Radio value="option2">Option 2</Radio>
         </RadioGroup>

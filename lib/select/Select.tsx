@@ -53,12 +53,11 @@ export const Select = ({
     const shouldDisable = disabled || (isEmpty && !children);
 
     return (
-        <div className="mt-1">
-            <SelectPrimitive.Root items={items} {...props} disabled={shouldDisable}>
-                <SelectPrimitive.Trigger 
-                    className={classNames(
-                        "flex items-center justify-between",
-                        "w-full",
+        <SelectPrimitive.Root items={items} {...props} disabled={shouldDisable}>
+            <SelectPrimitive.Trigger 
+                className={classNames(
+                    "flex items-center justify-between",
+                    "mt-1 w-full",
                         "rounded-t-md border-0 ring-1 ring-inset ring-border outline-0 shadow-sm",
                         "aria-[expanded=false]:rounded-b-md",
                         "aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-danger",
@@ -71,7 +70,7 @@ export const Select = ({
                         className
                     )}
                 >
-                    <SelectPrimitive.Value placeholder={placeholder || ' '} className="flex-1 min-w-0 truncate py-2 px-3 leading-5 text-left" />
+                <SelectPrimitive.Value placeholder={placeholder || ' '} className="flex-1 min-w-0 truncate py-2 px-3 leading-5 text-left text-foreground data-[placeholder]:text-muted-foreground" />
                     <SelectPrimitive.Icon className="text-muted-foreground flex-shrink-0 pr-3">
                         <IconChevronDown className="size-4" />
                     </SelectPrimitive.Icon>
@@ -93,7 +92,6 @@ export const Select = ({
                         </SelectPrimitive.Popup>
                     </SelectPrimitive.Positioner>
                 </SelectPrimitive.Portal>
-            </SelectPrimitive.Root>
-        </div>
+        </SelectPrimitive.Root>
     )
 }
