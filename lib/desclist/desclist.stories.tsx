@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { DescList } from './DescList';
 import { DescListItem } from './DescListItem';
-import { Badge } from '~/badge';
+import { Badge } from '../badge';
 
 const meta = {
   title: 'CraftedUI/Components/DescList',
