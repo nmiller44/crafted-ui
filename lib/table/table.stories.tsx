@@ -1,5 +1,4 @@
-import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { 
   Table, 
@@ -8,8 +7,8 @@ import {
   TableBody, 
   TableRow, 
   TableCell 
-} from '~/table';
-import { Card, CardBody } from '~/card';
+} from './index';
+import { Card, CardBody } from '../card';
 
 const meta = {
   title: 'CraftedUI/Components/Table',

@@ -1,5 +1,5 @@
-import { addons } from '@storybook/manager-api';
-import { create } from '@storybook/theming/create';
+import { addons } from 'storybook/manager-api';
+import { create } from 'storybook/theming/create';
 
 const primary = 'hsl(142.4 71.8% 29.2%)';
 const secondary = 'hsl(208 21% 63%)';
