@@ -1,6 +1,4 @@
-import React from 'react';
-
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Field, FieldLabel } from '../field';
 import { Textarea } from './Textarea';

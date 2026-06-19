@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Menu } from './Menu';
 import { MenuContent } from './MenuContent';
@@ -22,7 +22,7 @@ export const Feature: Story = {
   render: (args) => (
     <div className="flex items-center justify-between p-6 bg-background border border-border rounded-lg">
         <div className="flex items-center space-x-4">
-            <Avatar username="Sarah Chen" />
+                        <Avatar fallback="SC" />
             <div>
                 <div className="font-medium text-sm">Sarah Chen</div>
                 <div className="text-xs text-muted-foreground">Brewmaster</div>
@@ -65,7 +65,7 @@ export const Basic: Story = {
             <span className="text-sm text-muted-foreground">With Avatar:</span>
             <Menu {...args}>
                 <MenuTrigger>
-                    <Avatar username="Mike Johnson" />
+                    <Avatar fallback="MJ" />
                 </MenuTrigger>
                 <MenuContent>
                     <MenuItem>View Profile</MenuItem>

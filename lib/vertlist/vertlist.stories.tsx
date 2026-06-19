@@ -1,5 +1,4 @@
-import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Vertlist } from './Vertlist';
 import { VertlistHeader } from './VertlistHeader';
