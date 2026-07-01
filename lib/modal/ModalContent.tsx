@@ -1,14 +1,17 @@
 import { Dialog as DialogPrimitive } from "@base-ui/react"
 import { classNames } from "~/utils"
 import { ModalTitle } from "./ModalTitle"
+import { ModalClose } from "./ModalClose"
 
 export type ModalContentProps = React.ComponentProps<typeof DialogPrimitive.Popup> & {
     title?: string
     subtitle?: string
     size?: "sm" | "md" | "lg" | "xl"
+    hideClose?: boolean
 }
 
-export const ModalContent = ({ title, subtitle, size = "md", className, children, ...props}: ModalContentProps) => {
+export const ModalContent = ({ title, subtitle, size = "md", hideClose = false, className, children, ...props}: ModalContentProps) => {
+    const protectCloseSpace = !title && !hideClose
 
     const sizeClass = {
         sm: "w-96",      // 384px - compact content
@@ -30,8 +33,11 @@ export const ModalContent = ({ title, subtitle, size = "md", className, children
                                     "transition-all duration-150 data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0",
                                     className
                                 )} { ...props }>
+                { !hideClose && <div className="absolute top-4 right-4"><ModalClose>X</ModalClose></div> }
                 { !!title && <ModalTitle title={ title } subtitle={ subtitle } /> }
-                { children }
+                <div className={classNames("space-y-8", protectCloseSpace && "[&>:first-child>:first-child]:pr-10")}>
+                    { children }
+                </div>
             </DialogPrimitive.Popup>
         </DialogPrimitive.Portal>
     )

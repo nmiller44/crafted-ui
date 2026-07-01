@@ -1,7 +1,6 @@
 import { Dialog as DialogPrimitive } from "@base-ui/react"
 import { Heading5 } from "~/heading"
 import { classNames } from "~/utils"
-import { ModalClose } from "./ModalClose"
 
 export type ModalTitleProps = React.ComponentProps<typeof DialogPrimitive.Title> & {
     title?: string
@@ -12,12 +11,8 @@ export const ModalTitle = ({ title, subtitle, className, children, ...props}: Mo
 
     return (
         <DialogPrimitive.Title className={classNames("", className)} { ...props }>
-
             { !!title
-            ?   <div className="flex items-top justify-between">
-                    <div><Heading5 title={ title } subtitle={ subtitle } /></div>
-                    <div><ModalClose>X</ModalClose></div>
-                </div>
+            ?   <Heading5 title={ title } subtitle={ subtitle } />
             : children 
             }
         </DialogPrimitive.Title>

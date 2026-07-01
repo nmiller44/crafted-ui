@@ -7,6 +7,9 @@ export type { ModalCloseProps } from './ModalClose';
 export { ModalContent } from './ModalContent';
 export type { ModalContentProps } from './ModalContent';
 
+export { ModalButtons } from './ModalButtons';
+export type { ModalButtonsProps } from './ModalButtons';
+
 export { ModalDescription } from './ModalDescription';
 export type { ModalDescriptionProps } from './ModalDescription';
 

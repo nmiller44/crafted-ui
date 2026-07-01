@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Modal } from './Modal';
+import { ModalButtons } from './ModalButtons';
 import { ModalClose } from './ModalClose';
 import { ModalContent } from './ModalContent';
 import { ModalDescription } from './ModalDescription';
@@ -100,12 +101,12 @@ export const Basic: Story = {
             Your tour has been confirmed for 2:00 PM. Please arrive 10 minutes early. You'll explore our brewing facility, barrel room, and enjoy samples of our seasonal releases.
           </ModalDescription>
           
-          <div className="flex justify-end gap-3 pt-4">
+          <ModalButtons>
             <ModalClose>
               <Button clr="secondary" outline>Close</Button>
             </ModalClose>
             <Button clr="primary">Add to Calendar</Button>
-          </div>
+          </ModalButtons>
         </ModalContent>
       </Modal>
     </div>
@@ -175,6 +176,89 @@ export const Sizes: Story = {
               <Button clr="primary">Submit Ratings</Button>
             </FieldsetButtons>
           </Fieldset>
+        </ModalContent>
+      </Modal>
+    </div>
+  )
+};
+
+export const CustomHeader: Story = {
+  args: {},
+  render: (args) => (
+    <div className="flex gap-4">
+      <Modal {...args} defaultOpen={true}>
+        <ModalTrigger>
+          <Button>Open Modal</Button>
+        </ModalTrigger>
+        <ModalContent>
+          <ModalTitle>
+            <div>
+              <div className="font-semibold text-lg">Brewery Tour Confirmation</div>
+              <div className="text-sm text-muted-foreground">January 20, 2026</div>
+            </div>
+          </ModalTitle>
+          <ModalDescription className="text-sm text-muted-foreground">
+            Your tour has been confirmed for 2:00 PM. Please arrive 10 minutes early. You'll explore our brewing facility, barrel room, and enjoy samples of our seasonal releases.
+          </ModalDescription>
+          
+          <ModalButtons>
+            <ModalClose>
+              <Button clr="secondary" outline>Close</Button>
+            </ModalClose>
+            <Button clr="primary">Add to Calendar</Button>
+          </ModalButtons>
+        </ModalContent>
+      </Modal>
+    </div>
+  )
+};
+
+export const NoTitle: Story = {
+  args: {},
+  render: (args) => (
+    <div className="flex gap-4">
+      <Modal {...args} defaultOpen={true}>
+        <ModalTrigger>
+          <Button>Open Confirmation</Button>
+        </ModalTrigger>
+        <ModalContent>
+          <div className="space-y-4">
+            <div className="text-sm">Are you sure you want to cancel your brewery tour reservation for January 20, 2026?</div>
+            <div className="text-xs text-muted-foreground">This action cannot be undone. You'll receive a full refund within 5-7 business days.</div>
+          </div>
+          
+          <ModalButtons>
+            <ModalClose>
+              <Button clr="secondary" outline>Keep Reservation</Button>
+            </ModalClose>
+            <Button clr="destructive">Cancel Reservation</Button>
+          </ModalButtons>
+        </ModalContent>
+      </Modal>
+    </div>
+  )
+};
+
+export const BlankTitle: Story = {
+  args: {},
+  render: (args) => (
+    <div className="flex gap-4">
+      <Modal {...args} defaultOpen={true}>
+        <ModalTrigger>
+          <Button>Open Confirmation</Button>
+        </ModalTrigger>
+        <ModalContent title=" ">
+          <div className="space-y-4">
+            <div className="text-sm">Are you sure you want to cancel your brewery tour reservation for January 20, 2026?</div>
+            <div className="text-xs text-muted-foreground">This action cannot be undone. You'll receive a full refund within 5-7 business days.</div>
+          </div>
+          
+          <ModalButtons>
+            <ModalClose>
+              <Button clr="secondary" outline>Keep Reservation</Button>
+            </ModalClose>
+            <Button clr="destructive">Cancel Reservation</Button>
+          </ModalButtons>
         </ModalContent>
       </Modal>
     </div>
