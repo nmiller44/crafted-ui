@@ -20,26 +20,31 @@ export type DescListItemProps = React.ComponentProps<"div"> & {
     value?: React.ReactNode;
     inline?: boolean;
     nocolon?: boolean;
+    emptyValue?: React.ReactNode;
 }
 
-export const DescListItem = ({ label, value, inline, nocolon = false, className, children, ...props }: DescListItemProps) => {
+export const DescListItem = ({ label, value, inline, nocolon = false, emptyValue, className, children, ...props }: DescListItemProps) => {
     const context = useDescListContext();
     const isInline = inline !== undefined ? inline : context.inline;
+    const resolvedEmptyValue = emptyValue ?? context.emptyValue ?? "-";
+    const hasChildren = children !== undefined && children !== null;
+    const valueIsEmptyString = typeof value === "string" && value.trim() === "";
+    const hasValue = value !== undefined && value !== null && !valueIsEmptyString;
+    const renderedValue = hasValue ? value : hasChildren ? children : resolvedEmptyValue;
 
     return (
         <div className={classNames(
             isInline 
                 ? "flex items-center gap-x-2"
-                : "space-y-2",
+                : "space-y-1.5",
             "col-span-full",
             className
         )} {...props}>
             <DescListLabel inline={isInline} nocolon={nocolon} className={isInline ? "flex-shrink-0" : ""}>{ label }</DescListLabel>
             <dd className={classNames(
-                "text-sm text-foreground leading-6",
                 isInline ? "flex-1" : ""
             )}>
-                {value || children}
+                {renderedValue}
             </dd>
         </div>
     )

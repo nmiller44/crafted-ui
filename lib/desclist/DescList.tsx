@@ -2,7 +2,7 @@ import React from "react";
 import { classNames } from "~/utils";
 import { DescListHeader } from "./DescListHeader";
 
-const DescListContext = React.createContext<{ inline?: boolean }>({});
+const DescListContext = React.createContext<{ inline?: boolean; emptyValue?: React.ReactNode }>({});
 
 export const useDescListContext = () => React.useContext(DescListContext);
 
@@ -20,22 +20,24 @@ export const useDescListContext = () => React.useContext(DescListContext);
  * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-components-desclist}
  * 
  * @param inline - When true, displays all items with label and value on the same line
+ * @param emptyValue - Default display value for empty or missing item values (defaults to "-")
  * @param wrapperClassName - Classes for the outer wrapper div (not the <dl> element)
  */
 export type DescListProps = React.ComponentProps<"dl"> & {
     title?: string;
     subtitle?: string;
     inline?: boolean;
+    emptyValue?: React.ReactNode;
     wrapperClassName?: string;
 }
 
-export const DescList = ({ title, subtitle, inline = false, wrapperClassName, className, children, ...props }: DescListProps) => {
+export const DescList = ({ title, subtitle, inline = false, emptyValue, wrapperClassName, className, children, ...props }: DescListProps) => {
 
     return (
-        <DescListContext.Provider value={{ inline }}>
-            <div className={classNames("space-y-8", wrapperClassName)}>
+        <DescListContext.Provider value={{ inline, emptyValue }}>
+            <div className={classNames("space-y-6", wrapperClassName)}>
                 { !!title && <DescListHeader title={ title } subtitle={ subtitle } /> }
-                <dl className={classNames("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-x-6 gap-y-8", className)}
+                <dl className={classNames("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-x-6 gap-y-6 text-sm leading-5 text-foreground", className)}
                      {...props}>
                     {children}
                 </dl>
