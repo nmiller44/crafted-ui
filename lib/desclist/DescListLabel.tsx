@@ -22,7 +22,7 @@ export const DescListLabel = ({ inline = false, nocolon = false, className, chil
 
     return (
         <dt className={classNames(
-            "text-sm text-muted-foreground",
+            "text-muted-foreground",
             inline ? (nocolon ? "" : "after:content-[':']") : "font-semibold",
             className
         )} {...props}>

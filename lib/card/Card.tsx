@@ -5,10 +5,11 @@ export type CardProps = React.ComponentProps<"div"> & {
     title?: string;
     subtitle?: string;
     body?: boolean;
+    slim?: boolean;
     full?: boolean;
 }
 
-export const Card = ({ title, subtitle, body = false, full = false, className, children, ...props }: CardProps) => {
+export const Card = ({ title, subtitle, body = false, slim = false, full = false, className, children, ...props }: CardProps) => {
 
     return (
         <div className={classNames( 
@@ -22,8 +23,10 @@ export const Card = ({ title, subtitle, body = false, full = false, className, c
             }
             <div className={classNames(
                                 "space-y-6",
-                                body    ? full ? "p-0 md:px-8 md:py-10" :  "px-8 py-10"
-                                        : ""
+                                body    ? full ? "p-0 md:px-8 md:py-10" : "px-8 py-10"
+                                        : slim
+                                            ? full ? "p-0 md:p-4" : "p-4"
+                                            : ""
                             )}>
                 { children }
             </div>
