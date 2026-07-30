@@ -4,6 +4,7 @@ import { Card } from './Card';
 import { CardHeader } from './CardHeader';
 import { CardBody } from './CardBody';
 import { CardFooter } from './CardFooter';
+import { Metric as MetricBlock } from '../metric/Metric';
 
 const meta = {
   title: 'CraftedUI/Components/Card',
@@ -60,6 +61,25 @@ export const Full: Story = {
             When using full, the border, shadow, and padding will disappear on mobile
             for a full width view.
         </Card>
+    </div>
+  )
+};
+
+export const Metrics: Story = {
+  args: {},
+  render: (args) => (
+    <div className="w-full max-w-4xl">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <Card {...args} slim>
+          <MetricBlock title="Total Kegs" value="318" />
+        </Card>
+        <Card {...args} slim>
+          <MetricBlock title="Needs Refill" value="24" />
+        </Card>
+        <Card {...args} slim>
+          <MetricBlock title="In Transit" value="11" />
+        </Card>
+      </div>
     </div>
   )
 };
