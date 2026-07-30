@@ -6,6 +6,15 @@ import { Section } from '../section/Section';
 import { Button } from '../button/Button';
 import { Heading1 } from '../heading/Heading1';
 import { Badge } from '../badge/Badge';
+import { Breadcrumb } from '../breadcrumb/Breadcrumb';
+import { BreadcrumbList } from '../breadcrumb/BreadcrumbList';
+import { BreadcrumbListItem } from '../breadcrumb/BreadcrumbListItem';
+import { BreadcrumbSeparator } from '../breadcrumb/BreadcrumbSeparator';
+import { Vertlist } from '../vertlist/Vertlist';
+import { VertlistItem } from '../vertlist/VertlistItem';
+import { Metric } from '../metric/Metric';
+import { Card } from '../card/Card';
+import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from '../table';
 
 const meta = {
   title: 'CraftedUI/Layout/Page',
@@ -15,252 +24,161 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Page>;
 
-export const Basic: Story = {
+export const Feature: Story = {
   args: {},
   render: (args) => (
-    <Page title="Basic Page" subtitle="Simple page with title and subtitle" {...args}>
-      <Section title="Content Section">
-        <div className="p-4 bg-muted rounded-md">
-          <p>This is content within the page container.</p>
+    <div className="mx-auto flex min-h-[44rem] w-full max-w-[96rem] items-stretch gap-0">
+        <aside className="hidden w-48 shrink-0 self-stretch lg:block">
+          <div className="h-full border-r border-border bg-background p-4">
+            <div className="mb-4 flex items-center gap-3 px-2 py-1.5">
+              <div className="flex size-7 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">K</div>
+              <p className="text-sm font-semibold">Keg Control</p>
+            </div>
+
+            <Vertlist>
+              <VertlistItem><a href="#">Inventory</a></VertlistItem>
+              <VertlistItem><a href="#">Production</a></VertlistItem>
+              <VertlistItem><a href="#">Packaging</a></VertlistItem>
+              <VertlistItem><a href="#" className="active">Sales</a></VertlistItem>
+              <VertlistItem><a href="#">Settings</a></VertlistItem>
+            </Vertlist>
+          </div>
+        </aside>
+
+        <div className="w-full grow max-w-container mx-auto px-6 lg:px-8 py-6 space-y-8">
+          <Breadcrumb>
+            <BreadcrumbList className="flex-wrap">
+              <BreadcrumbListItem><a href="#">Sales</a></BreadcrumbListItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbListItem><a href="#">Logistics</a></BreadcrumbListItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbListItem><span className="active" aria-current="page">Delivery Plan</span></BreadcrumbListItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+
+          <PageHeader
+            title="Delivery Plan"
+            subtitle="Manage outbound routes and delivery timing."
+          >
+            <Button outline>Export</Button>
+            <Button clr="primary">Add Stop</Button>
+          </PageHeader>
+
+          <Page {...args}>
+            <Section title="Outbound Summary">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                <Card slim>
+                  <Metric title="Cases Out Today" value="1,248" />
+                </Card>
+                <Card slim>
+                  <Metric title="Active Deliveries" value="32" />
+                </Card>
+                <Card slim>
+                  <Metric title="On-Time Departure" value="96%" />
+                </Card>
+              </div>
+            </Section>
+
+            <Section title="Delivery Schedule">
+              <Card>
+                <Table>
+                  <TableHead>
+                    <TableHeadCell>Account</TableHeadCell>
+                    <TableHeadCell>Route</TableHeadCell>
+                    <TableHeadCell>Product Load</TableHeadCell>
+                    <TableHeadCell>Departure</TableHeadCell>
+                    <TableHeadCell>ETA</TableHeadCell>
+                    <TableHeadCell>Status</TableHeadCell>
+                  </TableHead>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>Harbor Hall Distributors</TableCell>
+                      <TableCell>North Loop A</TableCell>
+                      <TableCell>180 IPA / 60 Pilsner</TableCell>
+                      <TableCell>08:00 to 08:30</TableCell>
+                      <TableCell>10:15</TableCell>
+                      <TableCell><Badge clr="success">On Time</Badge></TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Downtown Tap Partners</TableCell>
+                      <TableCell>Central Loop C</TableCell>
+                      <TableCell>120 Lager / 40 Stout</TableCell>
+                      <TableCell>09:15 to 09:45</TableCell>
+                      <TableCell>11:40</TableCell>
+                      <TableCell><Badge clr="warning">Delayed</Badge></TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Riverfront Beverage Co.</TableCell>
+                      <TableCell>East Loop B</TableCell>
+                      <TableCell>140 Hazy IPA / 30 Sour</TableCell>
+                      <TableCell>10:30 to 11:00</TableCell>
+                      <TableCell>12:20</TableCell>
+                      <TableCell><Badge clr="info">Loaded</Badge></TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </Card>
+            </Section>
+          </Page>
         </div>
-      </Section>
-    </Page>
+    </div>
   )
 };
 
-export const WithPageHeader: Story = {
+export const TitleProp: Story = {
   args: {},
   render: (args) => (
-    <>
-      <PageHeader title="Standalone Page Header" subtitle="Using PageHeader independently">
-        <Button clr="primary">Action</Button>
-      </PageHeader>
-      <Page {...args}>
-        <Section title="Page Content">
-          <div className="p-4 bg-muted rounded-md">
-            <p>Content below the standalone page header.</p>
+    <div className="max-w-xl px-6 py-6 lg:px-8 lg:py-8 space-y-8">
+      <Page title="Sales Delivery Plan" subtitle="Using the title and subtitle props on Page.">
+        <Section title="How This Works">
+          <div className="space-y-3 text-sm">
+            <p>
+              The parent layout provides width, horizontal padding, and vertical spacing.
+              Page then renders PageHeader from the title prop and wraps the page content.
+            </p>
+            <p>
+              Use the <strong>title</strong> and <strong>subtitle</strong> props on Page for the standard page heading.
+              When either prop is present, Page automatically renders PageHeader above the content.
+            </p>
           </div>
         </Section>
       </Page>
-    </>
-  )
-};
-
-export const Dashboard: Story = {
-  args: {},
-  render: (args) => (
-    <Page title="Dashboard" subtitle="Overview of your account" {...args}>
-      <Section title="Quick Stats">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-4 bg-muted rounded-md text-center">
-            <div className="text-2xl font-bold">1,234</div>
-            <div className="text-sm text-muted-foreground">Total Users</div>
-          </div>
-          <div className="p-4 bg-muted rounded-md text-center">
-            <div className="text-2xl font-bold">56</div>
-            <div className="text-sm text-muted-foreground">Active Projects</div>
-          </div>
-          <div className="p-4 bg-muted rounded-md text-center">
-            <div className="text-2xl font-bold">89%</div>
-            <div className="text-sm text-muted-foreground">Completion Rate</div>
-          </div>
-        </div>
-      </Section>
-      
-      <Section title="Recent Activity">
-        <div className="space-y-3">
-          <div className="p-3 bg-muted rounded-md text-sm">User John Doe completed Project Alpha</div>
-          <div className="p-3 bg-muted rounded-md text-sm">New team member added to Beta Team</div>
-          <div className="p-3 bg-muted rounded-md text-sm">Project Gamma reached 75% completion</div>
-        </div>
-      </Section>
-    </Page>
-  )
-};
-
-export const SettingsPage: Story = {
-  args: {},
-  render: (args) => (
-    <>
-      <PageHeader title="User Settings" subtitle="Manage your account preferences">
-        <Button clr="primary">Save Changes</Button>
-      </PageHeader>
-      
-      <Page {...args}>
-        <Section title="Profile Information">
-          <div className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium mb-2">First Name</label>
-                <input 
-                  type="text" 
-                  className="w-full p-2 border border-border rounded-md bg-background" 
-                  defaultValue="John" 
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">Last Name</label>
-                <input 
-                  type="text" 
-                  className="w-full p-2 border border-border rounded-md bg-background" 
-                  defaultValue="Doe" 
-                />
-              </div>
-            </div>
-          </div>
-        </Section>
-        
-        <Section title="Preferences">
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <input type="checkbox" id="notifications" className="rounded" />
-              <label htmlFor="notifications" className="text-sm">Enable email notifications</label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <input type="checkbox" id="marketing" className="rounded" />
-              <label htmlFor="marketing" className="text-sm">Receive marketing updates</label>
-            </div>
-          </div>
-        </Section>
-      </Page>
-    </>
+    </div>
   )
 };
 
 export const HeaderVariants: Story = {
   args: {},
   render: (args) => (
-    <div className="space-y-8">
-      <PageHeader title="Basic Header" subtitle="Simple title and subtitle" />
-      
-      <PageHeader title="Header with Single Action">
-        <Button>Action</Button>
-      </PageHeader>
-      
-      <PageHeader title="Header with Multiple Actions" subtitle="Multiple buttons in header">
-        <div className="flex gap-2">
-          <Button>Edit</Button>
-          <Button clr="primary">Save</Button>
-        </div>
-      </PageHeader>
+    <div className="mx-auto max-w-container px-6 py-6 lg:px-8 lg:py-8 space-y-10">
+      <div className="space-y-3">
+        <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Title + Subtitle</p>
+        <PageHeader title="Cellar Operations" subtitle="Monitor fermentation, conditioning, and keg readiness." {...args} />
+      </div>
 
-      <PageHeader wrapperClassName="bg-muted/50 p-6 rounded-lg border border-border">
-        <div className="flex items-start gap-3">
-          <Heading1 title="Fully Custom Header" subtitle="Using children only" />
-          <Badge clr="primary">New</Badge>
-        </div>
-        <div className="flex gap-2">
-          <Button>Edit</Button>
-          <Button clr="primary">Save</Button>
-        </div>
-      </PageHeader>
-    </div>
-  )
-};
-
-export const ContainerDemo: Story = {
-  args: {},
-  render: (args) => (
-    <div className="bg-background min-h-screen">
-      <Page title="Container Behavior" subtitle="Demonstrates responsive container sizing" {...args}>
-        <Section title="Container Content">
-          <div className="p-4 bg-primary/10 rounded-md border border-border">
-            <p>This content is constrained by the container's max-width and has responsive padding.</p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Resize your browser to see how the container adapts to different screen sizes.
-            </p>
-          </div>
-        </Section>
-        
-        <Section title="Spacing Demonstration">
-          <div className="p-4 bg-secondary/10 rounded-md">
-            <p>First content block</p>
-          </div>
-          <div className="p-4 bg-accent/10 rounded-md">
-            <p>Second content block - automatically spaced with space-y-12</p>
-          </div>
-        </Section>
-      </Page>
-    </div>
-  )
-};
-
-export const PageHeaderCombinations: Story = {
-  args: {},
-  render: (args) => (
-    <div className="space-y-12">
-      {/* Case 1: !!title && !!children - Both title and children present */}
-      <div className="border border-border rounded-lg p-4">
-        <p className="text-sm font-medium mb-4 text-muted-foreground">Case 1: title=true, children=true</p>
-        <PageHeader title="Brewery Inventory" subtitle="Manage your craft beer collection">
-          <div className="flex gap-2">
-            <Button>View All</Button>
-            <Button clr="primary">Add Beer</Button>
-          </div>
+      <div className="space-y-3">
+        <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Action Buttons</p>
+        <PageHeader title="Taproom Service" subtitle="Prepare today's pour list and service assignments." {...args}>
+          <Button outline>Print Menu</Button>
+          <Button>Assign Staff</Button>
+          <Button clr="primary">Open Service</Button>
         </PageHeader>
       </div>
 
-      {/* Case 2: !!title && !children - Title only, no children */}
-      <div className="border border-border rounded-lg p-4">
-        <p className="text-sm font-medium mb-4 text-muted-foreground">Case 2: title=true, children=false</p>
-        <PageHeader title="About Our Brewery" subtitle="Learn about our history and brewing process" />
-      </div>
-
-      {/* Case 3: !title && !!children - Children only, no title */}
-      <div className="border border-border rounded-lg p-4">
-        <p className="text-sm font-medium mb-4 text-muted-foreground">Case 3: title=false, children=true (custom content)</p>
-        <PageHeader>
+      <div className="space-y-3">
+        <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Custom</p>
+        <PageHeader wrapperClassName="bg-muted/50 p-6 rounded-lg border border-border" {...args}>
           <div className="flex items-start gap-3">
-            <Heading1 title="Custom Header Layout" subtitle="Using children for full control" />
-            <Badge clr="green">Active</Badge>
+            <Heading1 title="Limited Release Board" subtitle="Barrel-aged drops and small-batch availability." />
+            <Badge clr="yellow">Pilot Batch</Badge>
           </div>
           <div className="flex gap-2">
-            <Button>Settings</Button>
-            <Button clr="primary">Upgrade</Button>
-          </div>
-        </PageHeader>
-      </div>
-
-      {/* Case 4: !title && !children - Edge case, empty header */}
-      <div className="border border-border rounded-lg p-4">
-        <p className="text-sm font-medium mb-4 text-muted-foreground">Case 4: title=false, children=false (empty - edge case)</p>
-        <PageHeader />
-      </div>
-
-      {/* Case 5: Custom title with badge inline + actions */}
-      <div className="border border-border rounded-lg p-4">
-        <p className="text-sm font-medium mb-4 text-muted-foreground">Case 5: Custom layout with badge next to title</p>
-        <PageHeader subtitle="Premium barrel-aged collection">
-          <div className="flex items-center gap-3">
-            <h1 className="text-4xl font-bold tracking-tight">Limited Release</h1>
-            <Badge clr="yellow">Rare</Badge>
-          </div>
-          <div className="flex gap-2">
-            <Button>Browse</Button>
-            <Button clr="primary">Reserve</Button>
-          </div>
-        </PageHeader>
-      </div>
-
-      {/* Case 6: Single action button */}
-      <div className="border border-border rounded-lg p-4">
-        <p className="text-sm font-medium mb-4 text-muted-foreground">Case 6: title=true, children=single button</p>
-        <PageHeader title="Tap Room Hours" subtitle="Our brewing facility is open to visitors">
-          <Button clr="primary">Book Tour</Button>
-        </PageHeader>
-      </div>
-
-      {/* Case 7: Multiple action buttons */}
-      <div className="border border-border rounded-lg p-4">
-        <p className="text-sm font-medium mb-4 text-muted-foreground">Case 7: title=true, children=multiple buttons</p>
-        <PageHeader title="Beer Menu" subtitle="Today's rotating selection">
-          <div className="flex gap-2">
-            <Button outline>Print Menu</Button>
-            <Button>Share</Button>
-            <Button clr="primary">Order</Button>
+            <Button>Preview Notes</Button>
+            <Button clr="primary">Publish Lineup</Button>
           </div>
         </PageHeader>
       </div>
     </div>
   )
 };
+

@@ -11,18 +11,14 @@ export const PageHeader = ({ title, subtitle, className, children, wrapperClassN
 
     return (
         <header className={classNames(
-                    "max-w-container mx-auto",
-                    "px-6 lg:px-8",
-                    "space-y-6 md:flex md:items-start md:justify-between",
+                    "md:flex md:items-start md:justify-between",
                     wrapperClassName
                 )} { ...props }>
-        { !!title
+        { !!(title || subtitle)
             ?   <>
-                    <div>
-                        <Heading1 title={title} subtitle={subtitle} className={ className } />
-                    </div>
+                    <Heading1 title={title} subtitle={subtitle} className={ className } />
                     { !!children &&
-                    <div>
+                    <div className="flex gap-2">
                         { children }
                     </div>
                     }
