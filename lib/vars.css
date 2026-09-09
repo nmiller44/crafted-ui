@@ -17,7 +17,7 @@
   --background: hsl(142 32% 99%);
   --foreground: hsl(0 0% 14.9%);
   --muted: hsl(112 11% 94%);
-  --muted-foreground: hsl(0 0% 45.1%);
+  --muted-foreground: hsl(0 0% 44%);
   --popover: var(--background);
   --popover-foreground: var(--foreground);
   --card: var(--background);
