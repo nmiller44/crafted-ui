@@ -9,6 +9,9 @@ import { classNames } from "~/utils"
  * @component
  * @category Components
  * @since 0.1.0
+ * @related Vertlist - Parent list that contains the items
+ * @see {@link https://crafted-ui.com/docs/components/vertlist}
+ * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-components-vertlist}
  */
 export type VertlistItemProps = React.ComponentProps<"li">
 

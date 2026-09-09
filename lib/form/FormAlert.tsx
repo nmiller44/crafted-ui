@@ -20,6 +20,8 @@ export type FormAlertValue =
  * @category Forms
  * @since 0.2.7
  * @related Form - Automatically renders FormAlert when errors._form exists
+ * @see {@link https://crafted-ui.com/docs/forms/form}
+ * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-forms-form}
  */
 export type FormAlertProps = {
     feedback?: FormAlertValue;

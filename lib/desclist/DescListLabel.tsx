@@ -8,6 +8,8 @@ import { classNames } from "~/utils";
  * @category Components
  * @since 0.2.0
  * @related DescListItem - Parent component that uses this label
+ * @see {@link https://crafted-ui.com/docs/components/desclist}
+ * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-components-desclist}
  * 
  * @param inline - When true, uses muted text color for better visual hierarchy in inline layouts
  * @param nocolon - When true, prevents automatic colon after inline labels

@@ -8,6 +8,8 @@ import { classNames } from "~/utils";
  * @category Components
  * @accessibility Uses status role with polite live region updates and screen-reader label text
  * @since 0.2.9
+ * @see {@link https://crafted-ui.com/docs/components/loader}
+ * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-components-loader}
  *
  * @param size - Spinner size variant (defaults to "md")
  * @param clr - Semantic color variant or inherited current color (defaults to "current")

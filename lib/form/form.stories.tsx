@@ -7,6 +7,7 @@ import { Field } from '../field/Field';
 import { FieldLabel } from '../field/FieldLabel';
 import { Input } from '../input/Input';
 import { Button } from '../button/Button';
+import { Card } from '../card/Card';
 
 const meta = {
   title: 'CraftedUI/Forms/Form',
@@ -53,42 +54,46 @@ export const Feature: Story = {
   ),
 };
 
-export const Basic: Story = {
+export const FormError: Story = {
   args: {},
   render: (args) => (
     <div className="space-y-6 max-w-lg">
-      <Form {...args} errors={{ _form: 'Unable to save changes. Please try again.' }}>
-        <Fieldset title="Tap List Settings">
-          <Field>
-            <FieldLabel>Tap List Title</FieldLabel>
-            <Input placeholder="Tonight on Tap" />
-          </Field>
-          <FieldsetButtons>
-            <Button clr="primary" type="submit">Save</Button>
-          </FieldsetButtons>
-        </Fieldset>
-      </Form>
+      <Card body>
+        <Form {...args} errors={{ _form: 'Unable to save changes. Please try again.' }}>
+          <Fieldset title="Tap List Settings">
+            <Field>
+              <FieldLabel>Tap List Title</FieldLabel>
+              <Input placeholder="Tonight on Tap" />
+            </Field>
+            <FieldsetButtons>
+              <Button clr="primary" type="submit">Save</Button>
+            </FieldsetButtons>
+          </Fieldset>
+        </Form>
+      </Card>
 
-      <Form
-        {...args}
-        errors={{
-          _form: {
-            status: 'warning',
-            title: 'No Changes',
-            message: 'Everything is already up to date.',
-          },
-        }}
-      >
-        <Fieldset title="Distribution Contact">
-          <Field>
-            <FieldLabel>Contact Name</FieldLabel>
-            <Input defaultValue="Jordan Brewer" />
-          </Field>
-          <FieldsetButtons>
-            <Button clr="primary" type="submit">Update</Button>
-          </FieldsetButtons>
-        </Fieldset>
-      </Form>
+      <Card body>
+        <Form
+          {...args}
+          errors={{
+            _form: {
+              status: 'warning',
+              title: 'No Changes',
+              message: 'Everything is already up to date.',
+            },
+          }}
+        >
+          <Fieldset title="Distribution Contact">
+            <Field>
+              <FieldLabel>Contact Name</FieldLabel>
+              <Input defaultValue="Jordan Brewer" />
+            </Field>
+            <FieldsetButtons>
+              <Button clr="primary" type="submit">Update</Button>
+            </FieldsetButtons>
+          </Fieldset>
+        </Form>
+      </Card>
     </div>
   ),
 };

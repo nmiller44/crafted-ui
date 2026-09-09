@@ -10,6 +10,7 @@ import { classNames } from "~/utils";
  * @since 0.1.0
  * @related Select - Parent component that auto-generates options from items prop
  * @see {@link https://crafted-ui.com/docs/forms/select}
+ * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-forms-select}
  */
 export type SelectOptionProps = React.ComponentProps<typeof SelectPrimitive.Item> & {
     value: any;

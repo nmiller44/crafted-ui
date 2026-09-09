@@ -11,10 +11,11 @@ export type TableHeadCellProps = React.ComponentProps<"th"> & {
     colspan?: number
 }
 
-export const TableHeadCell = ({ children, className, colspan, ...props }: TableHeadCellProps) => {
+export const TableHeadCell = ({ children, className, colspan, scope, ...props }: TableHeadCellProps) => {
     return (
         <th 
-            colSpan={colspan} 
+            colSpan={colspan}
+            scope={scope ?? (colspan && colspan > 1 ? "colgroup" : "col")}
             className={classNames(
                 "p-4 pt-3 font-medium text-muted-foreground text-left border-b border-border",
                 className

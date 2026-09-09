@@ -31,7 +31,6 @@ export type ComboboxItemProp = {
  * @accessibility Full keyboard navigation and ARIA support from Base UI
  * @since 0.2.3
  * @related ComboboxOption - Custom option rendering (rarely needed)
- * @see {@link https://crafted-ui.com/docs/forms/combobox}
  * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-forms-combobox}
  * 
  * @param items - Array of option objects with value and label properties. Required for filtering
