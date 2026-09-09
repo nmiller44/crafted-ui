@@ -5,6 +5,8 @@ import { CardHeader } from './CardHeader';
 import { CardBody } from './CardBody';
 import { CardFooter } from './CardFooter';
 import { Metric as MetricBlock } from '../metric/Metric';
+import { Heading4 } from '../heading';
+import { Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell } from '../table';
 
 const meta = {
   title: 'CraftedUI/Components/Card',
@@ -80,6 +82,44 @@ export const Metrics: Story = {
           <MetricBlock title="In Transit" value="11" />
         </Card>
       </div>
+    </div>
+  )
+};
+
+export const TableCard: Story = {
+  args: {},
+  render: (args) => (
+    <div className="w-full max-w-2xl space-y-4">
+      <Heading4 title="Taproom Lineup" subtitle="Currently pouring" />
+      <Card {...args}>
+        <Table>
+          <TableHead>
+            <TableHeadCell>Beer</TableHeadCell>
+            <TableHeadCell>Style</TableHeadCell>
+            <TableHeadCell>ABV</TableHeadCell>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>West Coast IPA</TableCell>
+              <TableCell>American IPA</TableCell>
+              <TableCell>7.2%</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Midnight Stout</TableCell>
+              <TableCell>Oatmeal Stout</TableCell>
+              <TableCell>5.8%</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Harvest Saison</TableCell>
+              <TableCell>Farmhouse Ale</TableCell>
+              <TableCell>6.4%</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+        <div className="px-4 py-4">
+          <span className="text-sm text-muted-foreground">3 taps active</span>
+        </div>
+      </Card>
     </div>
   )
 };

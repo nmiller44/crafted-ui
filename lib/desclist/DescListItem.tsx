@@ -11,6 +11,8 @@ import { useDescListContext } from "./DescList";
  * @since 0.2.0
  * @related DescList - Parent wrapper component
  * @related DescListLabel - Label component for the key
+ * @see {@link https://crafted-ui.com/docs/components/desclist}
+ * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-components-desclist}
  * 
  * @param inline - When true, displays label and value on the same line. Overrides parent DescList inline setting
  * @param nocolon - When true, prevents automatic colon after inline labels

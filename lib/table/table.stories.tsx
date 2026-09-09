@@ -8,7 +8,7 @@ import {
   TableRow, 
   TableCell 
 } from './index';
-import { Card, CardBody } from '../card';
+import { Card } from '../card';
 
 const meta = {
   title: 'CraftedUI/Components/Table',
@@ -23,8 +23,7 @@ export const Basic: Story = {
   render: (args) => (
     <div className="flex flex-col space-y-12 grow">
       <Card>
-        <CardBody>
-          <Table {...args}>
+        <Table {...args}>
             <TableHead>
               <TableHeadCell>Name</TableHeadCell>
               <TableHeadCell>Email</TableHeadCell>
@@ -51,8 +50,7 @@ export const Basic: Story = {
                 <TableCell>Designer</TableCell>
               </TableRow>
             </TableBody>
-          </Table>
-        </CardBody>
+        </Table>
       </Card>
     </div>
   )
@@ -63,13 +61,12 @@ export const WithCustomStyling: Story = {
   render: (args) => (
     <div className="flex flex-col space-y-12 grow">
       <Card>
-        <CardBody>
-          <Table {...args}>
-            <TableHead className="bg-primary/10">
-              <TableHeadCell className="text-primary">Product</TableHeadCell>
-              <TableHeadCell className="text-primary">Price</TableHeadCell>
-              <TableHeadCell className="text-primary">Quantity</TableHeadCell>
-              <TableHeadCell className="text-primary">Total</TableHeadCell>
+        <Table {...args}>
+            <TableHead className="bg-primary/5">
+              <TableHeadCell className="text-primary dark:text-foreground">Product</TableHeadCell>
+              <TableHeadCell className="text-primary dark:text-foreground">Price</TableHeadCell>
+              <TableHeadCell className="text-primary dark:text-foreground">Quantity</TableHeadCell>
+              <TableHeadCell className="text-primary dark:text-foreground">Total</TableHeadCell>
             </TableHead>
             <TableBody>
               <TableRow className="hover:bg-muted/50">
@@ -91,8 +88,7 @@ export const WithCustomStyling: Story = {
                 <TableCell className="font-bold">$60.00</TableCell>
               </TableRow>
             </TableBody>
-          </Table>
-        </CardBody>
+        </Table>
       </Card>
     </div>
   )
@@ -103,8 +99,7 @@ export const WithColspan: Story = {
   render: (args) => (
     <div className="flex flex-col space-y-12 grow">
       <Card>
-        <CardBody>
-          <Table {...args}>
+        <Table {...args}>
             <TableHead>
               <TableHeadCell>Item</TableHeadCell>
               <TableHeadCell colspan={2}>Details</TableHeadCell>
@@ -127,8 +122,7 @@ export const WithColspan: Story = {
                 <TableCell className="font-bold">$658.00</TableCell>
               </TableRow>
             </TableBody>
-          </Table>
-        </CardBody>
+        </Table>
       </Card>
     </div>
   )

@@ -9,7 +9,7 @@ import { classNames } from "~/utils";
  * @category Forms
  * @since 0.2.3
  * @related Combobox - Parent component that auto-generates options from items prop
- * @see {@link https://crafted-ui.com/docs/forms/combobox}
+ * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-forms-combobox}
  */
 export type ComboboxOptionProps = React.ComponentProps<typeof ComboboxPrimitive.Item> & {
     value: any;

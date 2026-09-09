@@ -9,6 +9,8 @@ import { classNames } from "~/utils";
  * @category Components
  * @since 0.2.0
  * @related DescList - Parent component that uses this header
+ * @see {@link https://crafted-ui.com/docs/components/desclist}
+ * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-components-desclist}
  */
 export type DescListHeaderProps = React.ComponentProps<"div"> & {
     title?: string;

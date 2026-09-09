@@ -9,6 +9,9 @@ import { classNames } from "~/utils"
  * @component
  * @category Components
  * @since 0.1.0
+ * @related Tablist - Parent list that contains the tabs
+ * @see {@link https://crafted-ui.com/docs/components/tablist}
+ * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-components-tablist}
  */
 export type TablistItemProps = React.ComponentProps<"li">
 
