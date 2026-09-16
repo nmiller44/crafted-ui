@@ -1,5 +1,6 @@
 export { Modal } from './Modal';
-export type { ModalProps } from './Modal';
+export { createModalHandle } from './Modal';
+export type { ModalHandle, ModalProps } from './Modal';
 
 export { ModalClose } from './ModalClose';
 export type { ModalCloseProps } from './ModalClose';
