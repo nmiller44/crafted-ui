@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Modal } from './Modal';
+import { createModalHandle, Modal } from './Modal';
 import { ModalButtons } from './ModalButtons';
 import { ModalClose } from './ModalClose';
 import { ModalContent } from './ModalContent';
@@ -111,6 +111,33 @@ export const Basic: Story = {
       </Modal>
     </div>
   )
+};
+
+export const DetachedTrigger: Story = {
+  args: {},
+  render: (args) => {
+    const modalHandle = createModalHandle();
+
+    return (
+      <div className="flex gap-4">
+        <ModalTrigger handle={modalHandle}>
+          <Button clr="primary">Open Detached Modal</Button>
+        </ModalTrigger>
+        <Modal {...args} handle={modalHandle}>
+          <ModalContent title="Detached Modal">
+            <ModalDescription className="text-sm text-muted-foreground">
+              This trigger is rendered outside the Modal component and connected with a shared handle.
+            </ModalDescription>
+            <ModalButtons>
+              <ModalClose>
+                <Button clr="secondary" outline>Close</Button>
+              </ModalClose>
+            </ModalButtons>
+          </ModalContent>
+        </Modal>
+      </div>
+    )
+  }
 };
 
 export const Sizes: Story = {
