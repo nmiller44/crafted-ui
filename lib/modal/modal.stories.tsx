@@ -113,6 +113,29 @@ export const Basic: Story = {
   )
 };
 
+export const NoMotion: Story = {
+  name: 'No Motion',
+  args: { nomotion: true },
+  render: (args) => (
+    <Modal {...args} nomotion>
+      <ModalTrigger><Button>Choose a Tasting Flight</Button></ModalTrigger>
+      <ModalContent title="Tasting Flight">
+        <Field>
+          <FieldLabel>Beer Style</FieldLabel>
+          <Select items={[
+            { value: 'ipa', label: 'IPA' },
+            { value: 'stout', label: 'Stout' },
+            { value: 'lager', label: 'Lager' },
+          ]} placeholder="Choose a style..." />
+        </Field>
+        <ModalButtons>
+          <ModalClose><Button outline>Done</Button></ModalClose>
+        </ModalButtons>
+      </ModalContent>
+    </Modal>
+  )
+};
+
 export const DetachedTrigger: Story = {
   args: {},
   render: (args) => {

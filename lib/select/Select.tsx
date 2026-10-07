@@ -3,12 +3,14 @@ import { classNames } from "~/utils";
 import { SelectOption } from "./SelectOption";
 import { ReactNode } from "react";
 import { IconChevronDown } from "~/icons";
+import { MotionProvider, motionClasses, useNomotion } from "~/motion";
 
 export type SelectProps = React.ComponentProps<typeof SelectPrimitive.Root> & {
     placeholder?: string;
     align?: "start" | "center" | "end";
     alignOffset?: number;
     className?: string;
+    nomotion?: boolean;
 }
 
 /**
@@ -37,6 +39,7 @@ export type SelectItemProp = {
  * @param items - Array of option objects with value and label properties. Essential for proper display
  * @param align - Dropdown alignment relative to trigger (defaults to "start")
  * @param alignOffset - Pixel offset for dropdown alignment
+ * @param nomotion - Disables popup opening and closing transitions
  */
 export const Select = ({
     placeholder,
@@ -46,13 +49,17 @@ export const Select = ({
     children,
     className,
     disabled = false,
+    nomotion,
     ...props
 }: SelectProps) => {
     // Auto-disable when items is empty and no children provided
     const isEmpty = !items || items.length === 0;
     const shouldDisable = disabled || (isEmpty && !children);
+    const inheritedNomotion = useNomotion();
+    const effectiveNomotion = nomotion ?? inheritedNomotion;
 
     return (
+        <MotionProvider nomotion={nomotion}>
         <SelectPrimitive.Root items={items} {...props} disabled={shouldDisable}>
             <SelectPrimitive.Trigger 
                 className={classNames(
@@ -80,7 +87,7 @@ export const Select = ({
                         <SelectPrimitive.Popup className={classNames(
                                                     "bg-white",
                                                     "w-[calc(var(--anchor-width)-2px)] mx-px rounded-b-md border-0 ring-1 ring-border shadow-sm outline-0",
-                                                    "transition-[transform,scale,opacity] data-[ending-style]:scale-95 data-[starting-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
+                                                    motionClasses(effectiveNomotion, "transition-[transform,scale,opacity] data-[ending-style]:scale-95 data-[starting-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0"),
                                                     )}>
                             { !children && Array.isArray(items) &&
                                 items.map((type: SelectItemProp, idx: number) => (
@@ -93,5 +100,6 @@ export const Select = ({
                     </SelectPrimitive.Positioner>
                 </SelectPrimitive.Portal>
         </SelectPrimitive.Root>
+        </MotionProvider>
     )
 }

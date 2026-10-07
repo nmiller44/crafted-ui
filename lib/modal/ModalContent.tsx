@@ -2,6 +2,7 @@ import { Dialog as DialogPrimitive } from "@base-ui/react"
 import { classNames } from "~/utils"
 import { ModalTitle } from "./ModalTitle"
 import { ModalClose } from "./ModalClose"
+import { motionClasses, useNomotion } from "~/motion"
 
 export type ModalContentProps = React.ComponentProps<typeof DialogPrimitive.Popup> & {
     title?: string
@@ -11,6 +12,7 @@ export type ModalContentProps = React.ComponentProps<typeof DialogPrimitive.Popu
 }
 
 export const ModalContent = ({ title, subtitle, size = "md", hideClose = false, className, children, ...props}: ModalContentProps) => {
+    const nomotion = useNomotion()
     const protectCloseSpace = !title && !hideClose
 
     const sizeClass = {
@@ -22,7 +24,10 @@ export const ModalContent = ({ title, subtitle, size = "md", hideClose = false, 
 
     return (
         <DialogPrimitive.Portal>
-            <DialogPrimitive.Backdrop className="fixed inset-0 bg-black opacity-20 transition-all duration-150 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0 dark:opacity-70" />
+            <DialogPrimitive.Backdrop className={classNames(
+                "fixed inset-0 bg-black opacity-20 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0 dark:opacity-70",
+                motionClasses(nomotion, "transition-opacity")
+            )} />
             <DialogPrimitive.Popup className={classNames(
                                     "flex flex-col space-y-8",
                                     "fixed top-1/2 left-1/2 -mt-8 max-w-[calc(100vw-3rem)]", 
@@ -30,8 +35,8 @@ export const ModalContent = ({ title, subtitle, size = "md", hideClose = false, 
                                     "-translate-x-1/2 -translate-y-1/2",
                                     "p-6",
                                     "rounded-lg bg-card outline outline-1 outline-border", 
-                                    "transition-all duration-150 data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0",
-                                    className
+                                    className,
+                                    motionClasses(nomotion, "transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0")
                                 )} { ...props }>
                 { !hideClose && <div className="absolute top-4 right-4"><ModalClose>X</ModalClose></div> }
                 { !!title && <ModalTitle title={ title } subtitle={ subtitle } /> }
