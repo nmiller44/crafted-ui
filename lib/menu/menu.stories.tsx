@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Menu } from './Menu';
+import { createMenuHandle, Menu } from './Menu';
 import { MenuContent } from './MenuContent';
 import { MenuItem } from './MenuItem';
 import { MenuTrigger } from './MenuTrigger';
@@ -93,6 +93,21 @@ export const Basic: Story = {
   )
 };
 
+export const NoMotion: Story = {
+    name: 'No Motion',
+    args: { nomotion: true },
+    render: (args) => (
+        <Menu {...args} nomotion>
+            <MenuTrigger><Button>Brewing Actions</Button></MenuTrigger>
+            <MenuContent>
+                <MenuItem>New Batch</MenuItem>
+                <MenuItem>View Inventory</MenuItem>
+                <MenuItem>Export Report</MenuItem>
+            </MenuContent>
+        </Menu>
+    )
+};
+
 export const WithActions: Story = {
   args: {},
   render: (args) => {
@@ -137,4 +152,33 @@ export const WithActions: Story = {
         </div>
     );
   }
+};
+
+type MenuPayload = { section: string };
+
+const DetachedMenu = () => {
+    const [handle] = React.useState(() => createMenuHandle<MenuPayload>());
+
+    return (
+        <div className="flex gap-3">
+            <MenuTrigger<MenuPayload> handle={handle} payload={{ section: 'Brewing' }}>
+                <Button>Brewing actions</Button>
+            </MenuTrigger>
+            <MenuTrigger<MenuPayload> handle={handle} payload={{ section: 'Inventory' }}>
+                <Button clr="blank" outline>Inventory actions</Button>
+            </MenuTrigger>
+            <Menu<MenuPayload> handle={handle}>
+                {({ payload }) => (
+                    <MenuContent>
+                        <MenuItem>Open {payload?.section} overview</MenuItem>
+                        <MenuItem>Manage {payload?.section}</MenuItem>
+                    </MenuContent>
+                )}
+            </Menu>
+        </div>
+    );
+};
+
+export const DetachedTrigger: Story = {
+    render: () => <DetachedMenu />,
 };

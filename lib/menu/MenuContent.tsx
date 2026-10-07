@@ -1,5 +1,6 @@
 import { Menu as MenuPrimitive } from "@base-ui/react"
 import { classNames } from "~/utils"
+import { motionClasses, useNomotion } from "~/motion"
 
 /**
  * MenuContent component that displays the dropdown menu items.
@@ -14,6 +15,7 @@ import { classNames } from "~/utils"
 export type MenuContentProps = React.ComponentProps<typeof MenuPrimitive.Popup>
 
 export const MenuContent = ({ className, children, ...props}: MenuContentProps) => {
+    const nomotion = useNomotion()
 
     return (
         <MenuPrimitive.Portal>
@@ -25,9 +27,8 @@ export const MenuContent = ({ className, children, ...props}: MenuContentProps) 
                                         "min-w-28",
 
                                         "origin-[var(--transform-origin)]",
-                                        "transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0",
-
-                                        className
+                                        className,
+                                        motionClasses(nomotion, "transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0")
                                     )} { ...props }>
                     { children }
                 </MenuPrimitive.Popup>

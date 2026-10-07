@@ -10,9 +10,9 @@ import { classNames } from "~/utils"
  * @see https://base-ui.com/components/react-menu
  * @since 0.2.0
  */
-export type MenuTriggerProps = React.ComponentProps<typeof MenuPrimitive.Trigger>
+export type MenuTriggerProps<Payload = unknown> = MenuPrimitive.Trigger.Props<Payload>
 
-export const MenuTrigger = ({ className, children, ...props}: MenuTriggerProps) => {
+export const MenuTrigger = <Payload,>({ className, children, ...props}: MenuTriggerProps<Payload>) => {
 
     return (
         <MenuPrimitive.Trigger className={classNames("outline-none select-none", className)} { ...props }>

@@ -92,6 +92,19 @@ export const Basic: Story = {
   )
 };
 
+export const NoMotion: Story = {
+  name: 'No Motion',
+  args: { nomotion: true },
+  render: (args) => (
+    <div className="max-w-sm">
+      <Field>
+        <FieldLabel>Search Beer Styles</FieldLabel>
+        <Combobox {...args} nomotion items={beerStyles} placeholder="Search beer styles..." />
+      </Field>
+    </div>
+  )
+};
+
 export const WithManyOptions: Story = {
   args: {},
   render: (args) => {
