@@ -25,6 +25,131 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Field>;
 
+const comparisonBeerStyles = [
+  { value: 'ipa', label: 'India Pale Ale' },
+  { value: 'stout', label: 'Stout' },
+  { value: 'lager', label: 'Lager' },
+];
+
+export const VisualCompare: Story = {
+  name: 'Visual Compare',
+  args: {},
+  render: () => (
+    <div className="w-full max-w-7xl space-y-8">
+      {['Empty', 'Populated', 'Disabled', 'Invalid'].map((state) => {
+        const populated = state === 'Populated' || state === 'Disabled';
+        const fieldProps = state === 'Invalid'
+          ? { invalid: true, 'data-invalid': '' }
+          : {};
+        const controlProps = state === 'Disabled'
+          ? { disabled: true }
+          : state === 'Invalid'
+            ? { 'aria-invalid': true as const }
+            : {};
+
+        return (
+          <Fieldset
+            key={state}
+            title={state}
+            grid
+            className="max-w-4xl grid-cols-1 sm:grid-cols-2 md:grid-cols-5 lg:grid-cols-5 gap-x-4"
+          >
+            <Field {...fieldProps} className="col-span-1 min-w-0">
+              <FieldLabel>Input</FieldLabel>
+              <Input
+                {...controlProps}
+                {...(populated ? { defaultValue: 'India Pale Ale' } : {})}
+                placeholder="Choose a beer style..."
+              />
+            </Field>
+            <Field {...fieldProps} className="col-span-1 min-w-0">
+              <FieldLabel>Number Input</FieldLabel>
+              <Input
+                {...controlProps}
+                {...(populated ? { defaultValue: '6.5' } : {})}
+                type="number"
+                step="0.1"
+                placeholder="Enter ABV..."
+              />
+            </Field>
+            <Field {...fieldProps} className="col-span-1 min-w-0">
+              <FieldLabel>Select</FieldLabel>
+              <Select
+                {...controlProps}
+                {...(populated ? { defaultValue: 'ipa' } : {})}
+                items={comparisonBeerStyles}
+                placeholder="Choose a beer style..."
+              />
+            </Field>
+            <Field {...fieldProps} className="col-span-1 min-w-0">
+              <FieldLabel>Combobox</FieldLabel>
+              <Combobox
+                {...controlProps}
+                {...(populated ? { defaultValue: comparisonBeerStyles[0] } : {})}
+                items={comparisonBeerStyles}
+                placeholder="Choose a beer style..."
+              />
+            </Field>
+            <Field {...fieldProps} className="col-span-1 min-w-0">
+              <FieldLabel>Textarea</FieldLabel>
+              <Textarea
+                {...controlProps}
+                {...(populated ? { defaultValue: 'India Pale Ale' } : {})}
+                rows={1}
+                placeholder="Choose a beer style..."
+              />
+            </Field>
+          </Fieldset>
+        );
+      })}
+
+      <Fieldset title="Multiline" grid>
+        <Field className="md:col-span-3 lg:col-span-6 min-w-0">
+          <FieldLabel>Tasting Notes</FieldLabel>
+          <Textarea
+            rows={3}
+            defaultValue={'Bright citrus aroma with tropical fruit notes.\nBalanced bitterness and a crisp finish.'}
+          />
+        </Field>
+      </Fieldset>
+
+      {['Empty', 'Populated', 'Disabled', 'Invalid'].map((state) => {
+        const populated = state === 'Populated' || state === 'Disabled';
+        const fieldProps = state === 'Invalid'
+          ? { invalid: true, 'data-invalid': '' }
+          : {};
+        const controlProps = state === 'Disabled'
+          ? { disabled: true }
+          : state === 'Invalid'
+            ? { 'aria-invalid': true as const }
+            : {};
+
+        return (
+          <Fieldset key={state} title={`${state} Choices`} grid>
+            <Field {...fieldProps} className="md:col-span-3 lg:col-span-6 min-w-0">
+              <FieldLabel>Checkbox</FieldLabel>
+              <Checkbox
+                {...controlProps}
+                {...(populated ? { defaultChecked: true } : {})}
+              >Include seasonal beers</Checkbox>
+            </Field>
+            <Field {...fieldProps} className="md:col-span-3 lg:col-span-6 min-w-0">
+              <FieldLabel>Radio Group</FieldLabel>
+              <RadioGroup
+                {...controlProps}
+                {...(populated ? { defaultValue: 'ipa' } : {})}
+              >
+                <Radio {...controlProps} value="ipa">India Pale Ale</Radio>
+                <Radio {...controlProps} value="stout">Stout</Radio>
+              </RadioGroup>
+            </Field>
+          </Fieldset>
+        );
+      })}
+    </div>
+  ),
+};
+
 export const Feature: Story = {
   args: {},
   render: (args) => (

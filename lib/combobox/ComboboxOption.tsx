@@ -26,8 +26,10 @@ export const ComboboxOption = ({
     return (
         <ComboboxPrimitive.Item value={value} className={classNames(
                                                 "flex gap-x-2 items-center px-3 py-0.5", 
-                                                "cursor-pointer", 
-                                                "data-[highlighted]:bg-neutral-100 data-[highlighted]:outline-0",
+                                                "cursor-pointer data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
+                                                "data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground hover:bg-accent hover:text-accent-foreground",
+                                                "data-[disabled]:bg-transparent data-[disabled]:text-muted-foreground data-[disabled]:hover:bg-transparent data-[disabled]:data-[highlighted]:bg-transparent",
+                                                "data-[highlighted]:outline-0 hover:outline-0",
                                                 "active:outline-0 *:outline-0",
                                                 className
                                             )} { ...props }>

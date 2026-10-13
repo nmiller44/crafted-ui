@@ -67,11 +67,15 @@ export const Select = ({
                     "mt-1 w-full",
                         "rounded-t-md border-0 ring-1 ring-inset ring-border outline-0 shadow-sm",
                         "aria-[expanded=false]:rounded-b-md",
+                        "focus:ring-2 focus:ring-inset focus:border-foreground focus:outline-0 focus:ring-foreground",
+                        "focus:outline-danger focus:outline-offset-2",
+                        "aria-[invalid=true]:focus:outline-2 data-[invalid]:focus:outline-2 group-data-[invalid]:focus:outline-2",
+                        "data-[popup-open]:ring-2 data-[popup-open]:ring-inset data-[popup-open]:ring-foreground",
                         "aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-danger",
                         "data-[invalid]:ring-2 data-[invalid]:ring-danger",
                         "group-data-[invalid]:ring-2 group-data-[invalid]:ring-danger",
-                        "text-sm text-foreground placeholder:text-muted-foreground", 
-                        "focus:ring-2 focus:ring-inset focus:border-foreground focus:outline-0 focus:ring-foreground",
+                        "aria-[invalid=true]:data-[popup-open]:ring-danger data-[invalid]:data-[popup-open]:ring-danger group-data-[invalid]:data-[popup-open]:ring-danger",
+                        "text-sm text-foreground placeholder:text-muted-foreground",
                         "cursor-pointer *:cursor-pointer",
                         "data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed data-[disabled]:[&>*]:cursor-not-allowed",
                         className
@@ -83,9 +87,9 @@ export const Select = ({
                     </SelectPrimitive.Icon>
                 </SelectPrimitive.Trigger>
                 <SelectPrimitive.Portal>
-                    <SelectPrimitive.Positioner alignItemWithTrigger={false} side="bottom" align="start">
+                    <SelectPrimitive.Positioner alignItemWithTrigger={false} side="bottom" align={align} alignOffset={alignOffset}>
                         <SelectPrimitive.Popup className={classNames(
-                                                    "bg-white",
+                                                    "bg-popover text-popover-foreground",
                                                     "w-[calc(var(--anchor-width)-2px)] mx-px rounded-b-md border-0 ring-1 ring-border shadow-sm outline-0",
                                                     motionClasses(effectiveNomotion, "transition-[transform,scale,opacity] data-[ending-style]:scale-95 data-[starting-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0"),
                                                     )}>

@@ -77,6 +77,11 @@ export const Combobox = ({
                         "group-data-[invalid]:ring-2 group-data-[invalid]:ring-danger",
                         "text-sm text-foreground",
                         "focus-within:ring-2 focus-within:ring-inset focus-within:ring-foreground",
+                        "focus-within:outline-danger focus-within:outline-offset-2",
+                        "aria-[invalid=true]:focus-within:outline-2 data-[invalid]:focus-within:outline-2",
+                        "has-[[data-invalid]]:focus-within:outline-2 group-data-[invalid]:focus-within:outline-2",
+                        "data-[popup-open]:ring-2 data-[popup-open]:ring-inset data-[popup-open]:ring-foreground",
+                        "aria-[invalid=true]:data-[popup-open]:ring-danger data-[invalid]:data-[popup-open]:ring-danger group-data-[invalid]:data-[popup-open]:ring-danger has-[[data-invalid]]:data-[popup-open]:ring-danger",
                         "data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed",
                         className
                     )}
@@ -90,14 +95,23 @@ export const Combobox = ({
                             "disabled:cursor-not-allowed",
                         )}
                     />
-                    <ComboboxPrimitive.Icon className="text-muted-foreground flex-shrink-0 pr-2">
-                        <IconChevronDown className="size-4" />
-                    </ComboboxPrimitive.Icon>
+                    <ComboboxPrimitive.Trigger
+                        aria-label="Toggle options"
+                        className={classNames(
+                            "flex items-center self-stretch pl-1 pr-3 text-muted-foreground flex-shrink-0",
+                            "cursor-pointer *:cursor-pointer",
+                            "data-[disabled]:cursor-not-allowed data-[disabled]:[&>*]:cursor-not-allowed",
+                        )}
+                    >
+                        <ComboboxPrimitive.Icon>
+                            <IconChevronDown className="size-4" />
+                        </ComboboxPrimitive.Icon>
+                    </ComboboxPrimitive.Trigger>
                 </ComboboxPrimitive.InputGroup>
                 <ComboboxPrimitive.Portal>
                     <ComboboxPrimitive.Positioner side="bottom" align={align} alignOffset={alignOffset}>
                         <ComboboxPrimitive.Popup className={classNames(
-                                                    "bg-white",
+                                                    "bg-popover text-popover-foreground",
                                                     "w-[calc(var(--anchor-width)-2px)] mx-px rounded-b-md border-0 ring-1 ring-border shadow-sm outline-0",
                                                     motionClasses(effectiveNomotion, "transition-[transform,scale,opacity] data-[ending-style]:scale-95 data-[starting-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0"),
                                                     )}>

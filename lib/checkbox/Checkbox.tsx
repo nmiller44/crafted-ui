@@ -1,4 +1,5 @@
 import { Checkbox as CheckboxPrimitive } from "@base-ui/react"
+import { useId } from "react";
 import { classNames } from "~/utils";
 
 export type CheckboxProps = React.ComponentProps<typeof CheckboxPrimitive.Root> & {
@@ -41,14 +42,20 @@ export const Checkbox = ({
     className, 
     ...props 
 }: CheckboxProps) => {
+    const labelId = useId();
+    const labelledBy = props['aria-labelledby'] ?? (
+      props['aria-label'] ? '' : (title || children) ? labelId : undefined
+    );
+
     return (
       <CheckboxPrimitive.Root
         className={classNames(
-            "flex gap-2 cursor-pointer group",
+          "flex gap-2 cursor-pointer group focus:outline-none",
             "data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed",
             className
         )}
         {...props}
+        aria-labelledby={labelledBy}
       >
         <div className={classNames(
                 "text-foreground",
@@ -57,16 +64,17 @@ export const Checkbox = ({
                 "flex-shrink-0",
                 "rounded-sm border-0 ring-1 ring-inset ring-border shadow-sm", 
                 "flex items-center justify-center", 
-                "group-data-[checked]:border-2 group-data-[checked]:border-primary",
+                "group-focus:ring-2 group-focus:ring-foreground",
                 "group-aria-[invalid=true]:ring-2 group-aria-[invalid=true]:ring-danger",
                 "group-data-[invalid]:ring-2 group-data-[invalid]:ring-danger",
-                "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2", 
-                "transition-colors duration-200")}>
+                "group-focus:outline-offset-2",
+                "group-[[aria-invalid=true]:focus]:outline-2 group-[[aria-invalid=true]:focus]:outline-danger",
+                "group-[[data-invalid]:focus]:outline-2 group-[[data-invalid]:focus]:outline-danger")}>
             <CheckboxPrimitive.Indicator className="flex data-[unchecked]:hidden">
                 <CheckIcon className={classNames(checkSizeMapper[size], "text-primary")} />
             </CheckboxPrimitive.Indicator>
         </div>
-        <div className="text-left text-sm select-none flex-col space-y-1">
+        <div id={labelId} className="text-left text-sm select-none flex-col space-y-1">
             { !!title
                 ? title
                 : children

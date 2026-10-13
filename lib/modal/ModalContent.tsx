@@ -1,5 +1,7 @@
 import { Dialog as DialogPrimitive } from "@base-ui/react"
 import { classNames } from "~/utils"
+import { Button } from "~/button"
+import { IconX } from "~/icons"
 import { ModalTitle } from "./ModalTitle"
 import { ModalClose } from "./ModalClose"
 import { motionClasses, useNomotion } from "~/motion"
@@ -38,7 +40,7 @@ export const ModalContent = ({ title, subtitle, size = "md", hideClose = false, 
                                     className,
                                     motionClasses(nomotion, "transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0")
                                 )} { ...props }>
-                { !hideClose && <div className="absolute top-4 right-4"><ModalClose>X</ModalClose></div> }
+                { !hideClose && <div className="absolute top-4 right-4"><ModalClose><Button clr="primary" ghost aria-label="Close" title="Close" className="group size-8 shrink-0 focus:bg-transparent focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-card"><IconX className="transition-[stroke-width] group-hover:[stroke-width:2.5] group-focus-visible:[stroke-width:2.5]" aria-hidden="true" /></Button></ModalClose></div> }
                 { !!title && <ModalTitle title={ title } subtitle={ subtitle } /> }
                 <div className={classNames("space-y-8", protectCloseSpace && "[&>:first-child>:first-child]:pr-10")}>
                     { children }

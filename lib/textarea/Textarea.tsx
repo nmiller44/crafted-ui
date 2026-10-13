@@ -22,6 +22,10 @@ export const Textarea = ({ className, children, placeholder, ...props }: Textare
                                                 "group-data-[invalid]:ring-2 group-data-[invalid]:ring-danger",
                                                 "text-sm text-foreground placeholder:text-muted-foreground", 
                                                 "focus:ring-2 focus:ring-inset focus:border-foreground focus:outline-none focus:ring-foreground",
+                                                "focus:outline-danger focus:outline-offset-2",
+                                                "aria-[invalid=true]:focus:outline-2 aria-[invalid=true]:focus:outline-solid",
+                                                "data-[invalid]:focus:outline-2 data-[invalid]:focus:outline-solid",
+                                                "group-data-[invalid]:focus:outline-2 group-data-[invalid]:focus:outline-solid",
                                                 "disabled:opacity-50 disabled:cursor-not-allowed",
                                                 "resize-y",
                                                 className

@@ -29,6 +29,7 @@ export const FieldsetButtons = ({
         <div className={classNames(
                             "flex space-x-4",
                             align === 'right' ? "justify-end" : align === 'center' ? "justify-center" : "justify-start",
+                            "mt-4",
                             "col-span-full",
                             className
                         )} { ...props }>
