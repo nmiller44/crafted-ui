@@ -36,6 +36,9 @@ export type FormProps = BaseFormProps & {
 
 export const Form = ({ errors, className, children, ref, ...props }: FormProps) => {
     const formAlert = errors?._form;
+    const hasFormAlert = typeof formAlert === "string"
+        ? formAlert.length > 0
+        : !!formAlert?.message;
     const fieldErrors = errors
         ? Object.fromEntries(
             Object.entries(errors).filter(([name]) => name !== "_form")
@@ -44,7 +47,11 @@ export const Form = ({ errors, className, children, ref, ...props }: FormProps) 
 
     return (
         <FormPrimitive
-            className={classNames("flex flex-col space-y-6", className)}
+            className={classNames(
+                "flex flex-col space-y-12",
+                hasFormAlert && "[&>div+*]:-mt-4",
+                className
+            )}
             errors={fieldErrors}
             ref={ ref }
             { ...props }

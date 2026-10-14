@@ -29,10 +29,11 @@ export const Fieldset = ({ title, subtitle, grid = false, className, children, .
     return (
         <FieldsetPrimitive.Root 
             className={classNames(
-                        grid ? "grid grid-cols-2 md:grid-cols-6 lg:grid-cols-12 gap-x-6 gap-y-8" : "flex flex-col space-y-8", 
+                        grid ? "grid grid-cols-2 md:grid-cols-6 lg:grid-cols-12 gap-x-6 gap-y-6" : "flex flex-col space-y-6", 
+                        title && !grid ? "[&>div:first-child+*]:-mt-1" : "",
                         className
                     )} {...props}>
-            { !!title && <FieldsetLegend title={ title } subtitle={ subtitle } /> }
+            { !!title && <FieldsetLegend title={ title } subtitle={ subtitle } className={grid ? "-mb-1" : undefined} /> }
             { children }
         </FieldsetPrimitive.Root>
     )

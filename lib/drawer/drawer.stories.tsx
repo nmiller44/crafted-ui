@@ -112,8 +112,8 @@ const HelmetNavigation = () => {
                 >
                     <header className="flex shrink-0 items-center gap-3 border-b border-border px-3 py-3">
                         <DrawerClose>
-                            <Button ghost aria-label="Close Helmet navigation" title="Close Helmet navigation" className="size-10 shrink-0">
-                                <IconX aria-hidden="true" />
+                            <Button clr="primary" ghost aria-label="Close Helmet navigation" title="Close Helmet navigation" className="group size-10 shrink-0 focus:bg-transparent focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-card">
+                                <IconX className="transition-[stroke-width] group-hover:[stroke-width:2.5] group-focus-visible:[stroke-width:2.5]" aria-hidden="true" />
                             </Button>
                         </DrawerClose>
                         <DrawerTitle id={titleId} className="sr-only">Helmet navigation</DrawerTitle>

@@ -17,6 +17,9 @@ export const Input = ({ type = "text", className, children, ...props }: InputPro
                                             "data-[invalid]:ring-2 data-[invalid]:ring-danger",
                                             "text-sm text-foreground placeholder:text-muted-foreground", 
                                             "focus:ring-2 focus:ring-inset focus:border-foreground focus:outline-none focus:ring-foreground",
+                                            "focus:outline-danger focus:outline-offset-2",
+                                            "aria-[invalid=true]:focus:outline-2 aria-[invalid=true]:focus:outline-solid",
+                                            "data-[invalid]:focus:outline-2 data-[invalid]:focus:outline-solid",
                                             "disabled:opacity-50 disabled:cursor-not-allowed",
                                             className
                 )} {...props} />

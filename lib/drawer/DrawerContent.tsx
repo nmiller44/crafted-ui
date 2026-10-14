@@ -33,10 +33,10 @@ export type DrawerContentProps = React.ComponentProps<typeof DrawerPrimitive.Pop
 )
 
 const sideClasses = {
-    left: "h-full max-w-[calc(100vw-3rem)] rounded-r-md border-r [transform:translateX(var(--drawer-swipe-movement-x,0px))] data-[starting-style]:[transform:translateX(-100%)] data-[ending-style]:[transform:translateX(-100%)]",
-    right: "h-full max-w-[calc(100vw-3rem)] rounded-l-md border-l [transform:translateX(var(--drawer-swipe-movement-x,0px))] data-[starting-style]:[transform:translateX(100%)] data-[ending-style]:[transform:translateX(100%)]",
-    top: "w-full max-h-[calc(100dvh-3rem)] rounded-b-md border-b [transform:translateY(var(--drawer-swipe-movement-y,0px))] data-[starting-style]:[transform:translateY(-100%)] data-[ending-style]:[transform:translateY(-100%)]",
-    bottom: "w-full max-h-[calc(100dvh-3rem)] rounded-t-md border-t [transform:translateY(var(--drawer-swipe-movement-y,0px))] data-[starting-style]:[transform:translateY(100%)] data-[ending-style]:[transform:translateY(100%)]",
+    left: "h-full max-w-[calc(100vw-3rem)] border-r [transform:translateX(var(--drawer-swipe-movement-x,0px))] data-[starting-style]:[transform:translateX(-100%)] data-[ending-style]:[transform:translateX(-100%)]",
+    right: "h-full max-w-[calc(100vw-3rem)] border-l [transform:translateX(var(--drawer-swipe-movement-x,0px))] data-[starting-style]:[transform:translateX(100%)] data-[ending-style]:[transform:translateX(100%)]",
+    top: "w-full max-h-[calc(100dvh-3rem)] border-b [transform:translateY(var(--drawer-swipe-movement-y,0px))] data-[starting-style]:[transform:translateY(-100%)] data-[ending-style]:[transform:translateY(-100%)]",
+    bottom: "w-full max-h-[calc(100dvh-3rem)] border-t [transform:translateY(var(--drawer-swipe-movement-y,0px))] data-[starting-style]:[transform:translateY(100%)] data-[ending-style]:[transform:translateY(100%)]",
 }
 
 const viewportClasses = {
@@ -77,8 +77,8 @@ export const DrawerContent = ({ title, subtitle, size = "md", hideClose = false,
                                 </div>
                                 {!hideClose && (
                                     <DrawerClose>
-                                        <Button clr="blank" ghost aria-label="Close drawer" title="Close drawer" className="size-8 shrink-0 focus-visible:ring-2 focus-visible:ring-ring">
-                                            <IconX aria-hidden="true" />
+                                        <Button clr="primary" ghost aria-label="Close drawer" title="Close drawer" className="group size-8 shrink-0 focus:bg-transparent focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-card">
+                                            <IconX className="transition-[stroke-width] group-hover:[stroke-width:2.5] group-focus-visible:[stroke-width:2.5]" aria-hidden="true" />
                                         </Button>
                                     </DrawerClose>
                                 )}
