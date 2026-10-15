@@ -1,0 +1,21 @@
+@import "./vars.css";
+
+@source "./**/*.js";
+
+@layer components {
+  button {
+    cursor: pointer;
+  }
+  [class*="border"] {
+    @apply border-border;
+  }
+  p {
+    @apply text-muted-foreground;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground min-w-xs min-h-screen;
+  }
+}

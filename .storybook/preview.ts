@@ -20,6 +20,17 @@ const preview: Preview = {
     theme: 'light',
   },
   parameters: {
+    options: {
+      storySort: {
+        order: ['CraftedUI', [
+          'Components',
+          'Layout',
+          'Typography',
+          'Forms', ['Form'],
+          'Icons',
+        ]],
+      },
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
