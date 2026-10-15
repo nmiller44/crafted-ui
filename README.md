@@ -24,13 +24,14 @@ npm install crafted-ui
 
 ## Usage
 
-Import the styles in your application's CSS file:
+Crafted UI requires Tailwind CSS v4. Import the styles in your application's main CSS file, processed by Tailwind:
 
-tailwind.css
 ```css
 @import "tailwindcss";
-@import "crafted-ui/styles" layer(components);
+@import "crafted-ui/styles";
 ```
+
+The styles import supplies Crafted's theme tokens, dark variant, and base/component rules, and automatically registers the packaged component JavaScript for Tailwind source detection.
 
 Then import and use the components in your React application:
 

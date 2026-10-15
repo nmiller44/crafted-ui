@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import { extname, relative, resolve } from 'path'
-import { globSync } from 'fs'
+import { globSync, readFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import tailwindcss from "@tailwindcss/vite";
 import dts from 'vite-plugin-dts'
@@ -16,6 +16,19 @@ export default defineConfig({
   plugins: [
     react(), 
     tailwindcss(),
+    {
+      name: 'crafted-ui-styles',
+      apply: 'build',
+      generateBundle() {
+        for (const fileName of ['styles.css', 'vars.css']) {
+          this.emitFile({
+            type: 'asset',
+            fileName,
+            source: readFileSync(resolve(__dirname, 'lib', fileName), 'utf8'),
+          });
+        }
+      },
+    },
     dts({ 
       tsconfigPath: resolve(__dirname, "tsconfig.app.json"),
       include: ['lib'],
