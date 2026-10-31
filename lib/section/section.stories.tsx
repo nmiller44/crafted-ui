@@ -3,178 +3,156 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Section } from './Section';
 import { SectionHeader } from './SectionHeader';
 import { Button } from '../button/Button';
+import { Page } from '../page/Page';
 
 const meta = {
   title: 'CraftedUI/Layout/Section',
   component: Section,
+  decorators: [
+    (Story) => (
+      <main>
+        <div className="w-full max-w-7xl mx-auto px-6 lg:px-8 py-8 md:py-12">
+          <Story />
+        </div>
+      </main>
+    ),
+  ],
 } satisfies Meta<typeof Section>;
 
 export default meta;
 type Story = StoryObj<typeof Section>;
 
-export const Basic: Story = {
+export const Feature: Story = {
   args: {},
   render: (args) => (
-    <Section title="Basic Section" subtitle="Simple section with title and subtitle" {...args}>
-      <div className="p-4 bg-muted rounded-md">
-        <p>This is a basic section with content.</p>
-      </div>
-    </Section>
-  )
-};
-
-export const SamplePage: Story = {
-  args: {},
-  render: (args) => (
-    <div className="space-y-0">
-      <Section title="First Section" subtitle="This is the first section with a subtitle">
+    <Page title="Taproom Operations" subtitle="Prepare the team for tonight's service.">
+      <Section {...args} title="Service Overview" subtitle="Review the tap list and team assignments.">
+        <p>Confirm the evening lineup before opening the doors.</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="p-4 bg-muted rounded-md">
-            <p>This is content in the first section. Notice how sections automatically handle spacing between each other.</p>
+            <p>Hoppy Trails IPA and Golden Hour Pils are ready to pour.</p>
           </div>
           <div className="p-4 bg-muted rounded-md">
-            <p>Multiple content blocks within a section are spaced using the internal space-y-12 utility.</p>
+            <p>The bar team is assigned to service, with a cellar lead available for keg changes.</p>
           </div>
         </div>
       </Section>
-      
-      <Section title="Second Section">
-        <div className="p-4 bg-accent/10 rounded-md">
-          <p>This second section demonstrates automatic margin spacing. The first section above has no top margin, but this section has mt-12 applied automatically.</p>
+
+      <Section title="Tonight's Highlights" subtitle="Help guests discover the current lineup.">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="p-4 bg-accent/10 rounded-md text-center">Fresh West Coast IPA</div>
+          <div className="p-4 bg-accent/10 rounded-md text-center">Seasonal Pilsner</div>
+          <div className="p-4 bg-accent/10 rounded-md text-center">Barrel-Aged Stout</div>
         </div>
         <div className="flex gap-4">
-          <Button>Action 1</Button>
-          <Button clr="primary">Action 2</Button>
+          <Button outline>Preview Menu</Button>
+          <Button>Publish Tap List</Button>
         </div>
       </Section>
-      
+
       <Section>
-        <SectionHeader title="Custom Header" subtitle="Using SectionHeader component directly" lined />
+        <SectionHeader title="Cellar Handoff" subtitle="Review the final checks with the service team." lined />
         <div className="p-4 bg-muted rounded-md">
-          <p>This section shows using SectionHeader independently with the lined prop for a bottom border.</p>
+          <p>Confirm keg availability and record any low-stock beers before service.</p>
         </div>
       </Section>
-    </div>
-  )
+
+      <Section title="Opening Checklist">
+        <p>Check glassware, test the taps, and brief the team before opening.</p>
+        <Button>Start Service</Button>
+      </Section>
+    </Page>
+  ),
 };
 
-export const SpacingBehavior: Story = {
-  args: {},
+export const Basic: Story = {
+  args: {
+    title: 'Taproom Checklist',
+    subtitle: 'Prepare the bar for service.',
+  },
   render: (args) => (
-    <div className="space-y-0">
-      <Section title="First Section">
-        <div className="p-4 bg-primary/10 rounded-md">
-          <p className="text-sm">First section - no top margin</p>
+    <Page>
+      <Section {...args}>
+        <div className="p-4 bg-muted rounded-md">
+          <p>Check glassware and confirm the current tap list.</p>
         </div>
       </Section>
-      <Section title="Second Section">
-        <div className="p-4 bg-secondary/10 rounded-md">
-          <p className="text-sm">Second section - has mt-12 applied</p>
-        </div>
-      </Section>
-      <Section title="Third Section">
-        <div className="p-4 bg-accent/10 rounded-md">
-          <p className="text-sm">Third section - also has mt-12 applied</p>
-        </div>
-      </Section>
-    </div>
-  )
-};
-
-export const InternalSpacing: Story = {
-  args: {},
-  render: (args) => (
-    <Section title="Internal Spacing Demo">
-      <div className="p-4 bg-muted rounded-md">
-        <p>First content block</p>
-      </div>
-      <div className="p-4 bg-muted rounded-md">
-        <p>Second content block - 48px spacing above</p>
-      </div>
-      <div className="p-4 bg-muted rounded-md">
-        <p>Third content block - 48px spacing above</p>
-      </div>
-    </Section>
-  )
+    </Page>
+  ),
 };
 
 export const HeaderVariants: Story = {
   args: {},
   render: (args) => (
-    <div className="space-y-0">
-      <Section title="Basic Header" subtitle="This is a subtitle that provides additional context">
+    <Page title="Section Headers" subtitle="Standard, lined, and action-oriented headers.">
+      <Section {...args} title="Tap List" subtitle="A standard header with additional context.">
         <div className="p-4 bg-muted rounded-md">
-          <p>Section content goes here</p>
+          <p>Review the beers currently available in the taproom.</p>
         </div>
       </Section>
-      
+
       <Section>
-        <SectionHeader title="Lined Header" subtitle="With bottom border" lined />
+        <SectionHeader title="Cellar Notes" subtitle="A lined header separates the heading from its content." lined />
         <div className="p-4 bg-muted rounded-md">
-          <p>Content with a lined section header</p>
+          <p>Golden Hour Pils is ready for its final conditioning check.</p>
         </div>
       </Section>
-      
+
       <Section>
-        <SectionHeader title="Header with Actions" subtitle="Includes action buttons">
+        <SectionHeader title="Service Assignments" subtitle="Page-level rhythm also separates sections with header actions.">
           <div className="flex gap-2">
-            <Button>Edit</Button>
-            <Button clr="primary">Save</Button>
+            <Button outline>Edit</Button>
+            <Button>Save</Button>
           </div>
         </SectionHeader>
         <div className="p-4 bg-muted rounded-md">
-          <p>Section content with header actions</p>
+          <p>Assign the bar team and the cellar lead for tonight's service.</p>
         </div>
       </Section>
-    </div>
-  )
+    </Page>
+  ),
 };
 
-export const PageStructure: Story = {
+export const Spacing: Story = {
   args: {},
+  parameters: {
+    docs: {
+      description: {
+        story: 'Page provides 48px between content children on mobile and 64px from md upward, with a reduced 32px / 48px gap after PageHeader. Without a header, all content gaps are uniform. Section provides 32px between its direct children; className can override that internal spacing. Section does not add external margins.',
+      },
+    },
+  },
   render: (args) => (
-    <main>
-      <Section title="Introduction" subtitle="Welcome to our platform">
-        <p>Opening content and overview</p>
-      </Section>
-      
-      <Section title="Features" subtitle="What we offer">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-4 bg-muted rounded-md text-center">Feature 1</div>
-          <div className="p-4 bg-muted rounded-md text-center">Feature 2</div>
-          <div className="p-4 bg-muted rounded-md text-center">Feature 3</div>
+    <Page title="Section Spacing" subtitle="Compare page rhythm, internal spacing, and local overrides.">
+      <Section {...args} title="Default Internal Spacing">
+        <div className="p-4 bg-primary/10 rounded-md">
+          <p>Section leaves 32px between its header and this content block.</p>
+        </div>
+        <div className="p-4 bg-secondary/10 rounded-md">
+          <p>The next direct content block also has a 32px gap above it.</p>
+        </div>
+        <div className="p-4 bg-accent/10 rounded-md">
+          <p>Page separates this whole section from the next: 48px on mobile, 64px on desktop.</p>
         </div>
       </Section>
-      
-      <Section title="Getting Started">
-        <p>Step-by-step instructions</p>
-        <Button clr="primary">Start Now</Button>
-      </Section>
-    </main>
-  )
-};
 
-export const CustomStyling: Story = {
-  args: {},
-  render: (args) => (
-    <div className="space-y-0">
-      <Section className="space-y-6" title="Tighter Spacing">
+      <Section className="space-y-6" title="Tighter Internal Spacing">
         <div className="p-4 bg-muted rounded-md">
-          <p>Content with reduced internal spacing (space-y-6)</p>
+          <p>The space-y-6 override reduces this section's internal gaps to 24px.</p>
         </div>
         <div className="p-4 bg-muted rounded-md">
-          <p>Second content block with tighter spacing</p>
+          <p>The surrounding Page spacing remains unchanged.</p>
         </div>
       </Section>
-      
-      <Section 
-        className="bg-muted/50 p-8 rounded-lg border border-border" 
-        title="Styled Section"
-      >
+
+      <Section className="bg-muted/50 p-8 rounded-lg border border-border" title="Styled Section">
         <div className="p-4 bg-background rounded-md">
-          <p>Section with custom background and padding</p>
+          <p>This section adds 32px of padding, while keeping the default 32px internal gaps.</p>
+        </div>
+        <div className="p-4 bg-background rounded-md">
+          <p>Backgrounds and padding can change without taking over Page's external spacing.</p>
         </div>
       </Section>
-    </div>
-  )
+    </Page>
+  ),
 };
