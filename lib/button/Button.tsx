@@ -1,9 +1,12 @@
 import { classNames } from "~/utils";
 import type { Clr } from "~/types/colors";
+import { useNomotion } from "~/motion";
 
 /**
  * Interactive button for actions, links, and form submissions.
  * Supports multiple color variants, outline, full width, rounded, and ghost styling.
+ * Descendant SVGs with a stroke thicken to 2.5 on enabled hover and keyboard focus,
+ * without changing layout. Fill-only icons are unchanged; transitions respect motion preferences.
  * 
  * Supports stretched links: placing a single `<a>` tag as a child makes the entire button 
  * clickable, useful for navigation styled as buttons.
@@ -32,6 +35,7 @@ export type ButtonProps = React.ComponentProps<"button"> & {
 }
 
 export const Button = ({ clr = "primary", outline = false, full = false, rounded = false, ghost = false, type = "button", className, children, ...props }: ButtonProps) => {
+    const nomotion = useNomotion();
 
     const colorStyle = {
         blank: 'text-foreground bg-transparent hover:bg-foreground/10 focus:ring-foreground',
@@ -151,6 +155,10 @@ export const Button = ({ clr = "primary", outline = false, full = false, rounded
         "relative *:after:absolute *:after:inset-0", //stretched link
         "inline-flex text-center justify-center content-center items-center",
         "hover:[text-shadow:0.5px_0_0_currentColor]",
+        "enabled:hover:[&_svg[stroke]]:[stroke-width:2.5] enabled:focus-visible:[&_svg[stroke]]:[stroke-width:2.5]",
+        nomotion
+            ? "[&_svg[stroke]]:transition-none"
+            : "[&_svg[stroke]]:transition-[stroke-width] [&_svg[stroke]]:duration-150 [&_svg[stroke]]:ease-out motion-reduce:[&_svg[stroke]]:transition-none",
         "disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none",
         ghost ? "focus:[text-shadow:0.5px_0_0_currentColor] focus:bg-muted/30" : "focus:[text-shadow:0.5px_0_0_currentColor]",
         rounded ? "rounded-full" : "rounded-md",

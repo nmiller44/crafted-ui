@@ -16,6 +16,7 @@ export * from "./IconMinus";
 export * from "./IconPencil";
 export * from "./IconPlus";
 export * from "./IconSearch";
+export * from "./IconSettings";
 export * from "./IconShare";
 export * from "./IconTrash";
 export * from "./IconX";

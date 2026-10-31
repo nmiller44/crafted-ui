@@ -1,8 +1,8 @@
 import { classNames } from "~/utils";
 
 /**
- * Main content region of a Card. Applies the standard padding, grows to fill the available
- * height, and spaces its children vertically.
+ * Main content region of a Card. Grows to fill the available height and spaces its children
+ * vertically. Padding is supplied by Card or by the caller when composing regions manually.
  *
  * @component
  * @category Components
@@ -18,8 +18,8 @@ export const CardBody = ({ className, children, ...props }: CardBodyProps) => {
     return (
         <div className={classNames(
                             "flex flex-col", 
-                            "px-8 py-10 grow", 
-                            "space-y-6",
+                            "grow", 
+                            "space-y-8",
                             className
                     )} { ...props }>
             { children }
