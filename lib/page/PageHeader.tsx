@@ -13,12 +13,12 @@ export const PageHeader = ({ title, subtitle, className, children, wrapperClassN
         <header className={classNames(
                     "md:flex md:items-start md:justify-between",
                     wrapperClassName
-                )} { ...props }>
-        { !!(title || subtitle)
+                )} { ...props } data-slot="page-header">
+        { (title || subtitle)
             ?   <>
                     <Heading1 title={title} subtitle={subtitle} className={ className } />
                     { !!children &&
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 pt-2">
                         { children }
                     </div>
                     }

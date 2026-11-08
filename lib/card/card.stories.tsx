@@ -21,7 +21,7 @@ export const Feature: Story = {
   render: (args) => (
     <div className="flex flex-col space-y-12 grow max-w-md">
         <Card {...args} title="West Coast IPA" subtitle="American IPA - 7.2% ABV">
-            <CardBody>
+            <CardBody className="px-8 py-8">
                 <p className="text-sm text-muted-foreground mb-4">
                     Bold and bitter with pine and citrus hop character. Crisp, dry finish 
                     showcasing Cascade, Centennial, and Chinook hops.
@@ -39,6 +39,40 @@ export const Feature: Story = {
                 <span className="text-sm text-muted-foreground">Available in 16oz cans and on draft</span>
             </CardFooter>
         </Card>
+    </div>
+  )
+};
+
+export const PropCompare: Story = {
+  name: 'Prop Compare',
+  args: {},
+  render: () => (
+    <div className="grid w-full max-w-4xl grid-cols-1 gap-6 min-[480px]:grid-cols-2">
+      <div className="flex flex-col gap-2">
+        <div className="text-sm font-medium">Title prop</div>
+        <Card title="West Coast IPA" subtitle="American IPA - 7.2 ABV" className="h-full">
+          <CardBody className="px-8">
+            <p className="text-sm text-muted-foreground">Bold and bitter with pine and citrus hop character. Crisp, dry finish showcasing Cascade, Centennial, and Chinook hops.</p>
+            <div className="flex gap-4 text-sm">
+              <div><span className="font-medium">IBU:</span> 68</div>
+              <div><span className="font-medium">SRM:</span> 8</div>
+            </div>
+          </CardBody>
+        </Card>
+      </div>
+      <div className="flex flex-col gap-2">
+        <div className="text-sm font-medium">Manual CardHeader + CardBody</div>
+        <Card className="h-full py-10 pb-6">
+          <CardHeader title="West Coast IPA" subtitle="American IPA - 7.2 ABV" />
+          <CardBody className="px-8">
+            <p className="text-sm text-muted-foreground">Bold and bitter with pine and citrus hop character. Crisp, dry finish showcasing Cascade, Centennial, and Chinook hops.</p>
+            <div className="flex gap-4 text-sm">
+              <div><span className="font-medium">IBU:</span> 68</div>
+              <div><span className="font-medium">SRM:</span> 8</div>
+            </div>
+          </CardBody>
+        </Card>
+      </div>
     </div>
   )
 };

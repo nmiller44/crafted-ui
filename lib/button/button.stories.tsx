@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Button } from './Button';
-import { IconCalendar, IconShare } from '../icons';
+import { IconCalendar, IconLocation, IconMenu, IconPencil, IconPlus, IconShare, IconX } from '../icons';
+import { MotionProvider } from '~/motion';
 
 const meta = {
   title: 'CraftedUI/Components/Button',
@@ -120,19 +121,13 @@ export const Ghost: Story = {
         </div>
         <div className="max-w-sm flex flex-wrap gap-3 items-center">
             <Button clr="destructive" ghost aria-label="Close">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <IconX aria-hidden="true" />
             </Button>
             <Button clr="primary" ghost aria-label="Add">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-              </svg>
+              <IconPlus aria-hidden="true" />
             </Button>
             <Button clr="accent" ghost aria-label="Edit">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-              </svg>
+              <IconPencil aria-hidden="true" />
             </Button>
         </div>
     </div>
@@ -303,6 +298,43 @@ export const WithLinks: Story = {
           <a href="#" onClick={(e) => e.preventDefault()}>Contact</a>
         </Button>
       </div>
+    </div>
+  )
+};
+
+export const IconEmphasis: Story = {
+  render: () => (
+    <div className="flex max-w-2xl flex-col gap-6">
+      <p className="text-sm text-muted-foreground">
+        Hover or Tab to the buttons: outline icons thicken without changing size.
+        Fill-only icons stay unchanged.
+      </p>
+      <div className="flex flex-wrap items-center gap-3">
+        <Button><IconCalendar aria-hidden="true" /> Book a tasting</Button>
+        <Button outline><IconShare aria-hidden="true" /> Share the tap list</Button>
+        <Button ghost aria-label="Close tasting details" title="Close tasting details" className="size-8">
+          <IconX aria-hidden="true" />
+        </Button>
+        <Button ghost><IconMenu aria-hidden="true" /> Taproom menu</Button>
+        <Button ghost><IconLocation aria-hidden="true" /> Find the brewery</Button>
+      </div>
+      <div className="flex flex-wrap items-center gap-3">
+        <Button outline>
+          <span className="flex items-center gap-2"><IconShare aria-hidden="true" /> Nested icon</span>
+        </Button>
+        <Button outline>
+          <a href="#tap-list" className="flex items-center gap-2" onClick={(event) => event.preventDefault()}>
+            <IconCalendar aria-hidden="true" /> Tasting calendar
+          </a>
+        </Button>
+        <Button disabled><IconCalendar aria-hidden="true" /> Tasting sold out</Button>
+        <Button outline className="enabled:hover:[&_svg[stroke]]:[stroke-width:3] enabled:focus-visible:[&_svg[stroke]]:[stroke-width:3]">
+          <IconShare aria-hidden="true" /> Custom emphasis
+        </Button>
+      </div>
+      <MotionProvider nomotion>
+        <Button outline><IconCalendar aria-hidden="true" /> No-motion tasting</Button>
+      </MotionProvider>
     </div>
   )
 };

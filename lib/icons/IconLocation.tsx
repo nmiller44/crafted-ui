@@ -29,10 +29,11 @@ export const IconLocation = ({
     <svg
       viewBox="0 0 24 24"
       fill="currentColor"
+      fillRule="evenodd"
       className={classNames(sizeMapper[size], className)}
       {...props}
     >
-      <path d="M12 2C7.03 2 3 6.03 3 11c0 5.25 9 13 9 13s9-7.75 9-13c0-4.97-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z" />
+      <path d="M12 2.5A7.5 7.5 0 0 0 4.5 10c0 4.74 5.34 10.62 7.5 12.5 2.16-1.88 7.5-7.76 7.5-12.5A7.5 7.5 0 0 0 12 2.5zm0 10.5a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
     </svg>
   );
 };

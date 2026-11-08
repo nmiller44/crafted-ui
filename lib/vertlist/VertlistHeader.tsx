@@ -1,4 +1,6 @@
 import { classNames } from "~/utils"
+import { motionClasses, useNomotion } from "~/motion"
+import { useSidebarCollapsed } from "~/sidebar/SidebarContext"
 
 /**
  * Header item within a Vertlist component for grouping and labeling sections.
@@ -12,10 +14,15 @@ import { classNames } from "~/utils"
  * @related Vertlist - Parent list that contains the header
  * @see {@link https://crafted-ui.com/docs/components/vertlist}
  * @see {@link https://storybook.crafted-ui.com/?path=/story/craftedui-components-vertlist}
+ * @param hideWhenCollapsed - Collapses and fades noninteractive headings in a Sidebar rail; do not use on linked headers
  */
-export type VertlistHeaderProps = React.ComponentProps<"li">
+export type VertlistHeaderProps = React.ComponentProps<"li"> & {
+    hideWhenCollapsed?: boolean
+}
 
-export const VertlistHeader = ({ className, children, ...props }: VertlistHeaderProps) => {
+export const VertlistHeader = ({ hideWhenCollapsed = false, className, children, ...props }: VertlistHeaderProps) => {
+    const collapsed = useSidebarCollapsed()
+    const nomotion = useNomotion()
     return (
         <li className={classNames(  "relative px-2 py-1.5 rounded-md", 
                                     "text-sm font-semibold",
@@ -29,6 +36,8 @@ export const VertlistHeader = ({ className, children, ...props }: VertlistHeader
                                     "has-[.active]:group-[.bg-foreground]:bg-muted-foreground",
 
                                     "*:after:absolute *:after:inset-0",
+                                    hideWhenCollapsed && motionClasses(nomotion, "max-h-12 overflow-hidden whitespace-nowrap transition-[max-height,padding,opacity]"),
+                                    hideWhenCollapsed && collapsed && "max-h-0 py-0 opacity-0",
                                     className)} {...props}>
             { children }
         </li>

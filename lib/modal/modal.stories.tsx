@@ -18,6 +18,8 @@ import { Radio } from '../radio/Radio';
 import { RadioGroup } from '../radio/RadioGroup';
 import { Select } from '../select/Select';
 import { Textarea } from '../textarea/Textarea';
+import { Card, CardBody, CardFooter } from '../card';
+import { Heading5 } from '../heading/Heading5';
 
 const meta = {
   title: 'CraftedUI/Components/Modal',
@@ -109,6 +111,72 @@ export const Basic: Story = {
           </ModalButtons>
         </ModalContent>
       </Modal>
+    </div>
+  )
+};
+
+export const CompareWithCard: Story = {
+  name: 'Compare With Card',
+  args: {},
+  render: () => (
+    <div className="w-full max-w-5xl space-y-8">
+      <div className="grid grid-cols-1 gap-6 min-[480px]:grid-cols-2">
+        <div className="flex flex-col gap-2">
+          <div className="text-sm font-medium">Card with separate regions</div>
+          <Card title="Brewery Tour Confirmation" subtitle="January 20, 2026" className="flex-1">
+            <CardBody className="px-8">
+              <p className="text-sm text-muted-foreground">
+                Your tour has been confirmed for 2:00 PM. Please arrive 10 minutes early. You'll explore our brewing facility, barrel room, and enjoy samples of our seasonal releases.
+              </p>
+            </CardBody>
+            <CardFooter className="flex justify-end gap-3">
+              <Button clr="primary">Continue</Button>
+            </CardFooter>
+          </Card>
+        </div>
+        <div className="flex flex-col gap-2">
+          <div className="text-sm font-medium">ModalContent (static comparison)</div>
+          <div className="flex flex-col space-y-8 rounded-md border border-border bg-card px-8 pt-10 pb-6 text-card-foreground shadow-lg">
+            <Heading5 title="Brewery Tour Confirmation" subtitle="January 20, 2026" />
+            <div className="space-y-8">
+              <p className="text-sm text-muted-foreground">
+                Your tour has been confirmed for 2:00 PM. Please arrive 10 minutes early. You'll explore our brewing facility, barrel room, and enjoy samples of our seasonal releases.
+              </p>
+              <ModalButtons>
+                <Button clr="primary">Continue</Button>
+              </ModalButtons>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 gap-6 min-[480px]:grid-cols-2">
+        <div className="flex flex-col gap-2">
+          <div className="text-sm font-medium">Card body shorthand</div>
+          <Card body className="flex-1 pt-10 pb-6">
+            <Heading5 title="Brewery Tour Confirmation" subtitle="January 20, 2026" />
+            <p className="text-sm text-muted-foreground">
+              Your tour has been confirmed for 2:00 PM. Please arrive 10 minutes early. You'll explore our brewing facility, barrel room, and enjoy samples of our seasonal releases.
+            </p>
+            <div className="flex justify-end pt-4">
+              <Button clr="primary">Continue</Button>
+            </div>
+          </Card>
+        </div>
+        <div className="flex flex-col gap-2">
+          <div className="text-sm font-medium">ModalContent title and children (static)</div>
+          <div className="flex flex-col space-y-8 rounded-md border border-border bg-card px-8 pt-10 pb-6 text-card-foreground shadow-lg">
+            <Heading5 title="Brewery Tour Confirmation" subtitle="January 20, 2026" />
+            <div className="space-y-8">
+              <p className="text-sm text-muted-foreground">
+                Your tour has been confirmed for 2:00 PM. Please arrive 10 minutes early. You'll explore our brewing facility, barrel room, and enjoy samples of our seasonal releases.
+              </p>
+              <ModalButtons>
+                <Button clr="primary">Continue</Button>
+              </ModalButtons>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 };

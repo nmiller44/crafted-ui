@@ -1,9 +1,12 @@
 import { classNames } from "~/utils";
 import type { Clr } from "~/types/colors";
+import { useNomotion } from "~/motion";
 
 /**
  * Interactive button for actions, links, and form submissions.
  * Supports multiple color variants, outline, full width, rounded, and ghost styling.
+ * Descendant SVGs with a stroke thicken to 2.5 on enabled hover and keyboard focus,
+ * without changing layout. Fill-only icons are unchanged; transitions respect motion preferences.
  * 
  * Supports stretched links: placing a single `<a>` tag as a child makes the entire button 
  * clickable, useful for navigation styled as buttons.
@@ -32,6 +35,7 @@ export type ButtonProps = React.ComponentProps<"button"> & {
 }
 
 export const Button = ({ clr = "primary", outline = false, full = false, rounded = false, ghost = false, type = "button", className, children, ...props }: ButtonProps) => {
+    const nomotion = useNomotion();
 
     const colorStyle = {
         blank: 'text-foreground bg-transparent hover:bg-foreground/10 focus:ring-foreground',
@@ -150,13 +154,36 @@ export const Button = ({ clr = "primary", outline = false, full = false, rounded
     const buttonClass = classNames(
         "relative *:after:absolute *:after:inset-0", //stretched link
         "inline-flex text-center justify-center content-center items-center",
-        "hover:[text-shadow:0.5px_0_0_currentColor]",
+        "hover:[text-shadow:0.5px_0_0_currentColor] enabled:active:[text-shadow:0.5px_0_0_currentColor]",
+        "enabled:hover:[&_svg[stroke]]:[stroke-width:2.5] enabled:focus-visible:[&_svg[stroke]]:[stroke-width:2.5]",
+        nomotion
+            ? "[&_svg[stroke]]:transition-none"
+            : "[&_svg[stroke]]:transition-[stroke-width] [&_svg[stroke]]:duration-150 [&_svg[stroke]]:ease-out motion-reduce:[&_svg[stroke]]:transition-none",
         "disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none",
         ghost ? "focus:[text-shadow:0.5px_0_0_currentColor] focus:bg-muted/30" : "focus:[text-shadow:0.5px_0_0_currentColor]",
         rounded ? "rounded-full" : "rounded-md",
         full ? "w-full" : "",
         ghost ? "text-muted-foreground bg-transparent border-0 p-2 gap-2 text-sm font-normal" : "border border-transparent bg-transparent px-3.5 py-2.5 gap-2 text-sm font-semibold shadow-sm",
-        ghost ? "focus:outline-none" : "focus:outline-none focus:ring-2 focus:ring-offset-2",
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        ghost ? {
+            blank: "focus-visible:ring-foreground", dark: "focus-visible:ring-foreground",
+            primary: "focus-visible:ring-primary", muted: "focus-visible:ring-muted",
+            secondary: "focus-visible:ring-secondary", accent: "focus-visible:ring-accent",
+            destructive: "focus-visible:ring-destructive", danger: "focus-visible:ring-danger",
+            warning: "focus-visible:ring-warning", success: "focus-visible:ring-success",
+            info: "focus-visible:ring-info", slate: "focus-visible:ring-slate-300",
+            gray: "focus-visible:ring-gray-300", zinc: "focus-visible:ring-zinc-300",
+            neutral: "focus-visible:ring-neutral-300", stone: "focus-visible:ring-stone-300",
+            red: "focus-visible:ring-red-300", orange: "focus-visible:ring-orange-300",
+            amber: "focus-visible:ring-amber-300", yellow: "focus-visible:ring-yellow-300",
+            lime: "focus-visible:ring-lime-300", green: "focus-visible:ring-green-300",
+            emerald: "focus-visible:ring-emerald-300", teal: "focus-visible:ring-teal-300",
+            cyan: "focus-visible:ring-cyan-300", sky: "focus-visible:ring-sky-300",
+            blue: "focus-visible:ring-blue-300", indigo: "focus-visible:ring-indigo-300",
+            violet: "focus-visible:ring-violet-300", purple: "focus-visible:ring-purple-300",
+            fuchsia: "focus-visible:ring-fuchsia-300", pink: "focus-visible:ring-pink-300",
+            rose: "focus-visible:ring-rose-300",
+        }[clr] : "",
         ghost ? ghostStyle[clr] : outline ? outlineStyle[clr] : colorStyle[clr],
         className
     )
